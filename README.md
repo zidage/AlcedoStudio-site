@@ -41,9 +41,10 @@ After the first deployment, attach the custom domain in **Worker > Settings >
 Domains & Routes**. Keep `www` redirected permanently to the apex domain so search
 engines see one hostname.
 
-The current canonical, `hreflang`, Open Graph, JSON-LD, robots, and sitemap URLs still
-refer to the existing GitHub Pages hostname. Change all of them together only after the
-custom domain serves this site successfully.
+Canonical, `hreflang`, Open Graph, JSON-LD, robots, and sitemap use
+`https://aoraw.org`. Default installer links use the R2-backed
+`https://static.aoraw.org/releases/latest/` aliases; GitHub Releases remains the archive
+and fallback.
 
 ## Local preview and checks
 

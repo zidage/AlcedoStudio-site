@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://zidage.github.io/AlcedoStudio/sitemap.xml
+Sitemap: https://aoraw.org/sitemap.xml

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Validate the static site before GitHub Pages deploy.
+"""Validate the static site before deployment.
 
 Checks:
 - required files exist
-- no root-absolute asset URLs (so /AlcedoStudio/ and future domain root both work)
+- no root-absolute asset URLs
 - internal relative links resolve to files under site/
 - each HTML page has title, description, canonical, hreflang, and Open Graph basics
 - robots.txt and sitemap.xml list the public canonical URLs
@@ -17,7 +17,8 @@ from pathlib import Path
 from urllib.parse import unquote
 
 SITE = Path(__file__).resolve().parents[1] / "site"
-PUBLIC_ORIGIN = "https://zidage.github.io/AlcedoStudio"
+PUBLIC_ORIGIN = "https://aoraw.org"
+R2_RELEASE_ORIGIN = "https://static.aoraw.org/releases/latest"
 CANONICAL_PAGES = (
     f"{PUBLIC_ORIGIN}/",
     f"{PUBLIC_ORIGIN}/features/",
@@ -76,6 +77,22 @@ def check_robots_and_sitemap() -> None:
             err(f"sitemap.xml missing canonical URL: {url}")
 
 
+def check_download_links() -> None:
+    windows_url = f"{R2_RELEASE_ORIGIN}/AlcedoStudio-Windows-x64.exe"
+    macos_url = f"{R2_RELEASE_ORIGIN}/AlcedoStudio-macos-arm64.dmg"
+    checksums_url = f"{R2_RELEASE_ORIGIN}/SHA256SUMS.txt"
+
+    for rel in ("index.html", "features/index.html", "zh-cn/index.html", "zh-cn/features/index.html"):
+        text = (SITE / rel).read_text(encoding="utf-8")
+        for url in (windows_url, macos_url):
+            if url not in text:
+                err(f"{rel}: missing R2 installer URL: {url}")
+        if checksums_url not in text:
+            err(f"{rel}: missing SHA-256 checksum URL")
+        if "github.com/zidage/AlcedoStudio/releases/download/" in text:
+            err(f"{rel}: contains a version-pinned GitHub installer URL")
+
+
 def strip_query_fragment(href: str) -> str:
     return href.split("#", 1)[0].split("?", 1)[0]
 
@@ -127,7 +144,7 @@ def check_html_page(page: Path) -> None:
     text = page.read_text(encoding="utf-8")
 
     if re.search(r"""(?:href|src)\s*=\s*["']/(?!/)""", text):
-        err(f"{rel}: contains root-absolute href/src (breaks /AlcedoStudio/ subpath)")
+        err(f"{rel}: contains root-absolute href/src")
 
     # SEO requirements for content pages (not 404)
     if page.name != "404.html":
@@ -196,6 +213,7 @@ def main() -> int:
 
     check_required_files()
     check_robots_and_sitemap()
+    check_download_links()
     check_css()
 
     for page in sorted(SITE.rglob("*.html")):
