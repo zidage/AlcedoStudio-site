@@ -42,9 +42,17 @@ Domains & Routes**. Keep `www` redirected permanently to the apex domain so sear
 engines see one hostname.
 
 Canonical, `hreflang`, Open Graph, JSON-LD, robots, and sitemap use
-`https://aoraw.org`. Default installer links use the R2-backed
-`https://static.aoraw.org/releases/latest/` aliases; GitHub Releases remains the archive
-and fallback.
+`https://aoraw.org`. Installer links use the package URLs from the public live
+stable manifests:
+
+- Windows: `https://static.aoraw.org/updates/v1/stable/windows-x86_64/manifest.json`
+  → `artifacts.windows-x86_64.url`
+- macOS: `https://static.aoraw.org/updates/v1/stable/macos-arm64/manifest.json`
+  → `artifacts.macos-arm64.manualUrl` (DMG)
+
+`npm run verify` fetches those manifests and requires the HTML to match.
+GitHub Releases remains the archive and fallback. After a stable upload, update
+the four HTML download URLs to the new package and checksum objects.
 
 ## Local preview and checks
 

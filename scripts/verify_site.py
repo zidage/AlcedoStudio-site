@@ -7,18 +7,25 @@ Checks:
 - internal relative links resolve to files under site/
 - each HTML page has title, description, canonical, hreflang, and Open Graph basics
 - robots.txt and sitemap.xml list the public canonical URLs
+- download links match the live stable R2 manifests
 """
 
 from __future__ import annotations
 
+import json
 import re
 import sys
 from pathlib import Path
+from urllib.error import URLError
 from urllib.parse import unquote
+from urllib.request import Request, urlopen
 
 SITE = Path(__file__).resolve().parents[1] / "site"
 PUBLIC_ORIGIN = "https://aoraw.org"
-R2_RELEASE_ORIGIN = "https://static.aoraw.org/releases/latest"
+WINDOWS_MANIFEST_URL = (
+    "https://static.aoraw.org/updates/v1/stable/windows-x86_64/manifest.json"
+)
+MACOS_MANIFEST_URL = "https://static.aoraw.org/updates/v1/stable/macos-arm64/manifest.json"
 CANONICAL_PAGES = (
     f"{PUBLIC_ORIGIN}/",
     f"{PUBLIC_ORIGIN}/features/",
@@ -77,18 +84,56 @@ def check_robots_and_sitemap() -> None:
             err(f"sitemap.xml missing canonical URL: {url}")
 
 
+def fetch_json(url: str) -> dict:
+    request = Request(url, headers={"Accept": "application/json", "User-Agent": "alcedo-site-verify"})
+    with urlopen(request, timeout=20) as response:
+        return json.loads(response.read().decode("utf-8"))
+
+
+def checksum_url(package_url: str, platform: str) -> str:
+    return package_url.rsplit("/", 1)[0] + f"/SHA256SUMS-{platform}.txt"
+
+
 def check_download_links() -> None:
-    windows_url = f"{R2_RELEASE_ORIGIN}/AlcedoStudio-Windows-x64.exe"
-    macos_url = f"{R2_RELEASE_ORIGIN}/AlcedoStudio-macos-arm64.dmg"
-    checksums_url = f"{R2_RELEASE_ORIGIN}/SHA256SUMS.txt"
+    try:
+        windows_manifest = fetch_json(WINDOWS_MANIFEST_URL)
+        macos_manifest = fetch_json(MACOS_MANIFEST_URL)
+    except (OSError, URLError, TimeoutError, json.JSONDecodeError, UnicodeDecodeError) as exc:
+        err(f"failed to read live stable manifests: {exc}")
+        return
+
+    try:
+        windows_url = windows_manifest["artifacts"]["windows-x86_64"]["url"]
+        macos_url = macos_manifest["artifacts"]["macos-arm64"]["manualUrl"]
+    except KeyError as exc:
+        err(f"live stable manifest is missing a website download URL: {exc}")
+        return
+
+    if not isinstance(windows_url, str) or not windows_url.startswith(
+        "https://static.aoraw.org/updates/v1/stable/builds/"
+    ):
+        err(f"windows installer URL is not a stable R2 package: {windows_url}")
+        return
+    if not isinstance(macos_url, str) or not macos_url.startswith(
+        "https://static.aoraw.org/updates/v1/stable/builds/"
+    ):
+        err(f"macos installer URL is not a stable R2 package: {macos_url}")
+        return
+    if not macos_url.endswith(".dmg"):
+        err(f"macos website download must be the DMG manualUrl, not {macos_url}")
+        return
+
+    windows_checksums = checksum_url(windows_url, "windows-x86_64")
+    macos_checksums = checksum_url(macos_url, "macos-arm64")
+    required = (windows_url, macos_url, windows_checksums, macos_checksums)
 
     for rel in ("index.html", "features/index.html", "zh-cn/index.html", "zh-cn/features/index.html"):
         text = (SITE / rel).read_text(encoding="utf-8")
-        for url in (windows_url, macos_url):
+        for url in required:
             if url not in text:
-                err(f"{rel}: missing R2 installer URL: {url}")
-        if checksums_url not in text:
-            err(f"{rel}: missing SHA-256 checksum URL")
+                err(f"{rel}: missing live-manifest download URL: {url}")
+        if "static.aoraw.org/releases/" in text:
+            err(f"{rel}: still points at the retired releases/ tree")
         if "github.com/zidage/AlcedoStudio/releases/download/" in text:
             err(f"{rel}: contains a version-pinned GitHub installer URL")
 
