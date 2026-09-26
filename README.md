@@ -9,9 +9,22 @@ work separate from the desktop application.
 
 ```text
 site/                 production files served by Workers
-scripts/              deployment validation
+src/worker.js         language routing for the four HTML entry pages
+scripts/              deployment validation and image compression
 wrangler.jsonc        Cloudflare Workers Static Assets configuration
 ```
+
+## Language routing
+
+`src/worker.js` runs only for `/`, `/features/`, `/zh-cn/`, and `/zh-cn/features/`
+(`run_worker_first`); every other file is served straight from static assets.
+
+- The language switcher links carry `?lang=en` or `?lang=zh-CN`. The Worker stores
+  the choice in the `alcedo_lang` cookie and redirects to the clean URL.
+- Without a stored choice, `Accept-Language` decides: any `zh*` preference goes to
+  `/zh-cn/`, `en*` goes to the English pages, other languages are left alone.
+- Requests without `Accept-Language` (most crawlers) are never redirected, so each
+  language stays indexed at its canonical URL.
 
 ## Deploy to Cloudflare Workers
 
@@ -19,7 +32,8 @@ The configuration is already ready for Workers Static Assets:
 
 - `site/` is the published directory;
 - unknown URLs return `site/404.html`;
-- no application server, database, or build step is required.
+- a tiny Worker (`src/worker.js`) picks the page language; there is no database or
+  build step.
 
 For a local or manual deployment:
 
@@ -64,6 +78,11 @@ python scripts/verify_site.py
 Open `http://127.0.0.1:8080/` for the preview. The validator checks required files,
 SEO metadata, robots/sitemap entries, and internal relative links.
 
-To update images or markup, make and review the finished static files in `site/`, then
-commit them. The original design-source screenshots stay in the desktop application's
-repository and are deliberately not copied here.
+To update markup, edit the finished static files in `site/` and commit them.
+
+To update images, put the raw PNG/JPEG screenshots and photos in `screenshots/`
+(git-ignored) under the names listed in `scripts/build_images.py`, then run
+`python scripts/build_images.py`. It writes the AVIF and WebP sizes into `site/assets/`.
+Only the compressed output is committed. The three stacked tool screenshots on the home
+page must keep the editor's right-hand panel at about 17.6 % of the width; the stack
+geometry in `site.css` and `site.js` depends on it.

@@ -2,8 +2,14 @@
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "alcedostudio-site",
   "compatibility_date": "2026-07-14",
+  // Tiny Worker that only picks the page language; see src/worker.js.
+  "main": "src/worker.js",
   "assets": {
     "directory": "./site",
-    "not_found_handling": "404-page"
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    // Only the language-routed HTML pages invoke the Worker; all other files
+    // are served directly from static assets.
+    "run_worker_first": ["/", "/features/", "/zh-cn/", "/zh-cn/features/"]
   }
 }

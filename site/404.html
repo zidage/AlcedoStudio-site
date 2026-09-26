@@ -3,9 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
   <title>Page not found — Alcedo Studio</title>
   <meta name="robots" content="noindex">
   <!-- Absolute public URLs keep assets working when a missing deep path serves this page. -->
+  <link rel="icon" href="https://aoraw.org/assets/icon-32.png" type="image/png" sizes="32x32">
   <link rel="icon" href="https://aoraw.org/assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="https://aoraw.org/assets/site.css">
 </head>
@@ -14,45 +16,31 @@
 
   <header class="site-header">
     <div class="wrap site-header__inner">
-      <a class="brand" href="https://aoraw.org/"><span class="brand__alcedo">Alcedo</span> Studio</a>
-      <nav class="nav" aria-label="Primary">
-        <a href="https://aoraw.org/features/">Features</a>
-        <a href="https://aoraw.org/#download">Download</a>
-        <a href="https://zidage.github.io/AlcedoStudio_docs/">Documentation</a>
-        <a href="https://github.com/zidage/AlcedoStudio">GitHub</a>
-        <a class="nav__lang" href="https://aoraw.org/zh-cn/" lang="zh-CN" hreflang="zh-CN">中文</a>
-      </nav>
+      <a class="wordmark" href="https://aoraw.org/">Alcedo Studio</a>
     </div>
   </header>
 
   <main id="main" class="wrap not-found">
-    <h1>Page not found</h1>
-    <p>This page does not exist.</p>
-    <ul class="link-list">
-      <li><a href="https://aoraw.org/">Home</a></li>
-      <li><a href="https://aoraw.org/features/">Features</a></li>
-      <li><a href="https://zidage.github.io/AlcedoStudio_docs/">Documentation</a></li>
-      <li><a href="https://github.com/zidage/AlcedoStudio">GitHub</a></li>
-    </ul>
+    <h1 class="title">Page not found</h1>
+    <p class="lede">This page does not exist or has moved.</p>
+    <div class="actions">
+      <a class="btn" href="https://aoraw.org/">Home →</a>
+      <a class="btn" href="https://aoraw.org/features/">Features →</a>
+    </div>
 
-    <h1 class="not-found__zh" lang="zh-CN">页面不存在</h1>
-    <p lang="zh-CN">该页面不存在。</p>
-    <ul class="link-list" lang="zh-CN">
-      <li><a href="https://aoraw.org/zh-cn/">首页</a></li>
-      <li><a href="https://aoraw.org/zh-cn/features/">功能</a></li>
-      <li><a href="https://zidage.github.io/AlcedoStudio_docs/">使用教程</a></li>
-      <li><a href="https://github.com/zidage/AlcedoStudio">GitHub</a></li>
-    </ul>
+    <div class="not-found__zh" lang="zh-CN">
+      <h2 class="title">页面不存在</h2>
+      <p class="lede">该页面不存在或已被移动。</p>
+      <div class="actions">
+        <a class="btn" href="https://aoraw.org/zh-cn/">首页 →</a>
+        <a class="btn" href="https://aoraw.org/zh-cn/features/">功能 →</a>
+      </div>
+    </div>
   </main>
 
   <footer class="site-footer">
     <div class="wrap site-footer__inner">
-      <div>
-        <strong>Alcedo Studio</strong>
-      </div>
-      <div class="site-footer__links">
-        <span>© 2026 Alcedo Studio</span>
-      </div>
+      <span>© 2026 Alcedo Studio</span>
     </div>
   </footer>
 </body>

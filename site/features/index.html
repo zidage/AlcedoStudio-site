@@ -3,285 +3,357 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Features — Alcedo Studio RAW editor and photo library</title>
-  <meta name="description" content="Details on RAW editing with ACES and OpenDRT color pipelines, LUT support, tone and color tools, local library management, search, AI ratings, and performance in Alcedo Studio.">
+  <meta name="theme-color" content="#09090b">
+  <title>Features — Alcedo Studio</title>
+  <meta name="description" content="Everything in Alcedo Studio 0.3.0: node-based grading and masks, scene-referred color, the GPU render engine, library and search, film emulation, RAW decoding, and export.">
   <link rel="canonical" href="https://aoraw.org/features/">
   <link rel="alternate" hreflang="en" href="https://aoraw.org/features/">
   <link rel="alternate" hreflang="zh-CN" href="https://aoraw.org/zh-cn/features/">
   <link rel="alternate" hreflang="x-default" href="https://aoraw.org/features/">
-  <meta property="og:title" content="Features — Alcedo Studio RAW editor and photo library">
-  <meta property="og:description" content="Details on RAW editing with ACES and OpenDRT color pipelines, LUT support, tone and color tools, local library management, search, AI ratings, and performance in Alcedo Studio.">
+  <meta property="og:title" content="Features — Alcedo Studio">
+  <meta property="og:description" content="Everything in Alcedo Studio 0.3.0: node-based grading and masks, scene-referred color, the GPU render engine, library and search, film emulation, RAW decoding, and export.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://aoraw.org/features/">
   <meta property="og:image" content="https://aoraw.org/assets/social-card.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Features — Alcedo Studio RAW editor and photo library">
-  <meta name="twitter:description" content="Details on RAW editing with ACES and OpenDRT color pipelines, LUT support, tone and color tools, local library management, search, AI ratings, and performance in Alcedo Studio.">
-  <meta name="twitter:image" content="https://aoraw.org/assets/social-card.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Features — Alcedo Studio">
+  <meta name="twitter:description" content="Everything in Alcedo Studio 0.3.0: node-based grading and masks, scene-referred color, the GPU render engine, library and search, film emulation, RAW decoding, and export.">
+  <meta name="twitter:image" content="https://aoraw.org/assets/social-card.png">
+  <link rel="icon" href="../assets/icon-32.png" type="image/png" sizes="32x32">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/icon-180.png">
   <link rel="stylesheet" href="../assets/site.css">
-</head>
-<body>
+  <script src="../assets/site.js" defer></script>
+</head><body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
     <div class="wrap site-header__inner">
-      <a class="brand" href="../"><span class="brand__alcedo">Alcedo</span> Studio</a>
+      <a class="wordmark" href="../"><img src="../assets/icon-180.png" width="24" height="24" alt="">Alcedo Studio</a>
       <nav class="nav" aria-label="Primary">
         <a href="./" aria-current="page">Features</a>
-        <a href="../#download">Download</a>
-        <a href="https://zidage.github.io/AlcedoStudio_docs/">Documentation</a>
+        <a href="https://zidage.github.io/AlcedoStudio_docs/">Docs</a>
         <a href="https://github.com/zidage/AlcedoStudio">GitHub</a>
-        <a class="nav__lang" href="../zh-cn/features/" lang="zh-CN" hreflang="zh-CN">中文</a>
+        <a href="../zh-cn/features/?lang=zh-CN" lang="zh-CN" hreflang="zh-CN">中文</a>
+        <a class="btn btn--solid btn--small" href="#download">Download</a>
       </nav>
+      <details class="menu">
+        <summary>Menu</summary>
+        <ul>
+          <li><a href="./">Features</a></li>
+          <li><a href="#download">Download</a></li>
+          <li><a href="https://zidage.github.io/AlcedoStudio_docs/">Docs</a></li>
+          <li><a href="https://github.com/zidage/AlcedoStudio">GitHub</a></li>
+          <li><a href="../zh-cn/features/?lang=zh-CN" lang="zh-CN" hreflang="zh-CN">中文</a></li>
+        </ul>
+      </details>
     </div>
   </header>
 
   <main id="main">
-    <header class="page-intro">
+    <section class="hero center" aria-labelledby="hero-title">
       <div class="wrap">
-        <h1>Features</h1>
-        <p>Alcedo Studio is a free, open-source photography workstation. This page describes the main tools for RAW editing, library management, search, optional AI assistance, and everyday performance.</p>
-        <p class="page-intro__links">
-          <a href="../">Home</a>
-          <a href="../#download">Download</a>
-          <a href="https://zidage.github.io/AlcedoStudio_docs/">Documentation</a>
+        <a class="pill" href="#new"><b>0.3.0</b>See what's new</a>
+        <h1 class="display" id="hero-title">From RAW file to finished image.</h1>
+        <p class="lede">Decoding, color, grading, library, and export in one open-source app, built natively for Windows and Mac.</p>
+        <div class="actions" data-downloads>
+          <a class="btn btn--solid" href="https://static.aoraw.org/updates/v1/stable/builds/3000/windows-x86_64/AlcedoStudio-0.3.0-Windows-AMD64.exe" data-os="windows">Download for Windows</a>
+          <a class="btn" href="https://static.aoraw.org/updates/v1/stable/builds/3000/macos-arm64/AlcedoStudio-0.3.0-Darwin-arm64.dmg" data-os="mac">Download for macOS</a>
+        </div>
+        <p class="note">Windows 10/11 x64 · Apple Silicon Mac · Free and open source (GPL-3.0)</p>
+      </div>
+      <div class="screen"><picture><source type="image/avif" srcset="../assets/stage-masks-1280.avif 1280w, ../assets/stage-masks-1920.avif 1920w, ../assets/stage-masks-2560.avif 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><source type="image/webp" srcset="../assets/stage-masks-1280.webp 1280w, ../assets/stage-masks-1920.webp 1920w, ../assets/stage-masks-2560.webp 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><img src="../assets/stage-masks-1920.webp" width="2560" height="1384" alt="Masks and grade nodes in the editor" fetchpriority="high" decoding="async"></picture></div>
+    </section>
+
+    <section class="feature" id="new" aria-labelledby="new-title">
+      <div class="wrap">
+        <div class="chapter__head">
+          <div>
+            <p class="kicker kicker--new">0.3.0</p>
+            <h2 class="title" id="new-title">What's new in 0.3.0</h2>
+          </div>
+          <div>
+            <p class="lede">Node-based grading and masks, a new render engine, and a library rebuilt for scale. Plus these refinements.</p>
+            <a class="link" href="https://github.com/zidage/AlcedoStudio/releases">Full release notes</a>
+          </div>
+        </div>
+        <div class="grid-4">
+          <div class="card">
+            <div class="card__body"><h3>Selective copy</h3><p>Pick versions, nodes, or single parameters to paste onto other photos.</p></div>
+            <div class="card__media"><picture><source type="image/avif" srcset="../assets/detail-copy.avif"><img src="../assets/detail-copy.webp" width="1040" height="1016" alt="The Copy Adjustments dialog" loading="lazy" decoding="async"></picture></div>
+          </div>
+          <div class="card">
+            <div class="card__body"><h3>Custom shortcuts</h3><p>Rebind any shortcut, with conflict checks and reset to defaults.</p></div>
+            <div class="card__media"><picture><source type="image/avif" srcset="../assets/detail-keys.avif"><img src="../assets/detail-keys.webp" width="1040" height="1016" alt="The keyboard page in Settings" loading="lazy" decoding="async"></picture></div>
+          </div>
+          <div class="card">
+            <div class="card__body"><h3>Searchable lenses</h3><p>Type “70-200” to find a lens for correction.</p></div>
+            <div class="card__media"><picture><source type="image/avif" srcset="../assets/detail-lens.avif"><img src="../assets/detail-lens.webp" width="1040" height="1016" alt="Searching the lens list for 70-200" loading="lazy" decoding="async"></picture></div>
+          </div>
+          <div class="card">
+            <div class="card__body"><h3>Natural contrast</h3><p>An S-curve on perceptual lightness that keeps brightness and hue.</p></div>
+            <div class="card__media"><picture><source type="image/avif" srcset="../assets/detail-contrast.avif"><img src="../assets/detail-contrast.webp" width="1040" height="1016" alt="Contrast applied to a mountain landscape" loading="lazy" decoding="async"></picture></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature" id="nodes" aria-labelledby="nodes-title">
+      <div class="wrap">
+        <div class="chapter__head">
+          <div>
+            <h2 class="title" id="nodes-title">Nodes and masks</h2>
+          </div>
+          <div>
+            <p class="lede">Every grade node is a complete set of tools. Local adjustments stay inside their masks.</p>
+          </div>
+        </div>
+      </div>
+      <div class="screen"><picture><source type="image/avif" srcset="../assets/stage-nodes-1280.avif 1280w, ../assets/stage-nodes-1920.avif 1920w, ../assets/stage-nodes-2560.avif 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><source type="image/webp" srcset="../assets/stage-nodes-1280.webp 1280w, ../assets/stage-nodes-1920.webp 1920w, ../assets/stage-nodes-2560.webp 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><img src="../assets/stage-nodes-1920.webp" width="2000" height="1324" alt="A chain of grade nodes beside the photo" loading="lazy" decoding="async"></picture></div>
+      <details class="specs">
+          <summary>Technical specifications</summary>
+          <dl class="spec">
+              <div><dt>Node chain</dt><dd>Develop → Color Grade nodes (any number) → display rendering transform</dd></div>
+              <div><dt>Grading tools</dt><dd>Local tone mapping · Lift / Gamma / Gain color wheels · tone curve · selective color</dd></div>
+              <div><dt>Node editing</dt><dd>Add, connect, rename, multi-select, batch delete; recorded in history and versions</dd></div>
+              <div><dt>Lock protection</dt><dd>Default grade layers are locked; any layer can be locked by hand</dd></div>
+              <div><dt>Mask types</dt><dd>Linear gradient · radial gradient</dd></div>
+              <div><dt>Mask controls</dt><dd>Position, radius, rotation, inner and outer feather, opacity, invert</dd></div>
+              <div><dt>Masks per node</dt><dd>Multiple, organized in the mask groups panel with thumbnails</dd></div>
+          </dl>
+        </details>
+    </section>
+
+    <section class="feature" id="color" aria-labelledby="color-title">
+      <div class="wrap">
+        <div class="chapter__head">
+          <div>
+            <h2 class="title" id="color-title">Scene-referred color</h2>
+          </div>
+          <div>
+            <p class="lede">32-bit floating point throughout, graded in ACEScc log space for an even response to exposure and tone.</p>
+          </div>
+        </div>
+      </div>
+      <div class="screen"><picture><source type="image/avif" srcset="../assets/stage-color-1280.avif 1280w, ../assets/stage-color-1920.avif 1920w, ../assets/stage-color-2560.avif 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><source type="image/webp" srcset="../assets/stage-color-1280.webp 1280w, ../assets/stage-color-1920.webp 1920w, ../assets/stage-color-2560.webp 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><img src="../assets/stage-color-1920.webp" width="2560" height="1383" alt="Display rendering transform settings: ACES 2.0 and OpenDRT" loading="lazy" decoding="async"></picture></div>
+      <details class="specs">
+          <summary>Technical specifications</summary>
+          <dl class="spec">
+              <div><dt>Precision</dt><dd>32-bit floating point throughout</dd></div>
+              <div><dt>Camera color</dt><dd>Camera color matrices; spectral data from rawtoaces-data for some models</dd></div>
+              <div><dt>Grading space</dt><dd>ACEScc (AP1 primaries)</dd></div>
+              <div><dt>Display transform</dt><dd>ACES 2.0 · OpenDRT</dd></div>
+              <div><dt>Output targets</dt><dd>Rec.709 · Display P3 · Rec.2020, with PQ and HLG</dd></div>
+              <div><dt>HDR monitoring</dt><dd>Extended dynamic range (EDR) on macOS</dd></div>
+              <div><dt>Contrast <span class="tag">0.3.0</span></dt><dd>S-curve on OkLab lightness; brightness and hue are preserved</dd></div>
+          </dl>
+        </details>
+    </section>
+
+    <section class="feature" id="engine" aria-labelledby="engine-title">
+      <div class="wrap">
+        <div class="chapter__head">
+          <div>
+            <h2 class="title" id="engine-title">Render engine</h2>
+          </div>
+          <div>
+            <p class="lede">A render graph on the GPU. Change a parameter and only the nodes after it are recomputed.</p>
+          </div>
+        </div>
+      </div>
+      <div class="screen screen--wrap"><picture><source type="image/avif" srcset="../assets/feature-engine.avif"><img src="../assets/feature-engine.webp" width="1600" height="839" alt="The editor during a live adjustment" loading="lazy" decoding="async"></picture></div>
+      <details class="specs">
+          <summary>Technical specifications</summary>
+          <dl class="spec">
+              <div><dt>Windows</dt><dd>CUDA (NVIDIA) · OpenCL (AMD / Intel)</dd></div>
+              <div><dt>macOS</dt><dd>Metal (Apple Silicon)</dd></div>
+              <div><dt>Incremental rendering <span class="tag">0.3.0</span></dt><dd>Results of unchanged nodes are cached by version and reused</dd></div>
+              <div><dt>Working memory <span class="tag">0.3.0</span></dt><dd>Two RGBA32F buffers used in turn; memory does not grow with the number of nodes</dd></div>
+              <div><dt>Transient memory <span class="tag">0.3.0</span></dt><dd>Demosaicing, highlight reconstruction, and local tone mapping share one pool, released when rendering finishes</dd></div>
+              <div><dt>One pipeline</dt><dd>Editor preview, thumbnails, analysis, and export</dd></div>
+              <div><dt>Preview</dt><dd>2560 px long edge while dragging, 4096 px at rest; only the visible region when zoomed</dd></div>
+              <div><dt>Scopes</dt><dd>Histogram · RGB waveform</dd></div>
+          </dl>
+        </details>
+    </section>
+
+    <section class="feature" id="library" aria-labelledby="library-title">
+      <div class="wrap">
+        <div class="chapter__head">
+          <div>
+            <h2 class="title" id="library-title">Library and search</h2>
+          </div>
+          <div>
+            <p class="lede">Built on the DuckDB embedded database. All search runs on your own machine.</p>
+          </div>
+        </div>
+      </div>
+      <div class="screen screen--wrap"><picture><source type="image/avif" srcset="../assets/feature-heatmap.avif"><img src="../assets/feature-heatmap.webp" width="1600" height="864" alt="The library with the yearly shooting heatmap" loading="lazy" decoding="async"></picture></div>
+      <details class="specs">
+          <summary>Technical specifications</summary>
+          <dl class="spec">
+              <div><dt>Project file</dt><dd>One .alcd file: folders, metadata, semantic indexes, edit history</dd></div>
+              <div><dt>Search speed <span class="tag">0.3.0</span></dt><dd>20,000 photos: live preview in about 12 ms, applied search in 13–21 ms, on a background thread</dd></div>
+              <div><dt>Search terms <span class="tag">0.3.0</span></dt><dd>“6.7” means June 7; “iso800” no longer matches ISO 8000; “dng” is a file type; terms combine with AND</dd></div>
+              <div><dt>Shooting heatmap <span class="tag">0.3.0</span></dt><dd>A year of shooting activity; click a day to filter</dd></div>
+              <div><dt>Metadata filters</dt><dd>Any combination of camera, lens, aperture, shutter, ISO, date, and rating</dd></div>
+              <div><dt>Semantic search</dt><dd>Local CLIP models and an HNSW vector index; offline after a one-time model download</dd></div>
+              <div><dt>Import</dt><dd>RAW files only; failed imports leave no partial records</dd></div>
+          </dl>
+        </details>
+    </section>
+
+    <section class="feature" id="film" aria-labelledby="film-title">
+      <div class="wrap">
+        <div class="chapter__head">
+          <div>
+            <h2 class="title" id="film-title">Spectral film emulation</h2>
+          </div>
+          <div>
+            <p class="lede">Film color from spectral measurements of real stocks, with grain and halation that match between preview and export.</p>
+          </div>
+        </div>
+      </div>
+      <div class="screen screen--wrap"><picture><source type="image/avif" srcset="../assets/feature-film.avif"><img src="../assets/feature-film.webp" width="1440" height="757" alt="Film grain and halation controls" loading="lazy" decoding="async"></picture></div>
+      <details class="specs">
+          <summary>Technical specifications</summary>
+          <dl class="spec">
+              <div><dt>Film LUTs</dt><dd>68, from Jan Lohse's spectral_film_lut</dd></div>
+              <div><dt>Grain</dt><dd>After IPOL 2017, “Realistic Film Grain Rendering”; strength varies with image lightness</dd></div>
+              <div><dt>Halation</dt><dd>A faint red glow around high-contrast edges</dd></div>
+          </dl>
+        </details>
+    </section>
+
+    <section class="feature" id="export" aria-labelledby="export-title">
+      <div class="wrap">
+        <div class="chapter__head">
+          <div>
+            <h2 class="title" id="export-title">Export</h2>
+          </div>
+          <div>
+            <p class="lede">Up to 32-bit float, HDR with gain maps, and file names built from your metadata.</p>
+          </div>
+        </div>
+      </div>
+      <div class="screen screen--wrap"><picture><source type="image/avif" srcset="../assets/feature-export.avif"><img src="../assets/feature-export.webp" width="1600" height="864" alt="Export settings in the inspector" loading="lazy" decoding="async"></picture></div>
+      <details class="specs">
+          <summary>Technical specifications</summary>
+          <dl class="spec">
+              <div><dt>Formats</dt><dd>JPEG 8-bit · PNG 8/16-bit · TIFF 8/16/32-bit · OpenEXR 16/32-bit float · Ultra HDR</dd></div>
+              <div><dt>Size</dt><dd>Original · long edge · bounding box · print size with DPI</dd></div>
+              <div><dt>File name tokens</dt><dd>Source name, date, camera, lens, aperture, shutter, ISO, rating, sequence</dd></div>
+              <div><dt>Privacy</dt><dd>GPS location, camera serial numbers, and edit history excluded by default</dd></div>
+          </dl>
+        </details>
+    </section>
+
+    <section class="feature" aria-labelledby="more-title">
+      <div class="wrap">
+        <div class="chapter__head" style="margin-bottom: 48px"><h2 class="title" id="more-title">And the foundations.</h2></div>
+        <div class="bento bento--specs">
+          <div class="card" id="raw">
+            <div class="card__body">
+              <h3>RAW decoding</h3>
+              <p>A customized LibRaw fork for current cameras.</p>
+            </div>
+            <details class="specs">
+          <summary>Technical specifications</summary>
+          <dl class="spec">
+              <div><dt>Cameras</dt><dd>Canon, Nikon, Sony, Fujifilm, Panasonic, OM System, Leica, Pentax, Sigma, and DNG from phones and drones</dd></div>
+              <div><dt>Camera color <span class="tag">0.3.0</span></dt><dd>Corrected levels, white balance, and color for the Sony A7C II, Canon EOS R6 Mark III, and others; DNG HueSatMap and LookTable in full</dd></div>
+              <div><dt>Demosaicing</dt><dd>RCD for Bayer; a GPU neural engine for X-Trans, also available for Bayer</dd></div>
+              <div><dt>Highlights</dt><dd>Inpaint Opposed, after darktable and RawTherapee</dd></div>
+              <div><dt>Lens correction</dt><dd>Lensfun: distortion, lateral chromatic aberration, vignetting</dd></div>
+          </dl>
+        </details>
+          </div>
+          <div class="card" id="history">
+            <div class="card__body">
+              <h3>History and versions</h3>
+              <p>Every adjustment is a commit; stepping back never overwrites history.</p>
+            </div>
+            <details class="specs">
+          <summary>Technical specifications</summary>
+          <dl class="spec">
+              <div><dt>Named versions</dt><dd>Several per photo, each an independent history branch</dd></div>
+              <div><dt>Selective copy <span class="tag">0.3.0</span></dt><dd>Versions, nodes, or individual parameters</dd></div>
+              <div><dt>Shortcuts <span class="tag">0.3.0</span></dt><dd>Customizable, with conflict checks</dd></div>
+          </dl>
+        </details>
+          </div>
+          <div class="card" id="ai">
+            <div class="card__body">
+              <h3>AI descriptions and ratings</h3>
+              <p>Optional, with your own OpenAI- or Anthropic-compatible API key.</p>
+            </div>
+            <details class="specs">
+          <summary>Technical specifications</summary>
+          <dl class="spec">
+              <div><dt>Output</dt><dd>A description, a 1–5 star rating, and a short reason</dd></div>
+              <div><dt>Rating standard</dt><dd>Four strictness levels</dd></div>
+              <div><dt>Keys</dt><dd>Stored in Windows Credential Manager or the macOS Keychain</dd></div>
+              <div><dt>Operation</dt><dd>A background queue; the interface never blocks</dd></div>
+          </dl>
+        </details>
+          </div>
+          <div class="card" id="credits">
+            <div class="card__body">
+              <h3>Open-source credits</h3>
+              <p>Released under GPL-3.0 and built on these projects.</p>
+            </div>
+            <details class="specs">
+          <summary>Technical specifications</summary>
+          <dl class="spec">
+              <div><dt>RAW and metadata</dt><dd>LibRaw · Lensfun · Exiv2</dd></div>
+              <div><dt>Image and data</dt><dd>OpenImageIO · OpenCV · DuckDB</dd></div>
+              <div><dt>Interface</dt><dd>Qt / QML · QuickQanava</dd></div>
+              <div><dt>Color</dt><dd>ACES 2.0 · OpenDRT (Jed Smith)</dd></div>
+              <div><dt>Film</dt><dd><a href="https://github.com/JanLohse/spectral_film_lut">spectral_film_lut</a> (Jan Lohse) · IPOL 2017 film grain</dd></div>
+              <div><dt>Demosaicing</dt><dd>RCD (Luis Sanz Rodríguez) · DemosaicNet (Gharbi et al., 2016)</dd></div>
+              <div><dt>Highlights</dt><dd>darktable · RawTherapee</dd></div>
+          </dl>
+        </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="download" aria-labelledby="download-title">
+      <div class="wrap center">
+        <h2 class="title" id="download-title">Get Alcedo Studio 0.3.0</h2>
+        <p class="lede">Free and open source, for Windows and Apple Silicon Mac.</p>
+        <div class="actions" data-downloads>
+          <a class="btn btn--solid" href="https://static.aoraw.org/updates/v1/stable/builds/3000/windows-x86_64/AlcedoStudio-0.3.0-Windows-AMD64.exe" data-os="windows">Download for Windows</a>
+          <a class="btn" href="https://static.aoraw.org/updates/v1/stable/builds/3000/macos-arm64/AlcedoStudio-0.3.0-Darwin-arm64.dmg" data-os="mac">Download for macOS</a>
+        </div>
+        <p class="note">Windows 10/11 x64 · Apple Silicon Mac · Free and open source (GPL-3.0)</p>
+        <p class="notice"><strong>Upgrading from 0.2.9?</strong> Projects created with 0.2.9 or earlier can't be opened in 0.3.0.</p>
+        <p class="download__links">
+          <a href="https://static.aoraw.org/updates/v1/stable/builds/3000/windows-x86_64/SHA256SUMS-windows-x86_64.txt">Windows SHA-256</a>
+          <a href="https://static.aoraw.org/updates/v1/stable/builds/3000/macos-arm64/SHA256SUMS-macos-arm64.txt">macOS SHA-256</a>
+          <a href="https://github.com/zidage/AlcedoStudio/releases">Release notes</a>
+          <a href="https://github.com/zidage/AlcedoStudio">Source code</a>
         </p>
-      </div>
-    </header>
-
-    <article class="feature-block" id="raw-editing" aria-labelledby="raw-heading">
-      <div class="wrap feature-block__grid">
-        <div>
-          <h2 id="raw-heading">RAW editing</h2>
-          <div class="prose">
-            <p>Adjust exposure, white balance, color, tone, and crop on RAW photos. The editor includes ACES and OpenDRT color pipelines, with LUT support for applying custom color looks.</p>
-            <p>Use tone curves, HSL, channel mixing, geometry and lens correction, crop and rotate, plus grain and Halation controls. Previews update while you work so you can judge the result before export.</p>
-            <p>Edits stay in the project until you export; original files are not overwritten. Finished photos can be exported in common formats for sharing or further use.</p>
-          </div>
-        </div>
-        <div class="feature-block__media">
-          <picture>
-            <source type="image/avif" srcset="../assets/feature-raw-editor.avif">
-            <img
-              src="../assets/feature-raw-editor.webp"
-              width="1440"
-              height="757"
-              alt="Exposure, tone, and color controls in the Alcedo Studio editor"
-              loading="lazy"
-              decoding="async">
-          </picture>
-        </div>
-      </div>
-      <div class="wrap raw-editing__gallery" aria-label="Additional RAW editing tools">
-        <h3 class="sr-only">More RAW editing tools</h3>
-        <figure>
-          <picture>
-            <source type="image/avif" srcset="../assets/feature-raw-color-science.avif">
-            <img src="../assets/feature-raw-color-science.webp" width="1440" height="757" alt="ACES 2.0 and OpenDRT display transform controls in Alcedo Studio" loading="lazy" decoding="async">
-          </picture>
-          <figcaption>ACES 2.0 and OpenDRT display transform controls.</figcaption>
-        </figure>
-        <figure>
-          <picture>
-            <source type="image/avif" srcset="../assets/feature-raw-tone.avif">
-            <img src="../assets/feature-raw-tone.webp" width="1440" height="757" alt="Exposure, contrast, highlight, shadow, and tone curve controls in Alcedo Studio" loading="lazy" decoding="async">
-          </picture>
-          <figcaption>Exposure, contrast, highlight, shadow, and tone curve controls.</figcaption>
-        </figure>
-        <figure>
-          <picture>
-            <source type="image/avif" srcset="../assets/feature-raw-decoding.avif">
-            <img src="../assets/feature-raw-decoding.webp" width="1440" height="757" alt="RAW highlight reconstruction and lens correction controls in Alcedo Studio" loading="lazy" decoding="async">
-          </picture>
-          <figcaption>RAW highlight reconstruction and lens correction controls.</figcaption>
-        </figure>
-        <figure>
-          <picture>
-            <source type="image/avif" srcset="../assets/feature-raw-geometry.avif">
-            <img src="../assets/feature-raw-geometry.webp" width="1440" height="757" alt="Crop, rotation, and geometry controls in Alcedo Studio" loading="lazy" decoding="async">
-          </picture>
-          <figcaption>Crop, rotation, and geometry controls.</figcaption>
-        </figure>
-        <figure>
-          <picture>
-            <source type="image/avif" srcset="../assets/feature-raw-film-grain.avif">
-            <img src="../assets/feature-raw-film-grain.webp" width="1440" height="757" alt="Film grain and Halation controls in Alcedo Studio" loading="lazy" decoding="async">
-          </picture>
-          <figcaption>Film grain and Halation controls.</figcaption>
-        </figure>
-        <figure>
-          <picture>
-            <source type="image/avif" srcset="../assets/feature-raw-lut.avif">
-            <img src="../assets/feature-raw-lut.webp" width="1440" height="757" alt="LUT browser with a Kodak Portra 400 look selected in Alcedo Studio" loading="lazy" decoding="async">
-          </picture>
-          <figcaption>LUT browser with a Kodak Portra 400 look selected.</figcaption>
-        </figure>
-      </div>
-    </article>
-
-    <article class="feature-block" id="photo-library" aria-labelledby="library-heading">
-      <div class="wrap feature-block__grid">
-        <div>
-          <h2 id="library-heading">Photo library</h2>
-          <div class="prose">
-            <p>Import photos into a local library, browse folders and thumbnails, and rate or organize large sets without uploading them to a cloud service.</p>
-            <p>Filters help you review by rating and other attributes. The library is built for day-to-day culling and management, not only single-image editing.</p>
-          </div>
-        </div>
-        <div class="feature-block__media">
-          <picture>
-            <source type="image/avif" srcset="../assets/feature-library-filter.avif">
-            <img
-              src="../assets/feature-library-filter.webp"
-              width="1440"
-              height="757"
-              alt="Alcedo Studio library browser with thumbnail grid and folders"
-              loading="lazy"
-              decoding="async">
-          </picture>
-        </div>
-      </div>
-    </article>
-
-    <article class="feature-block" id="library-search" aria-labelledby="search-heading">
-      <div class="wrap feature-block__grid">
-        <div>
-          <h2 id="search-heading">Library search</h2>
-          <div class="prose">
-            <p>Search by image content, camera model, shooting date, or combined criteria. Exact filenames are not required.</p>
-            <p>Local content understanding can run on your computer for basic library search and labels. No cloud account is required for that path.</p>
-          </div>
-        </div>
-        <div class="feature-block__media">
-          <picture>
-            <source type="image/avif" srcset="../assets/feature-library-search.avif">
-            <img
-              src="../assets/feature-library-search.webp"
-              width="1440"
-              height="1098"
-              alt="Searching a photo library by content and metadata in Alcedo Studio"
-              loading="lazy"
-              decoding="async">
-          </picture>
-        </div>
-      </div>
-    </article>
-
-    <article class="feature-block" id="ai" aria-labelledby="ai-heading">
-      <div class="wrap feature-block__grid">
-        <div>
-          <h2 id="ai-heading">AI descriptions and ratings</h2>
-          <div class="prose">
-            <p>Connect your preferred AI service to generate descriptions, tags, ratings, and short reasons for selected photos.</p>
-            <p>Adjust how strict the review is. Ratings are written to standard EXIF metadata so other photo software can read them. Alcedo Studio does not sell a cloud AI service of its own; you use a service you already choose.</p>
-          </div>
-          <div class="feature-block__details">
-            <figure>
-              <picture>
-                <source type="image/avif" srcset="../assets/feature-ai-rating.avif">
-                <img
-                  src="../assets/feature-ai-rating.webp"
-                  width="1000"
-                  height="750"
-                  alt="AI description and rating results shown for a photo in Alcedo Studio"
-                  loading="lazy"
-                  decoding="async">
-              </picture>
-              <figcaption>Description, rating, and short reason for a selected photo.</figcaption>
-            </figure>
-            <figure>
-              <picture>
-                <source type="image/avif" srcset="../assets/feature-ai-strictness.avif">
-                <img
-                  src="../assets/feature-ai-strictness.webp"
-                  width="1000"
-                  height="696"
-                  alt="Adjustable rating strictness control in Alcedo Studio"
-                  loading="lazy"
-                  decoding="async">
-              </picture>
-              <figcaption>Task selection and adjustable rating strictness.</figcaption>
-            </figure>
-          </div>
-        </div>
-        <div class="feature-block__media">
-          <picture>
-            <source type="image/avif" srcset="../assets/feature-ai-overview.avif">
-            <img
-              src="../assets/feature-ai-overview.webp"
-              width="1440"
-              height="840"
-              alt="Batch analysis results in the Alcedo Studio library inspector"
-              loading="lazy"
-              decoding="async">
-          </picture>
-        </div>
-      </div>
-    </article>
-
-    <article class="feature-block" id="performance" aria-labelledby="perf-heading">
-      <div class="wrap feature-block__grid">
-        <div>
-          <h2 id="perf-heading">Performance</h2>
-          <div class="prose">
-            <p>Imports and library previews are built for large photo sets and batch work. Adjustment previews update in about 10&nbsp;ms so sliders stay responsive while editing.</p>
-            <p>Exports are processed quickly for finished work. Memory is allocated on demand to limit resource use during everyday library and editing tasks.</p>
-          </div>
-        </div>
-        <div class="feature-block__media">
-          <picture>
-            <source type="image/avif" srcset="../assets/feature-export.avif">
-            <img
-              src="../assets/feature-export.webp"
-              width="1440"
-              height="774"
-              alt="Export settings for finished photos in Alcedo Studio"
-              loading="lazy"
-              decoding="async">
-          </picture>
-        </div>
-      </div>
-    </article>
-
-    <section class="next-steps" aria-labelledby="next-heading">
-      <div class="wrap">
-        <h2 id="next-heading">Next steps</h2>
-        <ul class="link-list">
-          <li><a href="https://static.aoraw.org/updates/v1/stable/builds/2016/windows-x86_64/AlcedoStudio-0.2.9-Windows-AMD64.exe">Download for Windows</a></li>
-          <li><a href="https://static.aoraw.org/updates/v1/stable/builds/2012/macos-arm64/AlcedoStudio-0.2.9-Darwin-arm64.dmg">Download for macOS</a></li>
-          <li><a href="https://static.aoraw.org/updates/v1/stable/builds/2016/windows-x86_64/SHA256SUMS-windows-x86_64.txt">Windows SHA-256</a></li>
-          <li><a href="https://static.aoraw.org/updates/v1/stable/builds/2012/macos-arm64/SHA256SUMS-macos-arm64.txt">macOS SHA-256</a></li>
-          <li><a href="https://zidage.github.io/AlcedoStudio_docs/">Read the documentation</a></li>
-          <li><a href="../">Back to home</a></li>
-        </ul>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="wrap site-footer__inner">
-      <div>
-        <strong>Alcedo Studio</strong>
-        <div class="site-footer__links">
-          <a href="https://zidage.github.io/AlcedoStudio_docs/">Documentation</a>
-          <span class="site-footer__sep" aria-hidden="true">·</span>
-          <a href="https://github.com/zidage/AlcedoStudio">GitHub</a>
-          <span class="site-footer__sep" aria-hidden="true">·</span>
-          <a href="https://github.com/zidage/AlcedoStudio/blob/main/LICENSE">GPL-3.0</a>
-        </div>
-      </div>
-      <div class="site-footer__links">
-        <span>English</span>
-        <span class="site-footer__sep" aria-hidden="true">·</span>
-        <a href="../zh-cn/features/" lang="zh-CN" hreflang="zh-CN">中文</a>
-        <span class="site-footer__sep" aria-hidden="true">·</span>
-        <span>© 2026 Alcedo Studio</span>
-      </div>
+      <span>© 2026 Alcedo Studio</span>
+      <nav aria-label="Footer">
+        <a href="./">Features</a>
+        <a href="https://zidage.github.io/AlcedoStudio_docs/">Docs</a>
+        <a href="https://github.com/zidage/AlcedoStudio">GitHub</a>
+        <a href="https://github.com/zidage/AlcedoStudio/issues">Issues</a>
+        <a href="https://github.com/zidage/AlcedoStudio/blob/main/LICENSE">License</a>
+        <a href="../zh-cn/features/?lang=zh-CN" lang="zh-CN" hreflang="zh-CN">中文</a>
+      </nav>
     </div>
   </footer>
 </body>

@@ -45,12 +45,15 @@ REQUIRED_FILES = (
     "assets/site.css",
     "assets/favicon.svg",
     "assets/social-card.png",
-    "assets/hero-workstation-640.webp",
-    "assets/hero-workstation-960.webp",
-    "assets/hero-workstation-1440.webp",
-    "assets/hero-workstation-640.avif",
-    "assets/hero-workstation-960.avif",
-    "assets/hero-workstation-1440.avif",
+    "assets/icon-32.png",
+    "assets/icon-180.png",
+    "assets/site.js",
+    "assets/stage-hero-1280.webp",
+    "assets/stage-hero-1920.webp",
+    "assets/stage-hero-2560.webp",
+    "assets/stage-hero-1280.avif",
+    "assets/stage-hero-1920.avif",
+    "assets/stage-hero-2560.avif",
 )
 
 errors: list[str] = []
