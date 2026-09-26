@@ -3,190 +3,248 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Alcedo Studio — 免费开源 RAW 照片编辑与图片管理软件</title>
-  <meta name="description" content="Alcedo Studio 是免费、开源的现代摄影师工作站，支持 RAW 编辑与图片管理，适用于 Windows 10/11 x64 与 Apple Silicon Mac。">
+  <meta name="theme-color" content="#09090b">
+  <title>Alcedo Studio — 开源的 RAW 照片处理与图库管理软件</title>
+  <meta name="description" content="Alcedo Studio：免费开源的 RAW 照片处理与图库管理软件，支持 Windows 与 Apple Silicon Mac。节点调色、局部蒙版、场景参考色彩，两万张图库毫秒级检索。">
   <link rel="canonical" href="https://aoraw.org/zh-cn/">
   <link rel="alternate" hreflang="en" href="https://aoraw.org/">
   <link rel="alternate" hreflang="zh-CN" href="https://aoraw.org/zh-cn/">
   <link rel="alternate" hreflang="x-default" href="https://aoraw.org/">
-  <meta property="og:title" content="Alcedo Studio — 免费开源 RAW 照片编辑与图片管理软件">
-  <meta property="og:description" content="Alcedo Studio 是免费、开源的现代摄影师工作站，支持 RAW 编辑与图片管理，适用于 Windows 10/11 x64 与 Apple Silicon Mac。">
+  <meta property="og:title" content="Alcedo Studio — 开源的 RAW 照片处理与图库管理软件">
+  <meta property="og:description" content="Alcedo Studio：免费开源的 RAW 照片处理与图库管理软件，支持 Windows 与 Apple Silicon Mac。节点调色、局部蒙版、场景参考色彩，两万张图库毫秒级检索。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://aoraw.org/zh-cn/">
   <meta property="og:image" content="https://aoraw.org/assets/social-card.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Alcedo Studio — 免费开源 RAW 照片编辑与图片管理软件">
-  <meta name="twitter:description" content="Alcedo Studio 是免费、开源的现代摄影师工作站，支持 RAW 编辑与图片管理，适用于 Windows 10/11 x64 与 Apple Silicon Mac。">
-  <meta name="twitter:image" content="https://aoraw.org/assets/social-card.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:locale:alternate" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Alcedo Studio — 开源的 RAW 照片处理与图库管理软件">
+  <meta name="twitter:description" content="Alcedo Studio：免费开源的 RAW 照片处理与图库管理软件，支持 Windows 与 Apple Silicon Mac。节点调色、局部蒙版、场景参考色彩，两万张图库毫秒级检索。">
+  <meta name="twitter:image" content="https://aoraw.org/assets/social-card.png">
+  <link rel="icon" href="../assets/icon-32.png" type="image/png" sizes="32x32">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/icon-180.png">
   <link rel="stylesheet" href="../assets/site.css">
+  <script src="../assets/site.js" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Alcedo Studio",
-    "description": "免费开源的 RAW 修图与筛图软件，支持图片管理。",
+    "description": "开源的 RAW 照片处理与图库管理软件。",
     "applicationCategory": "MultimediaApplication",
     "operatingSystem": "Windows 10, Windows 11, macOS (Apple Silicon)",
+    "softwareVersion": "0.3.0",
     "license": "https://www.gnu.org/licenses/gpl-3.0.html",
-    "downloadUrl": "https://aoraw.org/#download",
+    "downloadUrl": "https://aoraw.org/zh-cn/#download",
     "offers": {
       "@type": "Offer",
       "price": "0",
-      "priceCurrency": "CNY"
+      "priceCurrency": "USD"
     }
   }
   </script>
-</head>
-<body>
+</head><body>
   <a class="skip-link" href="#main">跳到正文</a>
 
   <header class="site-header">
     <div class="wrap site-header__inner">
-      <a class="brand" href="./" aria-current="page"><span class="brand__alcedo">Alcedo</span> Studio</a>
+      <a class="wordmark" href="./" aria-current="page"><img src="../assets/icon-180.png" width="24" height="24" alt="">Alcedo Studio</a>
       <nav class="nav" aria-label="主导航">
         <a href="features/">功能</a>
-        <a href="#download">下载</a>
-        <a href="https://zidage.github.io/AlcedoStudio_docs/">使用教程</a>
+        <a href="https://zidage.github.io/AlcedoStudio_docs/">文档</a>
         <a href="https://github.com/zidage/AlcedoStudio">GitHub</a>
-        <a class="nav__lang" href="../" lang="en" hreflang="en">English</a>
+        <a href="../?lang=en" lang="en" hreflang="en">EN</a>
+        <a class="btn btn--solid btn--small" href="#download">下载</a>
       </nav>
+      <details class="menu">
+        <summary>菜单</summary>
+        <ul>
+          <li><a href="features/">功能</a></li>
+          <li><a href="#download">下载</a></li>
+          <li><a href="https://zidage.github.io/AlcedoStudio_docs/">文档</a></li>
+          <li><a href="https://github.com/zidage/AlcedoStudio">GitHub</a></li>
+          <li><a href="../?lang=en" lang="en" hreflang="en">EN</a></li>
+        </ul>
+      </details>
     </div>
   </header>
 
   <main id="main">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="wrap hero__grid">
-        <div class="hero__copy">
-          <h1 id="hero-title"><span class="brand__alcedo">Alcedo</span> Studio</h1>
-          <p class="hero__lead">面向摄影师的现代工作站。</p>
-          <p class="hero__support">编辑 RAW 照片、管理图库、搜索照片，也可以连接 AI 服务生成描述和评分。</p>
-          <p class="hero__platform">免费开源。支持 Windows 10/11 x64 和 Apple Silicon Mac。</p>
-          <div class="hero__actions">
-            <a class="btn btn--primary" href="https://static.aoraw.org/updates/v1/stable/builds/2016/windows-x86_64/AlcedoStudio-0.2.9-Windows-AMD64.exe">Windows 下载</a>
-            <a class="btn btn--secondary" href="https://static.aoraw.org/updates/v1/stable/builds/2012/macos-arm64/AlcedoStudio-0.2.9-Darwin-arm64.dmg">macOS 下载</a>
-            <a class="hero__doc-link" href="https://zidage.github.io/AlcedoStudio_docs/">使用教程</a>
+    <section class="hero center" aria-labelledby="hero-title">
+      <div class="wrap">
+        <a class="pill" href="#nodes"><b>新版本</b>0.3.0：节点调色与局部蒙版</a>
+        <h1 class="display" id="hero-title">为 RAW 而生的现代暗房。</h1>
+        <p class="lede">专业的调色工具，清爽的现代界面，从不让你等待的 GPU 引擎。免费开源，支持 Windows 与 Mac。</p>
+        <div class="actions" data-downloads>
+          <a class="btn btn--solid" href="https://static.aoraw.org/updates/v1/stable/builds/3000/windows-x86_64/AlcedoStudio-0.3.0-Windows-AMD64.exe" data-os="windows">下载 Windows 版</a>
+          <a class="btn" href="https://static.aoraw.org/updates/v1/stable/builds/3000/macos-arm64/AlcedoStudio-0.3.0-Darwin-arm64.dmg" data-os="mac">下载 macOS 版</a>
+        </div>
+        <p class="note">Windows 10/11 x64 · Apple Silicon Mac · 免费开源（GPL-3.0）</p>
+      </div>
+      <div class="hero__media"><picture><source type="image/avif" srcset="../assets/stage-hero-1280.avif 1280w, ../assets/stage-hero-1920.avif 1920w, ../assets/stage-hero-2560.avif 2560w" sizes="100vw"><source type="image/webp" srcset="../assets/stage-hero-1280.webp 1280w, ../assets/stage-hero-1920.webp 1920w, ../assets/stage-hero-2560.webp 2560w" sizes="100vw"><img src="../assets/stage-hero-1920.webp" width="2560" height="1384" alt="Alcedo Studio 编辑器：节点图、照片与调色面板" fetchpriority="high" decoding="async"></picture></div>
+    </section>
+
+    <section id="tools" aria-labelledby="tools-title">
+      <div class="wrap chapter">
+        <div class="chapter__head">
+          <div>
+            <p class="kicker">工具</p>
+            <h2 class="headline" id="tools-title">每个工具，都在你想找的地方。</h2>
+          </div>
+          <div>
+            <p class="lede">控件按摄影师的思路排布。无需拼装模块，也不用靠搜索才能找到阴影滑块。</p>
           </div>
         </div>
-        <div class="hero__visual">
-          <picture>
-            <source type="image/avif" media="(max-width: 760px)" srcset="../assets/hero-workstation-640.avif">
-            <source type="image/webp" media="(max-width: 760px)" srcset="../assets/hero-workstation-640.webp">
-            <source type="image/avif" srcset="../assets/hero-workstation-960.avif 960w, ../assets/hero-workstation-1440.avif 1440w" sizes="(min-width: 761px) min(680px, 55vw), 100vw">
-            <source type="image/webp" srcset="../assets/hero-workstation-960.webp 960w, ../assets/hero-workstation-1440.webp 1440w" sizes="(min-width: 761px) min(680px, 55vw), 100vw">
-            <img
-              src="../assets/hero-workstation-960.webp"
-              width="960"
-              height="632"
-              alt="Alcedo Studio 图库界面，后方为照片编辑器"
-              fetchpriority="high"
-              decoding="async">
-          </picture>
+      </div>
+      <div class="marquee" role="img" aria-label="曝光, 对比度, 高光, 阴影, 白色色阶, 黑色色阶, 白平衡, 色调曲线, 三路色轮, 选择性色彩, 局部色调映射, 径向蒙版, 线性蒙版, 胶片模拟, 颗粒, 光晕, 镜头校正, 版本">
+        <div class="marquee__track"><ul><li>曝光</li><li>对比度</li><li>高光</li><li>阴影</li><li>白色色阶</li><li>黑色色阶</li><li>白平衡</li><li>色调曲线</li><li>三路色轮</li></ul><ul aria-hidden="true"><li>曝光</li><li>对比度</li><li>高光</li><li>阴影</li><li>白色色阶</li><li>黑色色阶</li><li>白平衡</li><li>色调曲线</li><li>三路色轮</li></ul></div>
+        <div class="marquee__track marquee__track--reverse"><ul><li>选择性色彩</li><li>局部色调映射</li><li>径向蒙版</li><li>线性蒙版</li><li>胶片模拟</li><li>颗粒</li><li>光晕</li><li>镜头校正</li><li>版本</li></ul><ul aria-hidden="true"><li>选择性色彩</li><li>局部色调映射</li><li>径向蒙版</li><li>线性蒙版</li><li>胶片模拟</li><li>颗粒</li><li>光晕</li><li>镜头校正</li><li>版本</li></ul></div>
+      </div>
+      <div class="stack-wrap">
+        <div class="stack">
+          <div class="stack__card" tabindex="0" aria-label="三路色轮"><picture><source type="image/avif" srcset="../assets/tool-color-1280.avif 1280w, ../assets/tool-color-1920.avif 1920w, ../assets/tool-color-2560.avif 2560w" sizes="(min-width: 1712px) 1250px, 74vw"><source type="image/webp" srcset="../assets/tool-color-1280.webp 1280w, ../assets/tool-color-1920.webp 1920w, ../assets/tool-color-2560.webp 2560w" sizes="(min-width: 1712px) 1250px, 74vw"><img src="../assets/tool-color-1920.webp" width="2560" height="1383" alt="Lift / Gamma / Gain 三路色轮" loading="lazy" decoding="async"></picture></div>
+          <div class="stack__card" tabindex="0" aria-label="色调曲线"><picture><source type="image/avif" srcset="../assets/tool-curve-1280.avif 1280w, ../assets/tool-curve-1920.avif 1920w, ../assets/tool-curve-2560.avif 2560w" sizes="(min-width: 1712px) 1250px, 74vw"><source type="image/webp" srcset="../assets/tool-curve-1280.webp 1280w, ../assets/tool-curve-1920.webp 1920w, ../assets/tool-curve-2560.webp 2560w" sizes="(min-width: 1712px) 1250px, 74vw"><img src="../assets/tool-curve-1920.webp" width="2560" height="1383" alt="色调曲线与阴影、色阶控制" loading="lazy" decoding="async"></picture></div>
+          <div class="stack__card" tabindex="0" aria-label="胶片 LUT"><picture><source type="image/avif" srcset="../assets/tool-film-1280.avif 1280w, ../assets/tool-film-1920.avif 1920w, ../assets/tool-film-2560.avif 2560w" sizes="(min-width: 1712px) 1250px, 74vw"><source type="image/webp" srcset="../assets/tool-film-1280.webp 1280w, ../assets/tool-film-1920.webp 1920w, ../assets/tool-film-2560.webp 2560w" sizes="(min-width: 1712px) 1250px, 74vw"><img src="../assets/tool-film-1920.webp" width="2560" height="1383" alt="胶片 LUT 浏览器与柯达胶卷" loading="lazy" decoding="async"></picture></div>
+        </div>
+        <ol class="stack__captions"><li>三路色轮</li><li>色调曲线</li><li>胶片 LUT</li></ol>
+      </div>
+    </section>
+
+    <section id="speed" aria-labelledby="speed-title">
+      <div class="wrap chapter">
+        <div class="chapter__head">
+          <div>
+            <p class="kicker">性能</p>
+            <h2 class="headline" id="speed-title">调得再重，也不用等。</h2>
+          </div>
+          <div>
+            <p class="lede">叠加再多调色节点和蒙版，每个滑块依然实时响应。Alcedo 只重算你改动的部分，全程在 GPU 上完成：<strong>CUDA、OpenCL 或 Metal</strong>。</p>
+          </div>
         </div>
       </div>
-    </section>
-
-    <section class="section" aria-labelledby="what-heading">
       <div class="wrap">
-        <h2 id="what-heading">功能</h2>
-        <ul class="summary-list">
-          <li>
-            <h3>RAW 编辑</h3>
-            <p>调整曝光、色彩、影调和构图，然后导出照片。</p>
-          </li>
-          <li>
-            <h3>图库管理</h3>
-            <p>导入、浏览、筛选、评分和整理照片。</p>
-          </li>
-          <li>
-            <h3>搜索图库</h3>
-            <p>按图片内容、相机型号、拍摄日期或组合条件查找照片，不需要准确文件名。</p>
-          </li>
-          <li>
-            <h3>AI 描述与评分</h3>
-            <p>连接你使用的 AI 服务，为照片生成描述、标签、评分和理由。评分标准可以调整，结果可以被其他照片软件读取。</p>
-          </li>
-          <li>
-            <h3>性能</h3>
-            <p>快速导入和预览图库，并支持批量管理。调整预览约 10&nbsp;ms 更新，导出速度快。内存按需分配，控制资源占用。</p>
-          </li>
+        <div class="graph">
+          <div class="graph__top"><span>渲染图</span><span>CUDA · OpenCL · Metal</span></div>
+          <ol class="graph__nodes"><li class="graph__node is-cached"><b>Develop</b><span>命中缓存</span></li><li class="graph__node is-cached"><b>Grade 1</b><span>复用</span></li><li class="graph__node is-edit"><b>Grade 2</b><span>正在调整</span></li><li class="graph__node is-hot"><b>Grade 3</b><span>重算</span></li><li class="graph__node is-hot"><b>DRT</b><span>重算</span></li></ol>
+          <div class="graph__spans"><span class="is-cached">直接复用版本化缓存</span><span class="is-hot">拖动时由 GPU 实时重算</span></div>
+        </div>
+        <ul class="stats">
+          <li><b>60<small>帧</small></b><span>拖动滑块时的实时预览</span></li>
+          <li><b>2000<small>×</small></b><span>两万张图库的搜索提速</span></li>
+          <li><b>150<small>MB</small></b><span>导入两万张照片时的内存占用</span></li>
         </ul>
-        <p class="section__more"><a href="features/">查看详细功能</a></p>
+        <p class="footnote">图库数据来自开发者对 0.2.9 与 0.3.0 的基准测试（两万张照片），实际表现因硬件而异。</p>
       </div>
     </section>
 
-    <section class="section section--tint" id="download" aria-labelledby="download-heading">
+    <section class="cinema" id="color" style="--focus: 50% 55%" aria-labelledby="color-title">
+      <picture><source type="image/avif" srcset="../assets/cinema-color-1280.avif 1280w, ../assets/cinema-color-1920.avif 1920w, ../assets/cinema-color-2560.avif 2560w" sizes="100vw"><source type="image/webp" srcset="../assets/cinema-color-1280.webp 1280w, ../assets/cinema-color-1920.webp 1920w, ../assets/cinema-color-2560.webp 2560w" sizes="100vw"><img src="../assets/cinema-color-1920.webp" width="2560" height="1164" alt="长满苔藓的崖壁与数十道细小瀑布" loading="lazy" decoding="async"></picture>
+      <div class="wrap cinema__body">
+        <h2 class="headline" id="color-title">第一眼，就好看。</h2>
+        <p class="lede">ACES 2.0 与 OpenDRT 让每张 RAW 一打开就是饱满、有电影感的起点，而不是一张灰片。新机型色彩准确，富士 X-Trans 使用神经网络去马赛克，另有 68 款基于真实光谱数据的胶片。</p>
+      </div>
+    </section>
+
+    <section id="nodes" aria-labelledby="nodes-title">
+      <div class="wrap chapter">
+        <div class="chapter__head">
+          <div>
+            <p class="kicker kicker--new">0.3.0 新增</p>
+            <h2 class="headline" id="nodes-title">像调色师一样调色。</h2>
+          </div>
+          <div>
+            <p class="lede">像影视调色师那样，用节点搭建风格。每个节点都有完整的工具，并可挂载独立的径向与线性蒙版，直接画在画面上。</p>
+          </div>
+        </div>
+      </div>
+      <div class="screen"><picture><source type="image/avif" srcset="../assets/stage-masks-1280.avif 1280w, ../assets/stage-masks-1920.avif 1920w, ../assets/stage-masks-2560.avif 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><source type="image/webp" srcset="../assets/stage-masks-1280.webp 1280w, ../assets/stage-masks-1920.webp 1920w, ../assets/stage-masks-2560.webp 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><img src="../assets/stage-masks-1920.webp" width="2560" height="1384" alt="瀑布上的径向蒙版，旁边是蒙版组面板与蒙版属性" loading="lazy" decoding="async"></picture></div>
       <div class="wrap">
-        <h2 id="download-heading">下载</h2>
-        <ul class="download-list">
-          <li>
-            <div class="download-list__meta">
-              <span class="download-list__name">Windows</span>
-              <span class="download-list__note">Windows 10/11，x64</span>
-            </div>
-            <a class="download-list__action" href="https://static.aoraw.org/updates/v1/stable/builds/2016/windows-x86_64/AlcedoStudio-0.2.9-Windows-AMD64.exe">Windows 下载</a>
-          </li>
-          <li>
-            <div class="download-list__meta">
-              <span class="download-list__name">macOS</span>
-              <span class="download-list__note">Apple Silicon</span>
-            </div>
-            <a class="download-list__action" href="https://static.aoraw.org/updates/v1/stable/builds/2012/macos-arm64/AlcedoStudio-0.2.9-Darwin-arm64.dmg">macOS 下载</a>
-          </li>
-          <li>
-            <div class="download-list__meta">
-              <span class="download-list__name">源码</span>
-              <span class="download-list__note">源代码</span>
-            </div>
-            <a class="download-list__action" href="https://github.com/zidage/AlcedoStudio">查看源码</a>
-          </li>
+        <ul class="points">
+          <li><h3>无限叠加</h3><p>照片需要多少层调色，就加多少个节点。默认调色层自动上锁，防止误删。</p></li>
+          <li><h3>蒙版画在画布上</h3><p>直接拖拽中心、半径与旋转，内外边缘分别羽化。</p></li>
+          <li><h3>一切可撤销</h3><p>每一次节点与蒙版改动，都记入历史与命名版本。</p></li>
         </ul>
-        <p class="download-extra">
-          <a href="https://github.com/zidage/AlcedoStudio/releases">全部版本</a>
-          <a href="https://static.aoraw.org/updates/v1/stable/builds/2016/windows-x86_64/SHA256SUMS-windows-x86_64.txt">Windows SHA-256</a>
-          <a href="https://static.aoraw.org/updates/v1/stable/builds/2012/macos-arm64/SHA256SUMS-macos-arm64.txt">macOS SHA-256</a>
-          <a href="https://pan.baidu.com/s/1fb8eDBrSaBkoxdrgXeawww?pwd=c2ai">百度网盘</a>
+      </div>
+    </section>
+
+    <section id="design" aria-labelledby="design-title">
+      <div class="wrap chapter">
+        <div class="chapter__head">
+          <div>
+            <p class="kicker">设计</p>
+            <h2 class="headline" id="design-title">界面退后，照片向前。</h2>
+          </div>
+          <div>
+            <p class="lede">安静、现代的界面，为 Windows 与 Mac 原生构建。图库与编辑器共用一个窗口、一个工程文件。</p>
+          </div>
+        </div>
+      </div>
+      <div class="bento-wrap">
+        <div class="bento">
+          <a class="card" href="features/#library">
+            <div class="card__body">
+              <h3>图库</h3>
+              <p>两万张 RAW，边打字边出结果；按相机、镜头或日期筛选，用拍摄热力图回顾你的一年。</p>
+              <span class="link">图库与检索</span>
+            </div>
+            <div class="card__media"><picture><source type="image/avif" srcset="../assets/ws-library-960.avif 960w, ../assets/ws-library-1600.avif 1600w" sizes="(max-width: 860px) 100vw, 820px"><source type="image/webp" srcset="../assets/ws-library-960.webp 960w, ../assets/ws-library-1600.webp 1600w" sizes="(max-width: 860px) 100vw, 820px"><img src="../assets/ws-library-1600.webp" width="1600" height="864" alt="带年度拍摄热力图的图库" loading="lazy" decoding="async"></picture></div>
+          </a>
+          <a class="card" href="features/#nodes">
+            <div class="card__body">
+              <h3>编辑器</h3>
+              <p>照片是主角。示波器、工具与胶片条都为它让路。</p>
+              <span class="link">编辑器</span>
+            </div>
+            <div class="card__media"><picture><source type="image/avif" srcset="../assets/ws-editor-960.avif 960w, ../assets/ws-editor-1600.avif 1600w" sizes="(max-width: 860px) 100vw, 820px"><source type="image/webp" srcset="../assets/ws-editor-960.webp 960w, ../assets/ws-editor-1600.webp 1600w" sizes="(max-width: 860px) 100vw, 820px"><img src="../assets/ws-editor-1600.webp" width="1600" height="864" alt="编辑器中的影调面板与示波器" loading="lazy" decoding="async"></picture></div>
+          </a>
+        </div>
+      </div>
+      <p class="center" style="margin-top: 48px"><a class="btn" href="features/">了解全部功能</a></p>
+    </section>
+
+    <section class="cinema" id="free" style="--focus: 50% 50%" aria-labelledby="free-title">
+      <picture><source type="image/avif" srcset="../assets/cinema-free-1280.avif 1280w, ../assets/cinema-free-1920.avif 1920w, ../assets/cinema-free-2560.avif 2560w" sizes="100vw"><source type="image/webp" srcset="../assets/cinema-free-1280.webp 1280w, ../assets/cinema-free-1920.webp 1920w, ../assets/cinema-free-2560.webp 2560w" sizes="100vw"><img src="../assets/cinema-free-1920.webp" width="2560" height="1164" alt="蓝天下阳光透过的绿叶" loading="lazy" decoding="async"></picture>
+      <div class="wrap cinema__body">
+        <h2 class="headline" id="free-title">免费、开源，完全属于你。</h2>
+        <p class="lede">没有订阅，不用注册账号。图库保存在你自己的电脑上，全部源代码以 GPL-3.0 公开在 GitHub。</p>
+        <div class="actions"><a class="btn" href="https://github.com/zidage/AlcedoStudio">查看源代码</a></div>
+      </div>
+    </section>
+
+    <section class="cta" id="download" aria-labelledby="download-title">
+      <div class="wrap center">
+        <h2 class="title" id="download-title">下载 Alcedo Studio 0.3.0</h2>
+        <p class="lede">免费开源，支持 Windows 与 Apple Silicon Mac。</p>
+        <div class="actions" data-downloads>
+          <a class="btn btn--solid" href="https://static.aoraw.org/updates/v1/stable/builds/3000/windows-x86_64/AlcedoStudio-0.3.0-Windows-AMD64.exe" data-os="windows">下载 Windows 版</a>
+          <a class="btn" href="https://static.aoraw.org/updates/v1/stable/builds/3000/macos-arm64/AlcedoStudio-0.3.0-Darwin-arm64.dmg" data-os="mac">下载 macOS 版</a>
+        </div>
+        <p class="note">Windows 10/11 x64 · Apple Silicon Mac · 免费开源（GPL-3.0）</p>
+        <p class="notice"><strong>升级须知：</strong>0.3.0 无法打开 0.2.9 及更早版本创建的工程文件。</p>
+        <p class="download__links">
+          <a href="https://static.aoraw.org/updates/v1/stable/builds/3000/windows-x86_64/SHA256SUMS-windows-x86_64.txt">Windows SHA-256</a>
+          <a href="https://static.aoraw.org/updates/v1/stable/builds/3000/macos-arm64/SHA256SUMS-macos-arm64.txt">macOS SHA-256</a>
+          <a href="https://github.com/zidage/AlcedoStudio/releases">发布说明</a>
+          <a href="https://github.com/zidage/AlcedoStudio">源代码</a>
         </p>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="docs-heading">
-      <div class="wrap">
-        <h2 id="docs-heading">教程与源码</h2>
-        <p class="section__intro">安装、导入、编辑与导出说明。</p>
-        <ul class="link-list">
-          <li><a href="https://zidage.github.io/AlcedoStudio_docs/">阅读使用教程</a></li>
-          <li><a href="https://github.com/zidage/AlcedoStudio">GitHub 仓库</a></li>
-          <li><a href="https://github.com/zidage/AlcedoStudio/issues">问题反馈</a></li>
-          <li><a href="https://github.com/zidage/AlcedoStudio/blob/main/LICENSE">GPL-3.0</a></li>
-        </ul>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="wrap site-footer__inner">
-      <div>
-        <strong>Alcedo Studio</strong>
-        <div class="site-footer__links">
-          <a href="https://zidage.github.io/AlcedoStudio_docs/">使用教程</a>
-          <span class="site-footer__sep" aria-hidden="true">·</span>
-          <a href="https://github.com/zidage/AlcedoStudio">GitHub</a>
-          <span class="site-footer__sep" aria-hidden="true">·</span>
-          <a href="https://github.com/zidage/AlcedoStudio/blob/main/LICENSE">GPL-3.0</a>
-        </div>
-      </div>
-      <div class="site-footer__links">
-        <span>中文</span>
-        <span class="site-footer__sep" aria-hidden="true">·</span>
-        <a href="../" lang="en" hreflang="en">English</a>
-        <span class="site-footer__sep" aria-hidden="true">·</span>
-        <span>© 2026 Alcedo Studio</span>
-      </div>
+      <span>© 2026 Alcedo Studio</span>
+      <nav aria-label="页脚">
+        <a href="features/">功能</a>
+        <a href="https://zidage.github.io/AlcedoStudio_docs/">文档</a>
+        <a href="https://github.com/zidage/AlcedoStudio">GitHub</a>
+        <a href="https://github.com/zidage/AlcedoStudio/issues">问题反馈</a>
+        <a href="https://github.com/zidage/AlcedoStudio/blob/main/LICENSE">许可证</a>
+        <a href="../?lang=en" lang="en" hreflang="en">EN</a>
+      </nav>
     </div>
   </footer>
 </body>
