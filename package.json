@@ -7,6 +7,7 @@
     "deploy": "wrangler deploy",
     "dev": "wrangler dev",
     "verify": "python scripts/verify_site.py",
+    "test": "node --test scripts/worker.test.mjs",
     "serve": "python -m http.server 8080 --directory site"
   },
   "devDependencies": {

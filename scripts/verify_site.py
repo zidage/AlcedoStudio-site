@@ -7,7 +7,7 @@ Checks:
 - internal relative links resolve to files under site/
 - each HTML page has title, description, canonical, hreflang, and Open Graph basics
 - robots.txt and sitemap.xml list the public canonical URLs
-- download links match the live stable R2 manifests
+- download links use the Worker routes and live stable R2 manifests are valid
 """
 
 from __future__ import annotations
@@ -88,13 +88,9 @@ def check_robots_and_sitemap() -> None:
 
 
 def fetch_json(url: str) -> dict:
-    request = Request(url, headers={"Accept": "application/json", "User-Agent": "alcedo-site-verify"})
+    request = Request(url, headers={"Accept": "application/json", "Cache-Control": "no-cache", "User-Agent": "alcedo-site-verify"})
     with urlopen(request, timeout=20) as response:
         return json.loads(response.read().decode("utf-8"))
-
-
-def checksum_url(package_url: str, platform: str) -> str:
-    return package_url.rsplit("/", 1)[0] + f"/SHA256SUMS-{platform}.txt"
 
 
 def check_download_links() -> None:
@@ -108,7 +104,7 @@ def check_download_links() -> None:
     try:
         windows_url = windows_manifest["artifacts"]["windows-x86_64"]["url"]
         macos_url = macos_manifest["artifacts"]["macos-arm64"]["manualUrl"]
-    except KeyError as exc:
+    except (KeyError, TypeError) as exc:
         err(f"live stable manifest is missing a website download URL: {exc}")
         return
 
@@ -126,15 +122,20 @@ def check_download_links() -> None:
         err(f"macos website download must be the DMG manualUrl, not {macos_url}")
         return
 
-    windows_checksums = checksum_url(windows_url, "windows-x86_64")
-    macos_checksums = checksum_url(macos_url, "macos-arm64")
-    required = (windows_url, macos_url, windows_checksums, macos_checksums)
+    required = tuple(
+        f"{PUBLIC_ORIGIN}/download/{platform}{suffix}"
+        for platform in ("windows-x86_64", "macos-arm64")
+        for suffix in ("", "/checksums")
+    )
 
     for rel in ("index.html", "features/index.html", "zh-cn/index.html", "zh-cn/features/index.html"):
         text = (SITE / rel).read_text(encoding="utf-8")
+        links = HREF_SRC_RE.findall(text)
         for url in required:
-            if url not in text:
-                err(f"{rel}: missing live-manifest download URL: {url}")
+            if url not in links:
+                err(f"{rel}: missing live-manifest download route: {url}")
+        if "static.aoraw.org/updates/v1/stable/builds/" in text:
+            err(f"{rel}: contains a build-pinned download URL")
         if "static.aoraw.org/releases/" in text:
             err(f"{rel}: still points at the retired releases/ tree")
         if "github.com/zidage/AlcedoStudio/releases/download/" in text:

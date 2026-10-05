@@ -9,15 +9,15 @@ work separate from the desktop application.
 
 ```text
 site/                 production files served by Workers
-src/worker.js         language routing for the four HTML entry pages
+src/worker.js         language routing and live stable download redirects
 scripts/              deployment validation and image compression
 wrangler.jsonc        Cloudflare Workers Static Assets configuration
 ```
 
 ## Language routing
 
-`src/worker.js` runs only for `/`, `/features/`, `/zh-cn/`, and `/zh-cn/features/`
-(`run_worker_first`); every other file is served straight from static assets.
+`src/worker.js` runs for `/`, `/features/`, `/zh-cn/`, `/zh-cn/features/`, and
+`/download/*` (`run_worker_first`); every other file is served from static assets.
 
 - The language switcher links carry `?lang=en` or `?lang=zh-CN`. The Worker stores
   the choice in the `alcedo_lang` cookie and redirects to the clean URL.
@@ -32,8 +32,8 @@ The configuration is already ready for Workers Static Assets:
 
 - `site/` is the published directory;
 - unknown URLs return `site/404.html`;
-- a tiny Worker (`src/worker.js`) picks the page language; there is no database or
-  build step.
+- a tiny Worker (`src/worker.js`) picks the page language and resolves downloads
+  from the live stable manifests; there is no database or build step.
 
 For a local or manual deployment:
 
@@ -64,9 +64,18 @@ stable manifests:
 - macOS: `https://static.aoraw.org/updates/v1/stable/macos-arm64/manifest.json`
   → `artifacts.macos-arm64.manualUrl` (DMG)
 
-`npm run verify` fetches those manifests and requires the HTML to match.
-GitHub Releases remains the archive and fallback. After a stable upload, update
-the four HTML download URLs to the new package and checksum objects.
+The four HTML pages link to `/download/windows-x86_64` and `/download/macos-arm64`.
+On each click, the Worker reads that platform's manifest without caching and
+returns a non-cacheable 302 to the current installer. The corresponding
+`/download/<platform>/checksums` route resolves the SHA-256 file in the same build
+directory. Publishing a stable manifest updates these targets without a website
+redeployment. JavaScript is not required.
+
+`npm run verify` validates the manifests and requires every page to use these
+routes, rejecting build-pinned URLs. `npm test` checks redirect freshness, macOS
+DMG selection, failure handling, and existing language routing. If the manifest
+cannot be read or has an invalid installer URL, the route returns 503 with a link
+to GitHub Releases instead of sending visitors to an older installer.
 
 ## Local preview and checks
 
@@ -77,6 +86,8 @@ python scripts/verify_site.py
 
 Open `http://127.0.0.1:8080/` for the preview. The validator checks required files,
 SEO metadata, robots/sitemap entries, and internal relative links.
+Use `npm run dev` to test the Worker routes locally. Download links in the static
+preview use the production origin.
 
 To update markup, edit the finished static files in `site/` and commit them.
 

@@ -1,7 +1,7 @@
-// Language routing for the static site.
+// Language routing and live stable downloads for the static site.
 //
-// Only the four HTML entry pages reach this Worker (see run_worker_first in
-// wrangler.jsonc); every other request is served straight from static assets.
+// The four HTML entry pages and /download/* reach this Worker (see
+// run_worker_first in wrangler.jsonc). Other files use static assets.
 //
 // 1. `?lang=en|zh-CN` comes from the on-page language switcher. It stores the
 //    choice in a cookie and redirects to the clean URL, so an explicit choice
@@ -13,6 +13,58 @@
 
 const COOKIE = "alcedo_lang";
 const ONE_YEAR = 60 * 60 * 24 * 365;
+const UPDATE_ROOT = "https://static.aoraw.org/updates/v1/stable/";
+const DOWNLOAD_PLATFORMS = ["windows-x86_64", "macos-arm64"];
+
+async function download(request, platform, checksums) {
+  if (request.method !== "GET" && request.method !== "HEAD") {
+    return new Response("Method not allowed", {
+      status: 405,
+      headers: { Allow: "GET, HEAD", "Cache-Control": "no-store" },
+    });
+  }
+
+  try {
+    const response = await fetch(`${UPDATE_ROOT}${platform}/manifest.json`, {
+      headers: { Accept: "application/json" },
+      cache: "no-store",
+      redirect: "manual",
+      signal: AbortSignal.timeout(10000),
+    });
+    if (!response.ok) throw new Error(`Manifest returned ${response.status}`);
+    const manifest = await response.json();
+    const artifact = manifest?.artifacts?.[platform];
+    // macOS's updater ZIP is not the installer offered on the website.
+    const packageUrl = platform === "macos-arm64" ? artifact?.manualUrl : artifact?.url;
+    if (typeof packageUrl !== "string") throw new Error("Missing installer URL");
+    const target = new URL(packageUrl);
+    const extension = platform === "macos-arm64" ? ".dmg" : ".exe";
+    if (
+      target.origin !== "https://static.aoraw.org" ||
+      target.username || target.password || target.search || target.hash ||
+      !target.pathname.startsWith("/updates/v1/stable/builds/") ||
+      !target.pathname.endsWith(extension) ||
+      target.pathname.split("/").at(-2) !== platform
+    ) {
+      throw new Error("Invalid stable installer URL");
+    }
+    if (checksums) {
+      target.pathname = target.pathname.slice(0, target.pathname.lastIndexOf("/") + 1)
+        + `SHA256SUMS-${platform}.txt`;
+    }
+    // Neither browsers nor the edge should retain yesterday's stable target.
+    return new Response(null, {
+      status: 302,
+      headers: { Location: target.href, "Cache-Control": "no-store" },
+    });
+  } catch (error) {
+    console.error(JSON.stringify({ event: "download_manifest_failed", platform, message: error.message }));
+    return new Response(request.method === "HEAD" ? null : "Download temporarily unavailable. Please try again or visit https://github.com/zidage/AlcedoStudio/releases", {
+      status: 503,
+      headers: { "Cache-Control": "no-store", "Retry-After": "30", "Content-Type": "text/plain; charset=utf-8" },
+    });
+  }
+}
 
 // English path -> Chinese path. Both directions are derived from this table.
 const PAGES = {
@@ -87,6 +139,10 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const method = request.method;
+    const downloadRoute = /^\/download\/([^/]+)(\/checksums)?$/.exec(url.pathname);
+    if (downloadRoute && DOWNLOAD_PLATFORMS.includes(downloadRoute[1])) {
+      return download(request, downloadRoute[1], Boolean(downloadRoute[2]));
+    }
     if (method !== "GET" && method !== "HEAD") {
       return env.ASSETS.fetch(request);
     }
