@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#09090b">
   <title>Alcedo Studio — 开源的 RAW 照片处理与图库管理软件</title>
-  <meta name="description" content="Alcedo Studio：免费开源的 RAW 照片处理与图库管理软件，支持 Windows 与 Apple Silicon Mac。节点调色、局部蒙版、场景参考色彩，两万张图库毫秒级检索。">
+  <meta name="description" content="Alcedo Studio：免费开源的 RAW 照片处理与图库管理软件，支持 Windows 与 Apple Silicon Mac。节点调色、113 卷胶片 LUT、场景参考色彩，两万张图库毫秒级检索，还能通过 alcedo-cli 交给 AI Agent 操作。">
   <link rel="canonical" href="https://aoraw.org/zh-cn/">
   <link rel="alternate" hreflang="en" href="https://aoraw.org/">
   <link rel="alternate" hreflang="zh-CN" href="https://aoraw.org/zh-cn/">
   <link rel="alternate" hreflang="x-default" href="https://aoraw.org/">
   <meta property="og:title" content="Alcedo Studio — 开源的 RAW 照片处理与图库管理软件">
-  <meta property="og:description" content="Alcedo Studio：免费开源的 RAW 照片处理与图库管理软件，支持 Windows 与 Apple Silicon Mac。节点调色、局部蒙版、场景参考色彩，两万张图库毫秒级检索。">
+  <meta property="og:description" content="Alcedo Studio：免费开源的 RAW 照片处理与图库管理软件，支持 Windows 与 Apple Silicon Mac。节点调色、113 卷胶片 LUT、场景参考色彩，两万张图库毫秒级检索，还能通过 alcedo-cli 交给 AI Agent 操作。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://aoraw.org/zh-cn/">
   <meta property="og:image" content="https://aoraw.org/assets/social-card.png">
@@ -21,7 +21,7 @@
   <meta property="og:locale:alternate" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Alcedo Studio — 开源的 RAW 照片处理与图库管理软件">
-  <meta name="twitter:description" content="Alcedo Studio：免费开源的 RAW 照片处理与图库管理软件，支持 Windows 与 Apple Silicon Mac。节点调色、局部蒙版、场景参考色彩，两万张图库毫秒级检索。">
+  <meta name="twitter:description" content="Alcedo Studio：免费开源的 RAW 照片处理与图库管理软件，支持 Windows 与 Apple Silicon Mac。节点调色、113 卷胶片 LUT、场景参考色彩，两万张图库毫秒级检索，还能通过 alcedo-cli 交给 AI Agent 操作。">
   <meta name="twitter:image" content="https://aoraw.org/assets/social-card.png">
   <link rel="icon" href="../assets/icon-32.png" type="image/png" sizes="32x32">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
@@ -74,7 +74,7 @@
   <main id="main">
     <section class="hero center" aria-labelledby="hero-title">
       <div class="wrap">
-        <a class="pill" href="#nodes"><b>新版本</b>0.3.0：节点调色与局部蒙版</a>
+        <a class="pill" href="#agents"><b>新版本</b>0.3.3：让 AI Agent 帮你修图</a>
         <h1 class="display" id="hero-title">为 RAW 而生的现代暗房。</h1>
         <p class="lede">专业的调色工具，清爽的现代界面，从不让你等待的 GPU 引擎。免费开源，支持 Windows 与 Mac。</p>
         <div class="actions" data-downloads>
@@ -84,6 +84,61 @@
         <p class="note">Windows 10/11 x64 · Apple Silicon Mac · 免费开源（GPL-3.0）</p>
       </div>
       <div class="hero__media"><picture><source type="image/avif" srcset="../assets/stage-hero-1280.avif 1280w, ../assets/stage-hero-1920.avif 1920w, ../assets/stage-hero-2560.avif 2560w" sizes="100vw"><source type="image/webp" srcset="../assets/stage-hero-1280.webp 1280w, ../assets/stage-hero-1920.webp 1920w, ../assets/stage-hero-2560.webp 2560w" sizes="100vw"><img src="../assets/stage-hero-1920.webp" width="2560" height="1384" alt="Alcedo Studio 编辑器：节点图、照片与调色面板" fetchpriority="high" decoding="async"></picture></div>
+    </section>
+
+    <section id="agents" aria-labelledby="agents-title">
+      <div class="wrap chapter">
+        <div class="chapter__head">
+          <div>
+            <p class="kicker kicker--new">0.3.3 新增</p>
+            <h2 class="headline" id="agents-title">把暗房交给你的 Agent。</h2>
+          </div>
+          <div>
+            <p class="lede">alcedo-cli 现在随 Alcedo Studio 一起安装。Claude Code、Codex 等 AI Agent 可以打开项目、导入、评分、修图、搜索和导出，既能在后台独立运行，也能在你正在用的窗口里操作。</p>
+            <a class="link" href="https://github.com/zidage/alcedo-skills">为你的 Agent 安装 Alcedo skill</a>
+          </div>
+        </div>
+      </div>
+      <div class="screen"><picture><source type="image/avif" srcset="../assets/stage-agent-1280.avif 1280w, ../assets/stage-agent-1920.avif 1920w, ../assets/stage-agent-2560.avif 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><source type="image/webp" srcset="../assets/stage-agent-1280.webp 1280w, ../assets/stage-agent-1920.webp 1920w, ../assets/stage-agent-2560.webp 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><img src="../assets/stage-agent-1920.webp" width="2560" height="1375" alt="Agent 修图后的编辑器：历史记录中的每一步都标为 Agent 所做" loading="lazy" decoding="async"></picture></div>
+      <div class="wrap">
+        <div class="term">
+          <div class="term__top"><span>alcedo-cli</span><span>会话：你正在用的窗口</span></div>
+<pre><span class="c"># 逆光偏暗：把主体提亮</span>
+<span class="p">alcedo-cli --session gui call editor.batch_set '{"changes":[</span>
+  {"field":"exposure","value":0.65},
+  {"field":"highlights","value":-42},
+  {"field":"shadows","value":28}],
+  "note":"agent: lift the backlit subject"}'
+<span class="r">{"applied":3,…}</span></pre>
+        </div>
+        <ul class="points">
+          <li><h3>在身边，或在后台</h3><p>共享你打开的窗口，看着每个滑块被调动；也可以不开窗口，在后台批量处理整个文件夹。</p></li>
+          <li><h3>主导权在你手里</h3><p>Agent 操作期间，编辑控件会锁定，但仍可平移、缩放和查看示波器。点击“停止”即可立即收回控制权。</p></li>
+          <li><h3>每一步都有记录</h3><p>历史记录会标出 Agent 所做的编辑，并显示它的备注；撤销和你自己的编辑一样有效。</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="looks" aria-labelledby="looks-title">
+      <div class="wrap chapter">
+        <div class="chapter__head">
+          <div>
+            <p class="kicker kicker--new">全新 LUT 浏览器</p>
+            <h2 class="headline" id="looks-title">113 卷胶片，点一下就用上。</h2>
+          </div>
+          <div>
+            <p class="lede">按类别、品牌和印放胶片筛选 LUT，点一下就套用到所选调色节点。告诉 Alcedo 这个 LUT 期望什么编码，它会自动从 ACES 转过去再转回来。</p>
+          </div>
+        </div>
+      </div>
+      <div class="screen"><picture><source type="image/avif" srcset="../assets/stage-looks-1280.avif 1280w, ../assets/stage-looks-1920.avif 1920w, ../assets/stage-looks-2560.avif 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><source type="image/webp" srcset="../assets/stage-looks-1280.webp 1280w, ../assets/stage-looks-1920.webp 1920w, ../assets/stage-looks-2560.webp 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><img src="../assets/stage-looks-1920.webp" width="2560" height="1383" alt="套用柯达胶片 LUT 的夜晚街景，面板显示 LUT 的强度与输入、输出编码" loading="lazy" decoding="async"></picture></div>
+      <div class="wrap">
+        <ul class="points">
+          <li><h3>什么 LUT 都能套</h3><p>26 种输入和输出编码，从 ARRI LogC、S-Log3、V-Log、Apple Log 到 sRGB、PQ、HLG。标一次，以后使用这个 LUT 时自动应用。</p></li>
+          <li><h3>胶片按需下载</h3><p>在“设置”中下载官方 Spectral Film LUT 与 spektrafilm 包，安装前校验签名；也可以导入自己的 .cube 文件。</p></li>
+          <li><h3>黑柔滤镜</h3><p>让明亮光源泛起柔和光晕，中间调细节依然清晰；与清晰度、锐化、颗粒和光晕放在同一页。</p></li>
+        </ul>
+      </div>
     </section>
 
     <section id="tools" aria-labelledby="tools-title">
@@ -98,17 +153,17 @@
           </div>
         </div>
       </div>
-      <div class="marquee" role="img" aria-label="曝光, 对比度, 高光, 阴影, 白色色阶, 黑色色阶, 白平衡, 色调曲线, 三路色轮, 选择性色彩, 局部色调映射, 径向蒙版, 线性蒙版, 胶片模拟, 颗粒, 光晕, 镜头校正, 版本">
-        <div class="marquee__track"><ul><li>曝光</li><li>对比度</li><li>高光</li><li>阴影</li><li>白色色阶</li><li>黑色色阶</li><li>白平衡</li><li>色调曲线</li><li>三路色轮</li></ul><ul aria-hidden="true"><li>曝光</li><li>对比度</li><li>高光</li><li>阴影</li><li>白色色阶</li><li>黑色色阶</li><li>白平衡</li><li>色调曲线</li><li>三路色轮</li></ul></div>
-        <div class="marquee__track marquee__track--reverse"><ul><li>选择性色彩</li><li>局部色调映射</li><li>径向蒙版</li><li>线性蒙版</li><li>胶片模拟</li><li>颗粒</li><li>光晕</li><li>镜头校正</li><li>版本</li></ul><ul aria-hidden="true"><li>选择性色彩</li><li>局部色调映射</li><li>径向蒙版</li><li>线性蒙版</li><li>胶片模拟</li><li>颗粒</li><li>光晕</li><li>镜头校正</li><li>版本</li></ul></div>
+      <div class="marquee" role="img" aria-label="曝光, 对比度, 高光, 阴影, 白色色阶, 黑色色阶, 白平衡, 色调曲线, 三路色轮, 清晰度, 锐化, 选择性色彩, 局部色调映射, 径向蒙版, 线性蒙版, LUT 浏览器, 胶片模拟, 颗粒, 光晕, 黑柔滤镜, 镜头校正, 版本, 前后对比">
+        <div class="marquee__track"><ul><li>曝光</li><li>对比度</li><li>高光</li><li>阴影</li><li>白色色阶</li><li>黑色色阶</li><li>白平衡</li><li>色调曲线</li><li>三路色轮</li><li>清晰度</li><li>锐化</li></ul><ul aria-hidden="true"><li>曝光</li><li>对比度</li><li>高光</li><li>阴影</li><li>白色色阶</li><li>黑色色阶</li><li>白平衡</li><li>色调曲线</li><li>三路色轮</li><li>清晰度</li><li>锐化</li></ul></div>
+        <div class="marquee__track marquee__track--reverse"><ul><li>选择性色彩</li><li>局部色调映射</li><li>径向蒙版</li><li>线性蒙版</li><li>LUT 浏览器</li><li>胶片模拟</li><li>颗粒</li><li>光晕</li><li>黑柔滤镜</li><li>镜头校正</li><li>版本</li><li>前后对比</li></ul><ul aria-hidden="true"><li>选择性色彩</li><li>局部色调映射</li><li>径向蒙版</li><li>线性蒙版</li><li>LUT 浏览器</li><li>胶片模拟</li><li>颗粒</li><li>光晕</li><li>黑柔滤镜</li><li>镜头校正</li><li>版本</li><li>前后对比</li></ul></div>
       </div>
       <div class="stack-wrap">
         <div class="stack">
           <div class="stack__card" tabindex="0" aria-label="三路色轮"><picture><source type="image/avif" srcset="../assets/tool-color-1280.avif 1280w, ../assets/tool-color-1920.avif 1920w, ../assets/tool-color-2560.avif 2560w" sizes="(min-width: 1712px) 1250px, 74vw"><source type="image/webp" srcset="../assets/tool-color-1280.webp 1280w, ../assets/tool-color-1920.webp 1920w, ../assets/tool-color-2560.webp 2560w" sizes="(min-width: 1712px) 1250px, 74vw"><img src="../assets/tool-color-1920.webp" width="2560" height="1383" alt="Lift / Gamma / Gain 三路色轮" loading="lazy" decoding="async"></picture></div>
           <div class="stack__card" tabindex="0" aria-label="色调曲线"><picture><source type="image/avif" srcset="../assets/tool-curve-1280.avif 1280w, ../assets/tool-curve-1920.avif 1920w, ../assets/tool-curve-2560.avif 2560w" sizes="(min-width: 1712px) 1250px, 74vw"><source type="image/webp" srcset="../assets/tool-curve-1280.webp 1280w, ../assets/tool-curve-1920.webp 1920w, ../assets/tool-curve-2560.webp 2560w" sizes="(min-width: 1712px) 1250px, 74vw"><img src="../assets/tool-curve-1920.webp" width="2560" height="1383" alt="色调曲线与阴影、色阶控制" loading="lazy" decoding="async"></picture></div>
-          <div class="stack__card" tabindex="0" aria-label="胶片 LUT"><picture><source type="image/avif" srcset="../assets/tool-film-1280.avif 1280w, ../assets/tool-film-1920.avif 1920w, ../assets/tool-film-2560.avif 2560w" sizes="(min-width: 1712px) 1250px, 74vw"><source type="image/webp" srcset="../assets/tool-film-1280.webp 1280w, ../assets/tool-film-1920.webp 1920w, ../assets/tool-film-2560.webp 2560w" sizes="(min-width: 1712px) 1250px, 74vw"><img src="../assets/tool-film-1920.webp" width="2560" height="1383" alt="胶片 LUT 浏览器与柯达胶卷" loading="lazy" decoding="async"></picture></div>
+          <div class="stack__card" tabindex="0" aria-label="LUT 浏览器"><picture><source type="image/avif" srcset="../assets/tool-lut-1280.avif 1280w, ../assets/tool-lut-1920.avif 1920w, ../assets/tool-lut-2560.avif 2560w" sizes="(min-width: 1712px) 1250px, 74vw"><source type="image/webp" srcset="../assets/tool-lut-1280.webp 1280w, ../assets/tool-lut-1920.webp 1920w, ../assets/tool-lut-2560.webp 2560w" sizes="(min-width: 1712px) 1250px, 74vw"><img src="../assets/tool-lut-1920.webp" width="2560" height="1383" alt="筛选出柯达胶片的 LUT 浏览器" loading="lazy" decoding="async"></picture></div>
         </div>
-        <ol class="stack__captions"><li>三路色轮</li><li>色调曲线</li><li>胶片 LUT</li></ol>
+        <ol class="stack__captions"><li>三路色轮</li><li>色调曲线</li><li>LUT 浏览器</li></ol>
       </div>
     </section>
 
@@ -143,7 +198,7 @@
       <picture><source type="image/avif" srcset="../assets/cinema-color-1280.avif 1280w, ../assets/cinema-color-1920.avif 1920w, ../assets/cinema-color-2560.avif 2560w" sizes="100vw"><source type="image/webp" srcset="../assets/cinema-color-1280.webp 1280w, ../assets/cinema-color-1920.webp 1920w, ../assets/cinema-color-2560.webp 2560w" sizes="100vw"><img src="../assets/cinema-color-1920.webp" width="2560" height="1164" alt="长满苔藓的崖壁与数十道细小瀑布" loading="lazy" decoding="async"></picture>
       <div class="wrap cinema__body">
         <h2 class="headline" id="color-title">第一眼，就好看。</h2>
-        <p class="lede">ACES 2.0 与 OpenDRT 让每张 RAW 一打开就是饱满、有电影感的起点，而不是一张灰片。新机型色彩准确，富士 X-Trans 使用神经网络去马赛克，另有 68 款基于真实光谱数据的胶片。</p>
+        <p class="lede">ACES 2.0 与 OpenDRT 让每张 RAW 一打开就是饱满、有电影感的起点，而不是一张灰片。新机型色彩准确，富士 X-Trans 使用神经网络去马赛克，另有 113 卷由光谱模型生成的胶片。JPEG、TIFF、PNG 和 OpenEXR 也走同一条管线。</p>
       </div>
     </section>
 
@@ -151,7 +206,7 @@
       <div class="wrap chapter">
         <div class="chapter__head">
           <div>
-            <p class="kicker kicker--new">0.3.0 新增</p>
+            <p class="kicker">调色</p>
             <h2 class="headline" id="nodes-title">像调色师一样调色。</h2>
           </div>
           <div>
@@ -222,7 +277,7 @@
           <a class="btn" href="https://aoraw.org/download/macos-arm64" data-os="mac">下载 macOS 版</a>
         </div>
         <p class="note">Windows 10/11 x64 · Apple Silicon Mac · 免费开源（GPL-3.0）</p>
-        <p class="notice"><strong>升级须知：</strong>0.3.0 无法打开 0.2.9 及更早版本创建的工程文件。</p>
+        <p class="notice"><strong>升级须知：</strong>安装包不再内置 LUT，请在“设置 &gt; LUT”中下载官方 LUT 包。0.3 无法打开 0.2.9 及更早版本创建的工程文件。</p>
         <p class="download__links">
           <a href="https://aoraw.org/download/windows-x86_64/checksums">Windows SHA-256</a>
           <a href="https://aoraw.org/download/macos-arm64/checksums">macOS SHA-256</a>
