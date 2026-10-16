@@ -2,9 +2,10 @@
 """Compress raw screenshots into the AVIF / WebP files the site serves.
 
 Usage:
-    python scripts/build_images.py [SOURCE_DIR]
+    python scripts/build_images.py [SOURCE_DIR] [NAME ...]
 
-SOURCE_DIR defaults to ./screenshots (git-ignored). Each entry in IMAGES below
+SOURCE_DIR defaults to ./screenshots (git-ignored). Give output NAMEs to
+rebuild only those images. Each entry in IMAGES below
 names a source file (PNG or JPEG, extension optional) and the widths to emit.
 Missing sources are reported and skipped, so screenshots can be replaced one
 at a time. Requires Pillow 11.3+ (built-in AVIF support).
@@ -35,25 +36,29 @@ IMAGES: dict[str, tuple] = {
     "stage-nodes": ("nodes", (1280, 1920, 2560)),
     "stage-masks": ("masks", (1280, 1920, 2560)),
     "stage-color": ("color", (1280, 1920, 2560)),
+    "stage-agent": ("agent", (1280, 1920, 2560)),
+    "stage-looks": ("looks", (1280, 1920, 2560)),
     # Home page — three full-window screenshots stacked so that only the
     # right-hand adjustment panel of the back two shows (not cropped: the
     # stack geometry in site.css depends on the panel's share of the width)
     "tool-color": ("tool-color", (1280, 1920, 2560)),
     "tool-curve": ("tool-curve", (1280, 1920, 2560)),
-    "tool-film": ("tool-film", (1280, 1920, 2560)),
+    "tool-lut": ("tool-lut", (1280, 1920, 2560)),
     # Home page — the two workspaces, side by side
     "ws-library": ("library", (960, 1600)),
     "ws-editor": ("editor", (960, 1600)),
-    # Detail tiles (home page and features page)
-    "detail-copy": ("detail-copy", (1040,)),
-    "detail-keys": ("detail-keys", (1040,)),
-    "detail-lens": ("detail-lens", (1040,)),
-    "detail-contrast": ("detail-contrast", (1040,)),
+    # Detail tiles on the features page (square crops)
+    "detail-lut-browser": ("detail-lut-browser", (1040,)),
+    "detail-lut-encoding": ("detail-lut-encoding", (1040,)),
+    "detail-diffusion": ("detail-diffusion", (1040,)),
+    "detail-compare": ("detail-compare", (1040,)),
+    "detail-raster": ("detail-raster", (1040,)),
+    "detail-groups": ("detail-groups", (1040,)),
     # Features page
     "feature-heatmap": ("heatmap", (1600,)),
     "feature-search": ("search", (1600,)),
     "feature-engine": ("engine", (1600,)),
-    "feature-film": ("film", (1600,)),
+    "feature-looks": ("looks-street", (1600,)),
     "feature-ai": ("ai", (1600,)),
     "feature-export": ("export", (1600,)),
 }
@@ -98,9 +103,16 @@ def main() -> int:
     if not src_dir.is_dir():
         print(f"source directory not found: {src_dir}", file=sys.stderr)
         return 1
+    only = set(sys.argv[2:])
+    unknown = only - IMAGES.keys()
+    if unknown:
+        print(f"unknown image names: {', '.join(sorted(unknown))}", file=sys.stderr)
+        return 1
 
     missing = []
     for name, (stem, widths, *framing) in IMAGES.items():
+        if only and name not in only:
+            continue
         source = find_source(src_dir, stem)
         if source is None:
             missing.append(stem)

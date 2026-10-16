@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#09090b">
   <title>Alcedo Studio — Open-source RAW photo processing and library management</title>
-  <meta name="description" content="Alcedo Studio is free, open-source RAW photo software for Windows and Apple Silicon Mac: node-based grading, local masks, scene-referred color, and a library that searches 20,000 photos in milliseconds.">
+  <meta name="description" content="Alcedo Studio is free, open-source RAW photo software for Windows and Apple Silicon Mac: node-based grading, 113 film LUTs, scene-referred color, a library that searches 20,000 photos in milliseconds, and AI agent control through alcedo-cli.">
   <link rel="canonical" href="https://aoraw.org/">
   <link rel="alternate" hreflang="en" href="https://aoraw.org/">
   <link rel="alternate" hreflang="zh-CN" href="https://aoraw.org/zh-cn/">
   <link rel="alternate" hreflang="x-default" href="https://aoraw.org/">
   <meta property="og:title" content="Alcedo Studio — Open-source RAW photo processing and library management">
-  <meta property="og:description" content="Alcedo Studio is free, open-source RAW photo software for Windows and Apple Silicon Mac: node-based grading, local masks, scene-referred color, and a library that searches 20,000 photos in milliseconds.">
+  <meta property="og:description" content="Alcedo Studio is free, open-source RAW photo software for Windows and Apple Silicon Mac: node-based grading, 113 film LUTs, scene-referred color, a library that searches 20,000 photos in milliseconds, and AI agent control through alcedo-cli.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://aoraw.org/">
   <meta property="og:image" content="https://aoraw.org/assets/social-card.png">
@@ -21,7 +21,7 @@
   <meta property="og:locale:alternate" content="zh_CN">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Alcedo Studio — Open-source RAW photo processing and library management">
-  <meta name="twitter:description" content="Alcedo Studio is free, open-source RAW photo software for Windows and Apple Silicon Mac: node-based grading, local masks, scene-referred color, and a library that searches 20,000 photos in milliseconds.">
+  <meta name="twitter:description" content="Alcedo Studio is free, open-source RAW photo software for Windows and Apple Silicon Mac: node-based grading, 113 film LUTs, scene-referred color, a library that searches 20,000 photos in milliseconds, and AI agent control through alcedo-cli.">
   <meta name="twitter:image" content="https://aoraw.org/assets/social-card.png">
   <link rel="icon" href="assets/icon-32.png" type="image/png" sizes="32x32">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -74,7 +74,7 @@
   <main id="main">
     <section class="hero center" aria-labelledby="hero-title">
       <div class="wrap">
-        <a class="pill" href="#nodes"><b>New</b>0.3.0: node-based grading and local masks</a>
+        <a class="pill" href="#agents"><b>New</b>0.3.3: edit with your AI agent</a>
         <h1 class="display" id="hero-title">A modern darkroom for RAW photos.</h1>
         <p class="lede">Professional grading tools, a clean interface, and a GPU engine that never makes you wait. Free and open source, for Windows and Mac.</p>
         <div class="actions" data-downloads>
@@ -84,6 +84,61 @@
         <p class="note">Windows 10/11 x64 · Apple Silicon Mac · Free and open source (GPL-3.0)</p>
       </div>
       <div class="hero__media"><picture><source type="image/avif" srcset="assets/stage-hero-1280.avif 1280w, assets/stage-hero-1920.avif 1920w, assets/stage-hero-2560.avif 2560w" sizes="100vw"><source type="image/webp" srcset="assets/stage-hero-1280.webp 1280w, assets/stage-hero-1920.webp 1920w, assets/stage-hero-2560.webp 2560w" sizes="100vw"><img src="assets/stage-hero-1920.webp" width="2560" height="1384" alt="The Alcedo Studio editor: the node graph, a photo, and grading controls" fetchpriority="high" decoding="async"></picture></div>
+    </section>
+
+    <section id="agents" aria-labelledby="agents-title">
+      <div class="wrap chapter">
+        <div class="chapter__head">
+          <div>
+            <p class="kicker kicker--new">New in 0.3.3</p>
+            <h2 class="headline" id="agents-title">Hand the darkroom to your agent.</h2>
+          </div>
+          <div>
+            <p class="lede">alcedo-cli now installs with Alcedo Studio. Claude Code, Codex, or another AI agent can open projects, import, rate, edit, search, and export, in the background or in the window you are using.</p>
+            <a class="link" href="https://github.com/zidage/alcedo-skills">Get the Alcedo skill for your agent</a>
+          </div>
+        </div>
+      </div>
+      <div class="screen"><picture><source type="image/avif" srcset="assets/stage-agent-1280.avif 1280w, assets/stage-agent-1920.avif 1920w, assets/stage-agent-2560.avif 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><source type="image/webp" srcset="assets/stage-agent-1280.webp 1280w, assets/stage-agent-1920.webp 1920w, assets/stage-agent-2560.webp 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><img src="assets/stage-agent-1920.webp" width="2560" height="1375" alt="The editor after an agent's edits: each step in the history is marked as made by the agent" loading="lazy" decoding="async"></picture></div>
+      <div class="wrap">
+        <div class="term">
+          <div class="term__top"><span>alcedo-cli</span><span>Session: your open window</span></div>
+<pre><span class="c"># Backlit and too dark: lift the subject</span>
+<span class="p">alcedo-cli --session gui call editor.batch_set '{"changes":[</span>
+  {"field":"exposure","value":0.65},
+  {"field":"highlights","value":-42},
+  {"field":"shadows","value":28}],
+  "note":"agent: lift the backlit subject"}'
+<span class="r">{"applied":3,…}</span></pre>
+        </div>
+        <ul class="points">
+          <li><h3>Beside you or in the background</h3><p>Share your open window and watch every slider move, or start a headless session for a folder of photos.</p></li>
+          <li><h3>You stay in charge</h3><p>While an agent works, your edit controls are locked, but you can pan, zoom, and read the scopes. Stop ends its control at once.</p></li>
+          <li><h3>Every edit on the record</h3><p>Agent edits are marked in the history with the agent's note, and undo works on them like on your own.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="looks" aria-labelledby="looks-title">
+      <div class="wrap chapter">
+        <div class="chapter__head">
+          <div>
+            <p class="kicker kicker--new">New LUT browser</p>
+            <h2 class="headline" id="looks-title">113 film stocks. One click each.</h2>
+          </div>
+          <div>
+            <p class="lede">Browse film LUTs by category, brand, and print stock, and click to apply one to the selected grade node. Tell Alcedo what a LUT expects, and it converts out of ACES and back for you.</p>
+          </div>
+        </div>
+      </div>
+      <div class="screen"><picture><source type="image/avif" srcset="assets/stage-looks-1280.avif 1280w, assets/stage-looks-1920.avif 1920w, assets/stage-looks-2560.avif 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><source type="image/webp" srcset="assets/stage-looks-1280.webp 1280w, assets/stage-looks-1920.webp 1920w, assets/stage-looks-2560.webp 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><img src="assets/stage-looks-1920.webp" width="2560" height="1383" alt="A night street with a Kodak film LUT; the panel shows the LUT's strength and its input and output encodings" loading="lazy" decoding="async"></picture></div>
+      <div class="wrap">
+        <ul class="points">
+          <li><h3>Any LUT, any camera</h3><p>26 input and output encodings, from ARRI LogC, S-Log3, V-Log, and Apple Log to sRGB, PQ, and HLG. Set them once and Alcedo remembers them for that LUT.</p></li>
+          <li><h3>Film stocks on demand</h3><p>Download the official Spectral Film LUT and spektrafilm packages in Settings, signature-checked, or add your own .cube files.</p></li>
+          <li><h3>Black mist diffusion</h3><p>A diffusion filter gives bright lights a soft glow and keeps midtones sharp, next to clarity, sharpening, grain, and halation.</p></li>
+        </ul>
+      </div>
     </section>
 
     <section id="tools" aria-labelledby="tools-title">
@@ -98,17 +153,17 @@
           </div>
         </div>
       </div>
-      <div class="marquee" role="img" aria-label="Exposure, Contrast, Highlights, Shadows, Whites, Blacks, White balance, Tone curve, Color wheels, Selective color, Local tone mapping, Radial masks, Linear masks, Film stocks, Grain, Halation, Lens correction, Versions">
-        <div class="marquee__track"><ul><li>Exposure</li><li>Contrast</li><li>Highlights</li><li>Shadows</li><li>Whites</li><li>Blacks</li><li>White balance</li><li>Tone curve</li><li>Color wheels</li></ul><ul aria-hidden="true"><li>Exposure</li><li>Contrast</li><li>Highlights</li><li>Shadows</li><li>Whites</li><li>Blacks</li><li>White balance</li><li>Tone curve</li><li>Color wheels</li></ul></div>
-        <div class="marquee__track marquee__track--reverse"><ul><li>Selective color</li><li>Local tone mapping</li><li>Radial masks</li><li>Linear masks</li><li>Film stocks</li><li>Grain</li><li>Halation</li><li>Lens correction</li><li>Versions</li></ul><ul aria-hidden="true"><li>Selective color</li><li>Local tone mapping</li><li>Radial masks</li><li>Linear masks</li><li>Film stocks</li><li>Grain</li><li>Halation</li><li>Lens correction</li><li>Versions</li></ul></div>
+      <div class="marquee" role="img" aria-label="Exposure, Contrast, Highlights, Shadows, Whites, Blacks, White balance, Tone curve, Color wheels, Clarity, Sharpen, Selective color, Local tone mapping, Radial masks, Linear masks, LUT browser, Film stocks, Grain, Halation, Diffusion, Lens correction, Versions, Compare">
+        <div class="marquee__track"><ul><li>Exposure</li><li>Contrast</li><li>Highlights</li><li>Shadows</li><li>Whites</li><li>Blacks</li><li>White balance</li><li>Tone curve</li><li>Color wheels</li><li>Clarity</li><li>Sharpen</li></ul><ul aria-hidden="true"><li>Exposure</li><li>Contrast</li><li>Highlights</li><li>Shadows</li><li>Whites</li><li>Blacks</li><li>White balance</li><li>Tone curve</li><li>Color wheels</li><li>Clarity</li><li>Sharpen</li></ul></div>
+        <div class="marquee__track marquee__track--reverse"><ul><li>Selective color</li><li>Local tone mapping</li><li>Radial masks</li><li>Linear masks</li><li>LUT browser</li><li>Film stocks</li><li>Grain</li><li>Halation</li><li>Diffusion</li><li>Lens correction</li><li>Versions</li><li>Compare</li></ul><ul aria-hidden="true"><li>Selective color</li><li>Local tone mapping</li><li>Radial masks</li><li>Linear masks</li><li>LUT browser</li><li>Film stocks</li><li>Grain</li><li>Halation</li><li>Diffusion</li><li>Lens correction</li><li>Versions</li><li>Compare</li></ul></div>
       </div>
       <div class="stack-wrap">
         <div class="stack">
           <div class="stack__card" tabindex="0" aria-label="Color wheels"><picture><source type="image/avif" srcset="assets/tool-color-1280.avif 1280w, assets/tool-color-1920.avif 1920w, assets/tool-color-2560.avif 2560w" sizes="(min-width: 1712px) 1250px, 74vw"><source type="image/webp" srcset="assets/tool-color-1280.webp 1280w, assets/tool-color-1920.webp 1920w, assets/tool-color-2560.webp 2560w" sizes="(min-width: 1712px) 1250px, 74vw"><img src="assets/tool-color-1920.webp" width="2560" height="1383" alt="The Lift / Gamma / Gain color wheels" loading="lazy" decoding="async"></picture></div>
           <div class="stack__card" tabindex="0" aria-label="Tone curve"><picture><source type="image/avif" srcset="assets/tool-curve-1280.avif 1280w, assets/tool-curve-1920.avif 1920w, assets/tool-curve-2560.avif 2560w" sizes="(min-width: 1712px) 1250px, 74vw"><source type="image/webp" srcset="assets/tool-curve-1280.webp 1280w, assets/tool-curve-1920.webp 1920w, assets/tool-curve-2560.webp 2560w" sizes="(min-width: 1712px) 1250px, 74vw"><img src="assets/tool-curve-1920.webp" width="2560" height="1383" alt="The tone curve with shadow and highlight controls" loading="lazy" decoding="async"></picture></div>
-          <div class="stack__card" tabindex="0" aria-label="Film LUTs"><picture><source type="image/avif" srcset="assets/tool-film-1280.avif 1280w, assets/tool-film-1920.avif 1920w, assets/tool-film-2560.avif 2560w" sizes="(min-width: 1712px) 1250px, 74vw"><source type="image/webp" srcset="assets/tool-film-1280.webp 1280w, assets/tool-film-1920.webp 1920w, assets/tool-film-2560.webp 2560w" sizes="(min-width: 1712px) 1250px, 74vw"><img src="assets/tool-film-1920.webp" width="2560" height="1383" alt="The film LUT browser with Kodak stocks" loading="lazy" decoding="async"></picture></div>
+          <div class="stack__card" tabindex="0" aria-label="LUT browser"><picture><source type="image/avif" srcset="assets/tool-lut-1280.avif 1280w, assets/tool-lut-1920.avif 1920w, assets/tool-lut-2560.avif 2560w" sizes="(min-width: 1712px) 1250px, 74vw"><source type="image/webp" srcset="assets/tool-lut-1280.webp 1280w, assets/tool-lut-1920.webp 1920w, assets/tool-lut-2560.webp 2560w" sizes="(min-width: 1712px) 1250px, 74vw"><img src="assets/tool-lut-1920.webp" width="2560" height="1383" alt="The LUT browser filtered to Kodak film stocks" loading="lazy" decoding="async"></picture></div>
         </div>
-        <ol class="stack__captions"><li>Color wheels</li><li>Tone curve</li><li>Film LUTs</li></ol>
+        <ol class="stack__captions"><li>Color wheels</li><li>Tone curve</li><li>LUT browser</li></ol>
       </div>
     </section>
 
@@ -143,7 +198,7 @@
       <picture><source type="image/avif" srcset="assets/cinema-color-1280.avif 1280w, assets/cinema-color-1920.avif 1920w, assets/cinema-color-2560.avif 2560w" sizes="100vw"><source type="image/webp" srcset="assets/cinema-color-1280.webp 1280w, assets/cinema-color-1920.webp 1920w, assets/cinema-color-2560.webp 2560w" sizes="100vw"><img src="assets/cinema-color-1920.webp" width="2560" height="1164" alt="Moss-covered cliffs with dozens of thin waterfalls" loading="lazy" decoding="async"></picture>
       <div class="wrap cinema__body">
         <h2 class="headline" id="color-title">Beautiful from the first frame.</h2>
-        <p class="lede">ACES 2.0 and OpenDRT give every RAW a rich, filmic starting point instead of a flat one. Accurate color for current cameras, neural demosaicing for Fujifilm X-Trans, and 68 film stocks measured from real spectral data.</p>
+        <p class="lede">ACES 2.0 and OpenDRT give every RAW a rich, filmic starting point instead of a flat one. Accurate color for current cameras, neural demosaicing for Fujifilm X-Trans, and 113 film stocks from spectral film models. JPEG, TIFF, PNG, and OpenEXR files join the same pipeline.</p>
       </div>
     </section>
 
@@ -151,7 +206,7 @@
       <div class="wrap chapter">
         <div class="chapter__head">
           <div>
-            <p class="kicker kicker--new">New in 0.3.0</p>
+            <p class="kicker">Grading</p>
             <h2 class="headline" id="nodes-title">Grade like a colorist.</h2>
           </div>
           <div>
@@ -222,7 +277,7 @@
           <a class="btn" href="https://aoraw.org/download/macos-arm64" data-os="mac">Download for macOS</a>
         </div>
         <p class="note">Windows 10/11 x64 · Apple Silicon Mac · Free and open source (GPL-3.0)</p>
-        <p class="notice"><strong>Upgrading from 0.2.9?</strong> Projects created with 0.2.9 or earlier can't be opened in 0.3.0.</p>
+        <p class="notice"><strong>Upgrading?</strong> LUTs are no longer in the installer: download the official packages in Settings &gt; LUTs. Projects from 0.2.9 or earlier can't be opened in 0.3.</p>
         <p class="download__links">
           <a href="https://aoraw.org/download/windows-x86_64/checksums">Windows SHA-256</a>
           <a href="https://aoraw.org/download/macos-arm64/checksums">macOS SHA-256</a>
