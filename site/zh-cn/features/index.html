@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#09090b">
   <title>功能 — Alcedo Studio</title>
-  <meta name="description" content="Alcedo Studio 0.3.3 全部功能：通过 alcedo-cli 接入 AI Agent、LUT 浏览器、节点调色与蒙版、场景参考色彩、GPU 渲染引擎、图库与检索、RAW 解码与导出。">
+  <meta name="description" content="Alcedo Studio 0.3.5 的功能：光谱胶片模拟“胶片印片”、AI 蒙版、节点调色、场景参考色彩、GPU 渲染引擎、图库与搜索、供脚本和 AI 智能体使用的 alcedo-cli、RAW 解码与导出。">
   <link rel="canonical" href="https://aoraw.org/zh-cn/features/">
   <link rel="alternate" hreflang="en" href="https://aoraw.org/features/">
   <link rel="alternate" hreflang="zh-CN" href="https://aoraw.org/zh-cn/features/">
   <link rel="alternate" hreflang="x-default" href="https://aoraw.org/features/">
   <meta property="og:title" content="功能 — Alcedo Studio">
-  <meta property="og:description" content="Alcedo Studio 0.3.3 全部功能：通过 alcedo-cli 接入 AI Agent、LUT 浏览器、节点调色与蒙版、场景参考色彩、GPU 渲染引擎、图库与检索、RAW 解码与导出。">
+  <meta property="og:description" content="Alcedo Studio 0.3.5 的功能：光谱胶片模拟“胶片印片”、AI 蒙版、节点调色、场景参考色彩、GPU 渲染引擎、图库与搜索、供脚本和 AI 智能体使用的 alcedo-cli、RAW 解码与导出。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://aoraw.org/zh-cn/features/">
   <meta property="og:image" content="https://aoraw.org/assets/social-card.png">
@@ -21,7 +21,7 @@
   <meta property="og:locale:alternate" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="功能 — Alcedo Studio">
-  <meta name="twitter:description" content="Alcedo Studio 0.3.3 全部功能：通过 alcedo-cli 接入 AI Agent、LUT 浏览器、节点调色与蒙版、场景参考色彩、GPU 渲染引擎、图库与检索、RAW 解码与导出。">
+  <meta name="twitter:description" content="Alcedo Studio 0.3.5 的功能：光谱胶片模拟“胶片印片”、AI 蒙版、节点调色、场景参考色彩、GPU 渲染引擎、图库与搜索、供脚本和 AI 智能体使用的 alcedo-cli、RAW 解码与导出。">
   <meta name="twitter:image" content="https://aoraw.org/assets/social-card.png">
   <link rel="icon" href="../../assets/icon-32.png" type="image/png" sizes="32x32">
   <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
@@ -57,41 +57,76 @@
   <main id="main">
     <section class="hero center" aria-labelledby="hero-title">
       <div class="wrap">
-        <a class="pill" href="#agents"><b>0.3.3</b>查看新功能</a>
-        <h1 class="display" id="hero-title">从 RAW 底片，到最终成片。</h1>
-        <p class="lede">解码、色彩、调色、图库与导出，集于一个开源应用，为 Windows 与 Mac 原生构建。</p>
+        <a class="pill" href="#film"><b>0.3.5</b>查看新功能</a>
+        <h1 class="display" id="hero-title">从 RAW 文件到成片。</h1>
+        <p class="lede">解码、色彩、调色、图库与导出，集于一个开源应用，支持 Windows 与 Mac。</p>
         <div class="actions" data-downloads>
           <a class="btn btn--solid" href="https://aoraw.org/download/windows-x86_64" data-os="windows">下载 Windows 版</a>
           <a class="btn" href="https://aoraw.org/download/macos-arm64" data-os="mac">下载 macOS 版</a>
         </div>
         <p class="note">Windows 10/11 x64 · Apple Silicon Mac · 免费开源（GPL-3.0）</p>
       </div>
-      <div class="screen"><picture><source type="image/avif" srcset="../../assets/stage-masks-1280.avif 1280w, ../../assets/stage-masks-1920.avif 1920w, ../../assets/stage-masks-2560.avif 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><source type="image/webp" srcset="../../assets/stage-masks-1280.webp 1280w, ../../assets/stage-masks-1920.webp 1920w, ../../assets/stage-masks-2560.webp 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><img src="../../assets/stage-masks-1920.webp" width="2560" height="1384" alt="编辑器中的蒙版与调色节点" fetchpriority="high" decoding="async"></picture></div>
+      <div class="screen"><picture><source type="image/avif" srcset="../../assets/stage-reversal-1280.avif 1280w, ../../assets/stage-reversal-1920.avif 1920w, ../../assets/stage-reversal-2560.avif 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><source type="image/webp" srcset="../../assets/stage-reversal-1280.webp 1280w, ../../assets/stage-reversal-1920.webp 1920w, ../../assets/stage-reversal-2560.webp 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><img src="../../assets/stage-reversal-1920.webp" width="2560" height="1137" alt="胶片印片的反转片模式，选中 Fujichrome Velvia 100，画面是湖泊和雪山" fetchpriority="high" decoding="async"></picture></div>
+      <p class="caption">照片：<a href="https://discuss.pixls.us/t/old-mt-cook-nz/59212">Old Mt. Cook NZ</a>，作者 mino，来自 discuss.pixls.us，<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 许可；在 Alcedo Studio 中编辑。</p>
     </section>
 
-    <section class="feature" id="agents" aria-labelledby="agents-title">
+    <section class="feature" id="film" aria-labelledby="film-title">
       <div class="wrap">
         <div class="chapter__head">
           <div>
-            <p class="kicker kicker--new">0.3.3 新增</p>
-            <h2 class="title" id="agents-title">AI Agent</h2>
+            <p class="kicker kicker--new">0.3.5 新增</p>
+            <h2 class="title" id="film-title">胶片印片</h2>
           </div>
           <div>
-            <p class="lede">alcedo-cli 随 Alcedo Studio 一起安装，把界面背后的命令交给 Agent：打开、导入、评分、修图、预览、搜索与导出。</p>
-            <a class="link" href="https://github.com/zidage/alcedo-skills">Agent 用的 Alcedo skill</a>
+            <p class="lede">作为显示渲染变换使用的光谱胶片模拟：30 款彩色负片和 5 款彩色反转片，可以印放、扫描，或以灯箱观看。</p>
+            <a class="link" href="https://github.com/zidage/AlcedoStudio/blob/main/docs/roadmap/alcedo_studio/edit/film_simulation/film_simulation_explained.md">胶片模拟说明</a>
           </div>
         </div>
       </div>
-      <div class="screen"><picture><source type="image/avif" srcset="../../assets/stage-agent-1280.avif 1280w, ../../assets/stage-agent-1920.avif 1920w, ../../assets/stage-agent-2560.avif 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><source type="image/webp" srcset="../../assets/stage-agent-1280.webp 1280w, ../../assets/stage-agent-1920.webp 1920w, ../../assets/stage-agent-2560.webp 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><img src="../../assets/stage-agent-1920.webp" width="2560" height="1375" alt="Agent 修图后的编辑器：历史记录中的每一步都标为 Agent 所做" loading="lazy" decoding="async"></picture></div>
+      <div class="screen"><picture><source type="image/avif" srcset="../../assets/stage-scan-1280.avif 1280w, ../../assets/stage-scan-1920.avif 1920w, ../../assets/stage-scan-2560.avif 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><source type="image/webp" srcset="../../assets/stage-scan-1280.webp 1280w, ../../assets/stage-scan-1920.webp 1920w, ../../assets/stage-scan-2560.webp 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><img src="../../assets/stage-scan-1920.webp" width="2560" height="1383" alt="负片扫描设置：“中性”自动色彩，强度 0.50，自动密度、扫描反差、扫描曝光、青、品红和黄" loading="lazy" decoding="async"></picture></div>
+      <p class="caption">照片：<a href="https://discuss.pixls.us/t/zojo-ji-and-the-tokyo-tower/61159">Zojo-ji and the Tokyo Tower</a>，作者 Duecki1，来自 discuss.pixls.us，<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 许可；在 Alcedo Studio 中编辑。</p>
+      <div class="wrap">
+        <div class="grid-4 grid-4--three film-trio">
+          <div class="card">
+            <div class="card__body"><h3>印片</h3><p>Kodak Vision3 500T 印放到 Kodak Vision 2383，输出 Rec. 709 SDR。</p></div>
+            <div class="card__media"><picture><source type="image/avif" srcset="../../assets/film-print.avif"><img src="../../assets/film-print.webp" width="1040" height="1040" alt="维多利亚港夜景，Vision3 500T 印放到 Vision 2383" loading="lazy" decoding="async"></picture></div>
+          </div>
+          <div class="card">
+            <div class="card__body"><h3>负片扫描</h3><p>同一张负片经扫描反相，再由 OpenDRT 输出 SDR 或 HDR。</p></div>
+            <div class="card__media"><picture><source type="image/avif" srcset="../../assets/film-scan.avif"><img src="../../assets/film-scan.webp" width="1040" height="1040" alt="维多利亚港夜景，Vision3 500T 负片扫描" loading="lazy" decoding="async"></picture></div>
+          </div>
+          <div class="card">
+            <div class="card__body"><h3>反转片</h3><p>Fujichrome Velvia 100，灯箱观看。</p></div>
+            <div class="card__media"><picture><source type="image/avif" srcset="../../assets/film-reversal.avif"><img src="../../assets/film-reversal.webp" width="1040" height="1040" alt="维多利亚港夜景，Fujichrome Velvia 100" loading="lazy" decoding="async"></picture></div>
+          </div>
+          <div class="card">
+            <div class="card__body"><h3>胶片浏览器</h3><p>可搜索胶片并按品牌筛选，每款胶片显示色卡。 <small>照片：<a href="https://discuss.pixls.us/t/arches-national-park-utah-usa/59523">Arches National Park (Utah, USA)</a>，作者 LaurentFromSF，来自 discuss.pixls.us，<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 许可；在 Alcedo Studio 中编辑。</small></p></div>
+            <div class="card__media"><picture><source type="image/avif" srcset="../../assets/detail-stocks.avif"><img src="../../assets/detail-stocks.webp" width="1040" height="1040" alt="负片浏览器列出全部 30 款负片，旁边是 Mesa Arch 的照片" loading="lazy" decoding="async"></picture></div>
+          </div>
+          <div class="card">
+            <div class="card__body"><h3>片幅与颗粒</h3><p>Kodak Ektar 100，16mm 片幅，放大到 218%。颗粒使用该片种的颗粒度数据。 <small>照片：<a href="https://discuss.pixls.us/t/big-kitty-in-the-brush/52989">Big kitty in the brush</a>，作者 mino，来自 discuss.pixls.us，<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 许可；在 Alcedo Studio 中编辑。</small></p></div>
+            <div class="card__media"><picture><source type="image/avif" srcset="../../assets/detail-grain.avif"><img src="../../assets/detail-grain.webp" width="1040" height="1040" alt="放大到 218% 的猫脸，带 16mm 胶片颗粒" loading="lazy" decoding="async"></picture></div>
+          </div>
+          <div class="card">
+            <div class="card__body"><h3>夜晚街道</h3><p>Kodak Vision3 500T 负片扫描，16mm 片幅。</p></div>
+            <div class="card__media"><picture><source type="image/avif" srcset="../../assets/detail-16mm.avif"><img src="../../assets/detail-16mm.webp" width="1040" height="1040" alt="夜晚香港路口的出租车" loading="lazy" decoding="async"></picture></div>
+          </div>
+        </div>
+        <p class="footnote">前三张是同一张维多利亚港的 RAW 文件，由 alcedo-cli 渲染。夜晚街道同样是开发者在香港拍摄的。</p>
+      </div>
       <details class="specs">
           <summary>技术规格</summary>
           <dl class="spec">
-              <div><dt>命令行</dt><dd>alcedo-cli，安装在应用旁边（macOS 上位于应用包内）；输入与输出均为 JSON</dd></div>
-              <div><dt>Agent</dt><dd>Claude Code、Codex 等能运行命令行的 Agent；<a href="https://github.com/zidage/alcedo-skills">Alcedo skill</a> 教会它们使用这些命令</dd></div>
-              <div><dt>命令</dt><dd>项目、导入、评分、所有编辑参数、LUT、版本、预览、搜索与导出</dd></div>
-              <div><dt>会话</dt><dd>不开窗口的后台会话，适合批量处理；或你正在使用的窗口</dd></div>
-              <div><dt>控制权</dt><dd>Agent 操作期间编辑控件锁定，仍可平移、缩放和查看示波器；“停止”立即收回控制权</dd></div>
-              <div><dt>历史记录</dt><dd>标出 Agent 所做的编辑并显示它的备注；撤销与你自己的编辑一样有效</dd></div>
+              <div><dt>负片</dt><dd>30 款彩色负片：Kodak 20 款、Fujifilm 9 款、Agfa 1 款</dd></div>
+              <div><dt>反转片</dt><dd>Fujichrome Velvia 50、Velvia 100、Provia 100F、Astia 100F 和 Kodak Ektachrome E100，灯箱观看</dd></div>
+              <div><dt>印片</dt><dd>18 种摄影相纸和电影印片胶片，例如 Kodak Endura Premier、Vision 2383 和 Fuji Crystal Archive；Cine Look（Kodak Vision 2383）为单独选项；输出 Rec. 709 SDR</dd></div>
+              <div><dt>负片扫描</dt><dd>虚拟扫描器读取并反转负片，由 OpenDRT 输出 SDR 或 HDR；可调扫描曝光、对比度、青、品、黄和黑位；默认启用 50% 强度的“中性”自动校色</dd></div>
+              <div><dt>场景光</dt><dd>默认“按拍摄参数”，读取 RAW 白平衡的色温与色调</dd></div>
+              <div><dt>片幅</dt><dd>16mm、35mm 或 70mm；决定颗粒相对画面的大小，较小片幅也会放大光扩散和光晕</dd></div>
+              <div><dt>颗粒</dt><dd>在印片或扫描前形成于胶片层中，使用所选片种的颗粒度数据；强度 0–200%；缩放时颗粒尺度不变</dd></div>
+              <div><dt>GPU</dt><dd>CUDA、OpenCL 和 Metal；胶片数据随安装包提供</dd></div>
+              <div><dt>命令行</dt><dd>alcedo-cli 的 film.list 列出可用胶片，供脚本编辑和渲染使用</dd></div>
+              <div><dt>数据</dt><dd>spectral_film_lut 数字化的数据手册；fotufilm 的 Astia 100F 配置文件（CC BY-SA 4.0）</dd></div>
           </dl>
         </details>
     </section>
@@ -100,41 +135,49 @@
       <div class="wrap">
         <div class="chapter__head">
           <div>
-            <p class="kicker kicker--new">新功能</p>
-            <h2 class="title" id="new-title">0.3 的更多新功能</h2>
+            <p class="kicker kicker--new">0.3.4 新增</p>
+            <h2 class="title" id="new-title">AI 蒙版、搜索与更多</h2>
           </div>
           <div>
-            <p class="lede">收录 113 卷胶片的 LUT 浏览器、JPEG 与 TIFF 编辑、前后对比、导出预设，RAW 导入提速近 30 倍。</p>
+            <p class="lede">AI 蒙版与范围蒙版、AI 模型设置页、新的搜索面板，以及在当前照片上预览 LUT。</p>
             <a class="link" href="https://github.com/zidage/AlcedoStudio/releases">完整发布说明</a>
           </div>
         </div>
-        <div class="grid-4 grid-4--three">
-          <div class="card">
-            <div class="card__body"><h3>LUT 浏览器</h3><p>按类别、来源、品牌和印放胶片筛选。点一下套用，再点一下移除。</p></div>
-            <div class="card__media"><picture><source type="image/avif" srcset="../../assets/detail-lut-browser.avif"><img src="../../assets/detail-lut-browser.webp" width="1040" height="1040" alt="筛选出柯达胶片与 Vision 2383 印放的 LUT 浏览器" loading="lazy" decoding="async"></picture></div>
+        <ul class="points">
+          <li><h3>AI 蒙版</h3><p>选择主体、背景、天空或人物，也可以通过点选、绘制路径或框选来选择任意物体。工具内有独立的撤销与重做，点击“确认”后保存为一条历史记录。</p></li>
+          <li><h3>明度/色相范围</h3><p>任意蒙版都可以按明度和色相限制，提供双滑块范围条、数值输入、柔和度和饱和度门槛。</p></li>
+          <li><h3>AI 模型设置</h3><p>在同一页面下载和管理 AI 蒙版模型与 CLIP 搜索模型，模型卡片显示许可证、大小和下载进度。模型按需加载。</p></li>
+          <li><h3>搜索面板</h3><p>最近搜索、命令、筛选项和照片预览集中在一个窗口，按 Enter 将搜索应用到图库。</p></li>
+          <li><h3>色轮</h3><p>Lift、Gamma、Gain 分别调整暗部、中间调和高光，新增的 Offset 色轮统一偏移所有明暗区域。Master 数值以 EV 为单位。</p></li>
+          <li><h3>图库卡片</h3><p>照片卡片显示编辑标记和星级，较大的卡片支持点击星星评分。胶片条跟随图库筛选。</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="feature" id="agents" aria-labelledby="agents-title">
+      <div class="wrap">
+        <div class="chapter__head">
+          <div>
+            <p class="kicker">命令行</p>
+            <h2 class="title" id="agents-title">AI Agent</h2>
           </div>
-          <div class="card">
-            <div class="card__body"><h3>LUT 编码</h3><p>为 LUT 选择输入和输出编码，从相机 Log 到 PQ，并为这个 LUT 记住。</p></div>
-            <div class="card__media"><picture><source type="image/avif" srcset="../../assets/detail-lut-encoding.avif"><img src="../../assets/detail-lut-encoding.webp" width="808" height="808" alt="LUT 面板：强度、输入与输出编码，以及“为此 LUT 记住该设置”" loading="lazy" decoding="async"></picture></div>
-          </div>
-          <div class="card">
-            <div class="card__body"><h3>黑柔滤镜</h3><p>明亮光源泛起柔和光晕，中间调依然清晰。</p></div>
-            <div class="card__media"><picture><source type="image/avif" srcset="../../assets/detail-diffusion.avif"><img src="../../assets/detail-diffusion.webp" width="1040" height="1040" alt="隧道尽头的光线带着柔和的光晕" loading="lazy" decoding="async"></picture></div>
-          </div>
-          <div class="card">
-            <div class="card__body"><h3>前后对比</h3><p>比较修改前后或两个版本：并排显示，或拖动分割线。</p></div>
-            <div class="card__media"><picture><source type="image/avif" srcset="../../assets/detail-compare.avif"><img src="../../assets/detail-compare.webp" width="1040" height="1040" alt="海边人像上的前后对比分割线" loading="lazy" decoding="async"></picture></div>
-          </div>
-          <div class="card">
-            <div class="card__body"><h3>JPEG、TIFF 与 EXR</h3><p>像 RAW 一样编辑。读取内嵌色彩配置文件，转换到 ACES。</p></div>
-            <div class="card__media"><picture><source type="image/avif" srcset="../../assets/detail-raster.avif"><img src="../../assets/detail-raster.webp" width="1040" height="1040" alt="编辑器中的 TIFF，输入色彩为内嵌的 Adobe RGB 配置文件" loading="lazy" decoding="async"></picture></div>
-          </div>
-          <div class="card">
-            <div class="card__body"><h3>排序与分组</h3><p>按相机、镜头或任意字段给图库分组，分组可以折叠。</p></div>
-            <div class="card__media"><picture><source type="image/avif" srcset="../../assets/detail-groups.avif"><img src="../../assets/detail-groups.webp" width="1040" height="1040" alt="按相机型号分组的图库" loading="lazy" decoding="async"></picture></div>
+          <div>
+            <p class="lede">alcedo-cli 随 Alcedo Studio 一起安装，把界面背后的命令交给 Agent：打开、导入、评分、修图、预览、搜索与导出。</p>
+            <a class="link" href="https://github.com/zidage/alcedo-skills">Agent 用的 Alcedo skill</a>
           </div>
         </div>
       </div>
+      <details class="specs">
+          <summary>技术规格</summary>
+          <dl class="spec">
+              <div><dt>命令行</dt><dd>alcedo-cli，安装在应用旁边（macOS 上位于应用包内）；输入与输出均为 JSON</dd></div>
+              <div><dt>Agent</dt><dd>Claude Code、Codex 等能运行命令行的 Agent；<a href="https://github.com/zidage/alcedo-skills">Alcedo skill</a> 教会它们使用这些命令</dd></div>
+              <div><dt>命令</dt><dd>项目、导入、评分、所有编辑参数、LUT、胶片印片的胶片、版本、预览、搜索与导出</dd></div>
+              <div><dt>会话</dt><dd>不开窗口的后台会话，适合批量处理；或你正在使用的窗口</dd></div>
+              <div><dt>控制权</dt><dd>Agent 操作期间编辑控件锁定，仍可平移、缩放和查看示波器；“停止”立即收回控制权</dd></div>
+              <div><dt>历史记录</dt><dd>标出 Agent 所做的编辑并显示它的备注；撤销与你自己的编辑一样有效</dd></div>
+          </dl>
+        </details>
     </section>
 
     <section class="feature" id="nodes" aria-labelledby="nodes-title">
@@ -144,7 +187,7 @@
             <h2 class="title" id="nodes-title">节点与蒙版</h2>
           </div>
           <div>
-            <p class="lede">每个调色节点都是一套完整的工具，局部调整只作用于蒙版范围之内。</p>
+            <p class="lede">每个调色节点都有自己的调整和蒙版，局部调整只作用于蒙版范围之内。</p>
           </div>
         </div>
       </div>
@@ -152,11 +195,13 @@
       <details class="specs">
           <summary>技术规格</summary>
           <dl class="spec">
-              <div><dt>节点结构</dt><dd>Develop → Color Grade 节点（数量不限）→ 显示渲染变换</dd></div>
-              <div><dt>调色工具</dt><dd>局部色调映射 · 三路色轮（Lift / Gamma / Gain）· 色调曲线 · 选择性色彩</dd></div>
+              <div><dt>节点结构</dt><dd>Develop → Color Grade 节点（数量不限）→ Display Transform</dd></div>
+              <div><dt>调色工具</dt><dd>影调 · 局部色调映射 · Lift / Gamma / Gain 与 Offset 色轮 · 色调曲线 · 可选颜色 · 细节</dd></div>
               <div><dt>节点编辑</dt><dd>新增、连线、重命名、多选、批量删除；记入历史与版本</dd></div>
               <div><dt>删除保护</dt><dd>默认调色层自动上锁，任意图层均可手动上锁</dd></div>
-              <div><dt>蒙版类型</dt><dd>线性渐变 · 径向渐变</dd></div>
+              <div><dt>蒙版类型</dt><dd>线性渐变 · 径向渐变 · AI 蒙版</dd></div>
+              <div><dt>AI 蒙版 <span class="tag">新</span></dt><dd>主体、背景、天空、人物；或点选、绘制路径、框选。添加与减去选区，单独加入或移除人物，羽化与扩展；模型在本机运行，已保存的蒙版渲染时无需模型</dd></div>
+              <div><dt>范围 <span class="tag">新</span></dt><dd>任意蒙版可用明度和色相范围限制，带柔和度和饱和度门槛；“显示选区”查看覆盖范围</dd></div>
               <div><dt>蒙版参数</dt><dd>位置、半径、旋转、内外羽化、不透明度、反转</dd></div>
               <div><dt>蒙版数量</dt><dd>每个节点可叠加多个，在蒙版组面板中按层管理并显示缩略图</dd></div>
           </dl>
@@ -181,12 +226,12 @@
               <div><dt>数值精度</dt><dd>全程 32 位浮点</dd></div>
               <div><dt>相机色彩</dt><dd>相机色彩矩阵；部分机型为 rawtoaces-data 光谱数据</dd></div>
               <div><dt>调色空间</dt><dd>ACEScc（AP1 原色）</dd></div>
-              <div><dt>显示渲染变换</dt><dd>ACES 2.0 · OpenDRT</dd></div>
+              <div><dt>显示渲染变换</dt><dd>ACES 2.0 · OpenDRT · 胶片印片</dd></div>
               <div><dt>输出目标</dt><dd>Rec.709 · Display P3 · Rec.2020，含 PQ 与 HLG</dd></div>
               <div><dt>HDR 监看</dt><dd>macOS 扩展动态范围（EDR）</dd></div>
               <div><dt>对比度</dt><dd>作用于 OkLab 亮度的 S 曲线，不改变整体亮度，也不偏色</dd></div>
-              <div><dt>LUT 编码 <span class="tag">新</span></dt><dd>26 种场景与显示编码，用于 LUT 的输入和输出；显示编码输出经 ACES 2.0 逆向输出变换转回场景</dd></div>
-              <div><dt>JPEG、PNG、TIFF、OpenEXR <span class="tag">新</span></dt><dd>读取内嵌色彩配置文件，转换到 ACES；OpenEXR 以及 PQ 或 HLG 图像标记为 HDR</dd></div>
+              <div><dt>LUT 编码</dt><dd>50 种场景与显示编码，用于 LUT 的输入和输出；显示编码输出经 ACES 2.0 逆输出变换转回场景</dd></div>
+              <div><dt>JPEG、PNG、TIFF、OpenEXR</dt><dd>读取内嵌色彩配置文件，转换到 ACES；OpenEXR 以及 PQ 或 HLG 图像标记为 HDR</dd></div>
           </dl>
         </details>
     </section>
@@ -198,7 +243,7 @@
             <h2 class="title" id="engine-title">渲染引擎</h2>
           </div>
           <div>
-            <p class="lede">GPU 上的渲染图：调整参数时，只重算其后的节点。</p>
+            <p class="lede">GPU 上的渲染图：RAW 解码与几何处理的结果会缓存，Color Grade 节点在每次改动时重新计算。</p>
           </div>
         </div>
       </div>
@@ -208,12 +253,12 @@
           <dl class="spec">
               <div><dt>Windows</dt><dd>CUDA（NVIDIA）· OpenCL（AMD / Intel）</dd></div>
               <div><dt>macOS</dt><dd>Metal（Apple Silicon）</dd></div>
-              <div><dt>增量渲染</dt><dd>未改动节点的结果按版本号缓存并直接复用</dd></div>
-              <div><dt>工作显存</dt><dd>两块 RGBA32F 缓冲交替读写，显存不随节点数量增长</dd></div>
+              <div><dt>缓存</dt><dd>RAW 解码与几何处理的结果按版本号缓存并复用；Color Grade 节点不缓存，每次改动都重新计算</dd></div>
+              <div><dt>工作显存</dt><dd>Color Grade 节点使用两块 RGBA32F 缓冲交替读写，显存不随节点数量增长</dd></div>
               <div><dt>瞬态显存</dt><dd>去马赛克、高光重建与局部色调映射共用同一内存池，渲染结束即释放</dd></div>
               <div><dt>同一条管线</dt><dd>编辑预览、缩略图、分析与导出；缩略图和导出使用独立的 GPU 资源，不拖慢预览</dd></div>
               <div><dt>预览</dt><dd>拖动时长边 2560 像素，静止时 4096 像素；放大时仅渲染可见区域</dd></div>
-              <div><dt>示波器</dt><dd>直方图 · RGB 波形图</dd></div>
+              <div><dt>示波器</dt><dd>直方图 · RGB 波形图，通道填充显示并标出暗部与高光溢出</dd></div>
           </dl>
         </details>
     </section>
@@ -233,41 +278,46 @@
       <details class="specs">
           <summary>技术规格</summary>
           <dl class="spec">
-              <div><dt>工程文件</dt><dd>单一 .alcd 文件：目录、元数据、语义索引、编辑历史</dd></div>
+              <div><dt>工程文件</dt><dd>单一 .alcd 文件：目录、元数据、语义索引、编辑历史；可打开数据库超过 2 GiB 的项目，保存时分块读写数据库</dd></div>
               <div><dt>搜索速度</dt><dd>两万张图库：输入即预览约 12 毫秒，应用搜索 13–21 毫秒，在后台线程运行</dd></div>
-              <div><dt>搜索词</dt><dd>“6.7”识别为 6 月 7 日；“iso800”不再匹配 ISO 8000；“dng”识别为文件类型；多个词同时满足</dd></div>
-              <div><dt>拍摄热力图</dt><dd>全年拍摄活跃度，点击某天即可筛选</dd></div>
+              <div><dt>搜索面板 <span class="tag">新</span></dt><dd>最近搜索、命令、筛选项和照片预览集中在一个窗口；按 Enter 将搜索应用到图库</dd></div>
+              <div><dt>搜索词</dt><dd>“6.7”识别为 6 月 7 日；“iso800”不匹配 ISO 8000；“dng”识别为文件类型；多个词同时满足</dd></div>
               <div><dt>元数据筛选</dt><dd>相机、镜头、光圈、快门、ISO、日期、评分的任意组合</dd></div>
-              <div><dt>语义检索</dt><dd>本地 CLIP 模型与 HNSW 向量索引；模型首次下载后完全离线</dd></div>
-              <div><dt>导入 <span class="tag">新</span></dt><dd>RAW、JPEG、PNG、TIFF 与 OpenEXR，每个文件夹可按类型选择，按文件内容识别；导入失败不留残余记录</dd></div>
-              <div><dt>导入速度 <span class="tag">新</span></dt><dd>639 张 RAW 照片 1.1 秒导入完成（此前 31.6 秒），峰值内存 149 MB</dd></div>
-              <div><dt>排序与分组 <span class="tag">新</span></dt><dd>按任意字段、导入日期或最后编辑时间；分组可折叠和展开</dd></div>
+              <div><dt>语义搜索</dt><dd>本地多语言 CLIP 模型与 HNSW 向量索引；在“设置 &gt; AI 模型”中下载和激活</dd></div>
+              <div><dt>影集 <span class="tag">新</span></dt><dd>紧凑的层级树：就地新建和重命名、拖动移动，显示照片数量</dd></div>
+              <div><dt>照片卡片 <span class="tag">新</span></dt><dd>编辑标记和星级；较大的卡片支持点击星星评分</dd></div>
+              <div><dt>拍摄热力图</dt><dd>全年拍摄活跃度，点击某天即可筛选</dd></div>
+              <div><dt>导入</dt><dd>RAW、JPEG、PNG、TIFF 与 OpenEXR，每个文件夹可按类型选择，按文件内容识别</dd></div>
+              <div><dt>排序与分组</dt><dd>按任意字段、导入日期或最后编辑时间；分组可折叠和展开</dd></div>
           </dl>
         </details>
     </section>
 
-    <section class="feature" id="film" aria-labelledby="film-title">
+    <section class="feature" id="looks" aria-labelledby="looks-title">
       <div class="wrap">
         <div class="chapter__head">
           <div>
-            <h2 class="title" id="film-title">胶片与风格</h2>
+            <h2 class="title" id="looks-title">LUT 与后期效果</h2>
           </div>
           <div>
-            <p class="lede">113 卷由光谱模型生成的胶片，一个能浏览你所有 LUT 的浏览器，以及在预览和导出中完全一致的后期效果。</p>
+            <p class="lede">113 款胶片 LUT、你自己的 .cube 文件，以及在预览和导出中一致的后期效果。</p>
           </div>
         </div>
       </div>
-      <div class="screen screen--wrap"><picture><source type="image/avif" srcset="../../assets/feature-looks.avif"><img src="../../assets/feature-looks.webp" width="1600" height="865" alt="编辑器中套用柯达胶片 LUT 的夜晚街景" loading="lazy" decoding="async"></picture></div>
+      <div class="screen screen--wrap"><picture><source type="image/avif" srcset="../../assets/feature-looks.avif"><img src="../../assets/feature-looks.webp" width="1600" height="865" alt="网格视图的 LUT 浏览器：每张卡片以当前照片预览一个 LUT，照片是泳池的航拍" loading="lazy" decoding="async"></picture></div>
+      <p class="caption">照片：Ryan Breitkreutz（@ryanbreitkreutz），来自 <a href="https://www.signatureedits.com/free-raw-photos/">Signature Edits 免费 RAW 照片</a>。</p>
       <details class="specs">
           <summary>技术规格</summary>
           <dl class="spec">
-              <div><dt>胶片 LUT</dt><dd>113 卷，分属官方 Spectral Film LUT 与 spektrafilm 两个 LUT 包；在“设置 &gt; LUT”中下载，安装前校验签名</dd></div>
-              <div><dt>LUT 浏览器 <span class="tag">新</span></dt><dd>网格或列表；按类别、来源、品牌和印放胶片筛选；搜索可容忍拼写错误；强度 0–100%</dd></div>
-              <div><dt>自己的 LUT <span class="tag">新</span></dt><dd>LUT 库任意文件夹中的 .cube 文件，归入“用户”类别</dd></div>
-              <div><dt>颗粒</dt><dd>基于 IPOL 2017《Realistic Film Grain Rendering》，强弱随画面明度变化</dd></div>
+              <div><dt>胶片 LUT</dt><dd>113 款，分属官方 Spectral Film LUT 与 spektrafilm 两个 LUT 包；在“设置 &gt; LUT”中下载，安装前校验签名</dd></div>
+              <div><dt>LUT 浏览器</dt><dd>网格或列表；按分类、来源、品牌和印片筛选；强度 0–100%</dd></div>
+              <div><dt>预览 <span class="tag">新</span></dt><dd>网格卡片以当前照片导入时的初始效果预览每个 LUT，不包含之后的编辑</dd></div>
+              <div><dt>编码 <span class="tag">新</span></dt><dd>输入和输出编码选择器支持搜索；0.3.4 新增 24 种编码，包括 Canon Log、Cineon、Apple Log 2 和 F-Log2 C</dd></div>
+              <div><dt>自己的 LUT</dt><dd>LUT 库任意文件夹中的 .cube 文件，归入“User”分类</dd></div>
+              <div><dt>颗粒 <span class="tag">新</span></dt><dd>基于 IPOL 2017《Realistic Film Grain Rendering》；强度 0–200%；缩放时颗粒尺度不变</dd></div>
               <div><dt>光晕</dt><dd>高反差边缘周围的微红散射（Halation）</dd></div>
-              <div><dt>黑柔滤镜 <span class="tag">新</span></dt><dd>明亮光源泛起柔和光晕，中间调细节保持清晰</dd></div>
-              <div><dt>后期处理 <span class="tag">新</span></dt><dd>清晰度、锐化、颗粒、光晕与黑柔滤镜集中在同一页</dd></div>
+              <div><dt>黑柔滤镜</dt><dd>明亮光源泛起柔和光晕，中间调细节保持清晰</dd></div>
+              <div><dt>后期处理</dt><dd>清晰度、锐化、颗粒、光晕与黑柔滤镜集中在同一页</dd></div>
           </dl>
         </details>
     </section>
@@ -287,12 +337,12 @@
       <details class="specs">
           <summary>技术规格</summary>
           <dl class="spec">
-              <div><dt>预设 <span class="tag">新</span></dt><dd>标准、网页、社交媒体、电子邮件、最高质量 JPEG、16 位 TIFF、EXR 存档，也可以保存自己的预设</dd></div>
+              <div><dt>预设</dt><dd>标准、网页、社交媒体、电子邮件、最高质量 JPEG、16 位 TIFF、EXR 存档，也可以保存自己的预设</dd></div>
               <div><dt>格式</dt><dd>JPEG 8 位 · PNG 8/16 位 · TIFF 8/16/32 位 · OpenEXR 16/32 位浮点 · Ultra HDR</dd></div>
               <div><dt>尺寸</dt><dd>原始尺寸 · 长边 · 边界框 · 打印尺寸与 DPI</dd></div>
               <div><dt>文件名变量</dt><dd>源文件名、日期、相机、镜头、光圈、快门、ISO、评分、序号</dd></div>
-              <div><dt>元数据 <span class="tag">新</span></dt><dd>EXIF 元数据与 ICC 配置文件可分别开关；相机和镜头序列号从不写入</dd></div>
-              <div><dt>导出位置 <span class="tag">新</span></dt><dd>记住上次的导出文件夹，重启后依然有效</dd></div>
+              <div><dt>元数据</dt><dd>EXIF、ICC 配置文件和 GPS 定位可分别选择是否保留；相机与镜头序列号以及编辑历史从不写入</dd></div>
+              <div><dt>导出位置</dt><dd>记住上次的导出文件夹，重启后依然有效</dd></div>
           </dl>
         </details>
     </section>
@@ -309,11 +359,12 @@
             <details class="specs">
           <summary>技术规格</summary>
           <dl class="spec">
-              <div><dt>相机支持</dt><dd>Canon、Nikon、Sony、Fujifilm、Panasonic、OM System、Leica、Pentax、Sigma，以及手机与无人机的 DNG</dd></div>
-              <div><dt>相机色彩</dt><dd>修正 Sony A7C II、Canon EOS R6 Mark III 等机型的电平、白平衡与色彩；DNG HueSatMap 与 LookTable 完整生效</dd></div>
+              <div><dt>相机支持</dt><dd>Canon、Nikon、Sony、Fujifilm、Panasonic、OM System、Leica、Hasselblad、Phase One（包括 1.5 亿像素的 IQ4）、Pentax、Sigma，以及手机与无人机的 DNG</dd></div>
+              <div><dt>Nikon HE</dt><dd>Z 8、Z 9、Z 6 III 和 Z 50 II 的高效率（HE）NEF</dd></div>
+              <div><dt>相机色彩</dt><dd>0.3.4 新增 68 个相机色彩矩阵条目；DNG HueSatMap 与 LookTable 完整生效</dd></div>
               <div><dt>去马赛克</dt><dd>Bayer 默认 RCD；X-Trans 默认 GPU 神经网络引擎，Bayer 亦可选用</dd></div>
               <div><dt>高光重建</dt><dd>Inpaint Opposed，源自 darktable 与 RawTherapee</dd></div>
-              <div><dt>镜头校正</dt><dd>Lensfun：畸变、横向色差、暗角</dd></div>
+              <div><dt>镜头校正 <span class="tag">新</span></dt><dd>Lensfun：畸变、横向色差、暗角；Lanczos-3 重采样</dd></div>
           </dl>
         </details>
           </div>
@@ -334,16 +385,16 @@
           </div>
           <div class="card" id="ai">
             <div class="card__body">
-              <h3>AI 描述与评级</h3>
-              <p>可选功能，使用你自己的 OpenAI 或 Anthropic 兼容 API 密钥。</p>
+              <h3>AI 模型</h3>
+              <p>AI 蒙版与自然语言搜索在本机运行。</p>
             </div>
             <details class="specs">
           <summary>技术规格</summary>
           <dl class="spec">
-              <div><dt>结果</dt><dd>画面描述、1–5 星评级与简短理由</dd></div>
-              <div><dt>评级标准</dt><dd>四档严格度</dd></div>
-              <div><dt>密钥</dt><dd>保存在 Windows 凭据管理器或 macOS 钥匙串中</dd></div>
-              <div><dt>运行方式</dt><dd>后台队列，界面不受阻塞</dd></div>
+              <div><dt>AI 蒙版</dt><dd>SAM 2.1（Hiera tiny）用于点选、路径和框选；S3OD（图像编码器为 DINOv3）用于主体</dd></div>
+              <div><dt>搜索</dt><dd>多语言 CLIP 模型；可在导入后自动打标签</dd></div>
+              <div><dt>下载</dt><dd>“设置 &gt; AI 模型”；每个模型受各自许可证约束</dd></div>
+              <div><dt>天空模型</dt><dd>训练数据的许可证不明确；商业使用前请查看模型信息</dd></div>
           </dl>
         </details>
           </div>
@@ -356,10 +407,11 @@
           <summary>技术规格</summary>
           <dl class="spec">
               <div><dt>RAW 与元数据</dt><dd>LibRaw · Lensfun · Exiv2</dd></div>
-              <div><dt>图像与数据</dt><dd>OpenImageIO · OpenCV · DuckDB</dd></div>
+              <div><dt>图像与数据</dt><dd>OpenImageIO · OpenCV · OpenColorIO · DuckDB</dd></div>
               <div><dt>界面</dt><dd>Qt / QML · QuickQanava</dd></div>
-              <div><dt>色彩</dt><dd>ACES 2.0 · OpenDRT（Jed Smith）</dd></div>
-              <div><dt>胶片</dt><dd><a href="https://github.com/JanLohse/spectral_film_lut">spectral_film_lut</a>（Jan Lohse）· <a href="https://github.com/andreavolpato/spektrafilm">spektrafilm</a>（Andrea Volpato）· IPOL 2017 胶片颗粒</dd></div>
+              <div><dt>色彩</dt><dd>ACES 2.0 · OpenDRT（Jed Smith）· rawtoaces-data</dd></div>
+              <div><dt>胶片</dt><dd><a href="https://github.com/JanLohse/spectral_film_lut">spectral_film_lut</a>（Jan Lohse）· <a href="https://github.com/andreavolpato/spektrafilm">spektrafilm</a>（Andrea Volpato）· <a href="https://github.com/DhaliwalX/fotufilm-engine">fotufilm-engine</a> · IPOL 2017 胶片颗粒</dd></div>
+              <div><dt>AI 蒙版</dt><dd>SAM 2.1 · S3OD · DINOv3</dd></div>
               <div><dt>去马赛克</dt><dd>RCD（Luis Sanz Rodríguez）· DemosaicNet（Gharbi 等，2016）</dd></div>
               <div><dt>高光重建</dt><dd>darktable · RawTherapee</dd></div>
           </dl>
@@ -378,13 +430,28 @@
           <a class="btn" href="https://aoraw.org/download/macos-arm64" data-os="mac">下载 macOS 版</a>
         </div>
         <p class="note">Windows 10/11 x64 · Apple Silicon Mac · 免费开源（GPL-3.0）</p>
-        <p class="notice"><strong>升级须知：</strong>安装包不再内置 LUT，请在“设置 &gt; LUT”中下载官方 LUT 包。0.3 无法打开 0.2.9 及更早版本创建的工程文件。</p>
+        <p class="notice"><strong>升级须知：</strong>AI 模型和 LUT 需要在“设置”中单独下载。0.3.4 起色轮分为 Lift、Gamma、Gain 和 Offset，打开旧项目时会转换旧参数。0.3.5 移除了“高级内容分析”。0.3 无法打开 0.2.9 及更早版本创建的工程文件。</p>
         <p class="download__links">
           <a href="https://aoraw.org/download/windows-x86_64/checksums">Windows SHA-256</a>
           <a href="https://aoraw.org/download/macos-arm64/checksums">macOS SHA-256</a>
           <a href="https://github.com/zidage/AlcedoStudio/releases">发布说明</a>
           <a href="https://github.com/zidage/AlcedoStudio">源代码</a>
         </p>
+      </div>
+    </section>
+
+    <section class="credits" aria-labelledby="credits-title">
+      <div class="wrap">
+        <h2 id="credits-title">照片署名</h2>
+        <p>以下照片发布在 <a href="https://discuss.pixls.us/">discuss.pixls.us</a>，以 <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 许可共享。这些照片在 Alcedo Studio 中经过编辑，本页展示它们的截图同样以 CC BY-SA 4.0 许可共享。</p>
+        <ul>
+          <li><a href="https://discuss.pixls.us/t/old-mt-cook-nz/59212">Old Mt. Cook NZ</a>，作者 mino</li>
+          <li><a href="https://discuss.pixls.us/t/zojo-ji-and-the-tokyo-tower/61159">Zojo-ji and the Tokyo Tower</a>，作者 Duecki1</li>
+          <li><a href="https://discuss.pixls.us/t/arches-national-park-utah-usa/59523">Arches National Park (Utah, USA)</a>，作者 LaurentFromSF</li>
+          <li><a href="https://discuss.pixls.us/t/big-kitty-in-the-brush/52989">Big kitty in the brush</a>，作者 mino</li>
+        </ul>
+        <p>LUT 浏览器截图中的照片由 Ryan Breitkreutz（@ryanbreitkreutz）拍摄，来自 <a href="https://www.signatureedits.com/free-raw-photos/">Signature Edits 免费 RAW 照片</a>。</p>
+        <p>香港的照片由 Alcedo Studio 开发者拍摄。</p>
       </div>
     </section>
   </main>

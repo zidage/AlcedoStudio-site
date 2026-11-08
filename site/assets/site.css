@@ -477,6 +477,63 @@ a.pill:hover {
   font-size: 13px;
 }
 
+/* photo credits: CC BY-SA photos are credited under the image that shows them */
+.caption a,
+.credits a,
+.card small a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.hero__media + .caption {
+  margin-top: 0;
+}
+
+.cinema__note {
+  margin-top: 24px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 13px;
+}
+
+.film-trio {
+  margin-top: clamp(40px, 4vw, 56px);
+}
+
+.card p small {
+  display: block;
+  margin-top: 8px;
+  color: var(--text-3);
+  font-size: 12px;
+}
+
+.credits {
+  padding-bottom: clamp(56px, 6vw, 88px);
+  color: var(--text-3);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.credits h2 {
+  margin-bottom: 8px;
+  color: var(--text-2);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.credits p {
+  max-width: 80ch;
+}
+
+.credits ul {
+  margin: 8px 0;
+  padding-left: 1.2em;
+}
+
+.credits li {
+  max-width: 80ch;
+}
+
 /* —— Stats —— */
 .stats {
   display: grid;
@@ -606,7 +663,7 @@ a.pill:hover {
 
 .graph__spans {
   display: grid;
-  grid-template-columns: 2fr 3fr;
+  grid-template-columns: 1fr 4fr;
   gap: clamp(8px, 2vw, 32px);
   margin-top: 20px;
   font-size: clamp(12px, 1.2vw, 15px);

@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#09090b">
   <title>Alcedo Studio — 开源的 RAW 照片处理与图库管理软件</title>
-  <meta name="description" content="Alcedo Studio：免费开源的 RAW 照片处理与图库管理软件，支持 Windows 与 Apple Silicon Mac。节点调色、113 卷胶片 LUT、场景参考色彩，两万张图库毫秒级检索，还能通过 alcedo-cli 交给 AI Agent 操作。">
+  <meta name="description" content="Alcedo Studio 是免费、开源的 RAW 编辑器与照片图库，支持 Windows 与 Apple Silicon Mac：场景参考的节点式调色、光谱胶片模拟“胶片印片”、在本机运行的 AI 蒙版与搜索，以及供脚本和 AI 智能体使用的 alcedo-cli。">
   <link rel="canonical" href="https://aoraw.org/zh-cn/">
   <link rel="alternate" hreflang="en" href="https://aoraw.org/">
   <link rel="alternate" hreflang="zh-CN" href="https://aoraw.org/zh-cn/">
   <link rel="alternate" hreflang="x-default" href="https://aoraw.org/">
   <meta property="og:title" content="Alcedo Studio — 开源的 RAW 照片处理与图库管理软件">
-  <meta property="og:description" content="Alcedo Studio：免费开源的 RAW 照片处理与图库管理软件，支持 Windows 与 Apple Silicon Mac。节点调色、113 卷胶片 LUT、场景参考色彩，两万张图库毫秒级检索，还能通过 alcedo-cli 交给 AI Agent 操作。">
+  <meta property="og:description" content="Alcedo Studio 是免费、开源的 RAW 编辑器与照片图库，支持 Windows 与 Apple Silicon Mac：场景参考的节点式调色、光谱胶片模拟“胶片印片”、在本机运行的 AI 蒙版与搜索，以及供脚本和 AI 智能体使用的 alcedo-cli。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://aoraw.org/zh-cn/">
   <meta property="og:image" content="https://aoraw.org/assets/social-card.png">
@@ -21,7 +21,7 @@
   <meta property="og:locale:alternate" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Alcedo Studio — 开源的 RAW 照片处理与图库管理软件">
-  <meta name="twitter:description" content="Alcedo Studio：免费开源的 RAW 照片处理与图库管理软件，支持 Windows 与 Apple Silicon Mac。节点调色、113 卷胶片 LUT、场景参考色彩，两万张图库毫秒级检索，还能通过 alcedo-cli 交给 AI Agent 操作。">
+  <meta name="twitter:description" content="Alcedo Studio 是免费、开源的 RAW 编辑器与照片图库，支持 Windows 与 Apple Silicon Mac：场景参考的节点式调色、光谱胶片模拟“胶片印片”、在本机运行的 AI 蒙版与搜索，以及供脚本和 AI 智能体使用的 alcedo-cli。">
   <meta name="twitter:image" content="https://aoraw.org/assets/social-card.png">
   <link rel="icon" href="../assets/icon-32.png" type="image/png" sizes="32x32">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
@@ -74,32 +74,93 @@
   <main id="main">
     <section class="hero center" aria-labelledby="hero-title">
       <div class="wrap">
-        <a class="pill" href="#agents"><b>新版本</b>0.3.3：让 AI Agent 帮你修图</a>
-        <h1 class="display" id="hero-title">为 RAW 而生的现代暗房。</h1>
-        <p class="lede">专业的调色工具，清爽的现代界面，从不让你等待的 GPU 引擎。免费开源，支持 Windows 与 Mac。</p>
+        <a class="pill" href="#film"><b>新版本</b>0.3.5：胶片印片</a>
+        <h1 class="display" id="hero-title">RAW 编辑器与照片图库。</h1>
+        <p class="lede">导入照片后，在同一个项目中浏览、评分和搜索，并在 32 位浮点 GPU 管线中冲洗 RAW 文件。免费开源，支持 Windows 与 Mac。</p>
         <div class="actions" data-downloads>
           <a class="btn btn--solid" href="https://aoraw.org/download/windows-x86_64" data-os="windows">下载 Windows 版</a>
           <a class="btn" href="https://aoraw.org/download/macos-arm64" data-os="mac">下载 macOS 版</a>
         </div>
         <p class="note">Windows 10/11 x64 · Apple Silicon Mac · 免费开源（GPL-3.0）</p>
       </div>
-      <div class="hero__media"><picture><source type="image/avif" srcset="../assets/stage-hero-1280.avif 1280w, ../assets/stage-hero-1920.avif 1920w, ../assets/stage-hero-2560.avif 2560w" sizes="100vw"><source type="image/webp" srcset="../assets/stage-hero-1280.webp 1280w, ../assets/stage-hero-1920.webp 1920w, ../assets/stage-hero-2560.webp 2560w" sizes="100vw"><img src="../assets/stage-hero-1920.webp" width="2560" height="1384" alt="Alcedo Studio 编辑器：节点图、照片与调色面板" fetchpriority="high" decoding="async"></picture></div>
+      <div class="hero__media"><picture><source type="image/avif" srcset="../assets/stage-hero-1280.avif 1280w, ../assets/stage-hero-1920.avif 1920w, ../assets/stage-hero-2560.avif 2560w" sizes="100vw"><source type="image/webp" srcset="../assets/stage-hero-1280.webp 1280w, ../assets/stage-hero-1920.webp 1920w, ../assets/stage-hero-2560.webp 2560w" sizes="100vw"><img src="../assets/stage-hero-1920.webp" width="2560" height="1383" alt="编辑器以胶片印片作为显示变换：Kodak Vision3 250D 印放到 Kodak Duraflex Plus，35mm 片幅，画面是一片树林" fetchpriority="high" decoding="async"></picture></div>
+      <p class="caption">照片：<a href="https://discuss.pixls.us/t/some-sunbeams-in-the-forest/61118">some sunbeams in the forest</a>，作者 bestman8，来自 discuss.pixls.us，<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 许可；在 Alcedo Studio 中编辑。</p>
+    </section>
+
+    <section id="film" aria-labelledby="film-title">
+      <div class="wrap chapter">
+        <div class="chapter__head">
+          <div>
+            <p class="kicker kicker--new">0.3.5 新增</p>
+            <h2 class="headline" id="film-title">光谱胶片模拟。</h2>
+          </div>
+          <div>
+            <p class="lede">胶片印片把调色后的图像当作照到胶片上的光：按各感光层的光谱灵敏度曝光并显影，再把负片印放到相纸或电影印片胶片上，或扫描反相；反转片以灯箱观看方式呈现。</p>
+            <a class="link" href="https://github.com/zidage/AlcedoStudio/blob/main/docs/roadmap/alcedo_studio/edit/film_simulation/film_simulation_explained.md">胶片模拟说明</a>
+          </div>
+        </div>
+      </div>
+      <div class="screen"><picture><source type="image/avif" srcset="../assets/stage-film-1280.avif 1280w, ../assets/stage-film-1920.avif 1920w, ../assets/stage-film-2560.avif 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><source type="image/webp" srcset="../assets/stage-film-1280.webp 1280w, ../assets/stage-film-1920.webp 1920w, ../assets/stage-film-2560.webp 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><img src="../assets/stage-film-1920.webp" width="2560" height="1137" alt="胶片印片的负片浏览器，背景是一张 Mesa Arch 的照片" loading="lazy" decoding="async"></picture></div>
+      <p class="caption">照片：<a href="https://discuss.pixls.us/t/arches-national-park-utah-usa/59523">Arches National Park (Utah, USA)</a>，作者 LaurentFromSF，来自 discuss.pixls.us，<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 许可；在 Alcedo Studio 中编辑。</p>
+      <div class="wrap">
+        <ul class="points">
+          <li><h3>30 款负片，5 款反转片</h3><p>任一负片都可以搭配摄影相纸或电影印片胶片，包括 Cine Look（Kodak Vision 2383）。胶片浏览器可按工艺和品牌筛选，并显示每款胶片的色卡。</p></li>
+          <li><h3>负片扫描</h3><p>虚拟扫描器读取并反转负片，再由 OpenDRT 形成 SDR 或 HDR 画面。可以调整扫描曝光、对比度、青、品、黄和黑位。</p></li>
+          <li><h3>片幅与颗粒</h3><p>可选 16mm、35mm 或 70mm。颗粒在胶片层中形成，使用所选片种的颗粒度数据；较小片幅也会放大光扩散和光晕。</p></li>
+        </ul>
+        <div class="grid-4 grid-4--three film-trio">
+          <div class="card">
+            <div class="card__body"><h3>印片</h3><p>Kodak Vision3 500T 印放到 Kodak Vision 2383，输出 Rec. 709 SDR。</p></div>
+            <div class="card__media"><picture><source type="image/avif" srcset="../assets/film-print.avif"><img src="../assets/film-print.webp" width="1040" height="1040" alt="维多利亚港夜景，Vision3 500T 印放到 Vision 2383" loading="lazy" decoding="async"></picture></div>
+          </div>
+          <div class="card">
+            <div class="card__body"><h3>负片扫描</h3><p>同一张负片经扫描反相，再由 OpenDRT 形成画面。</p></div>
+            <div class="card__media"><picture><source type="image/avif" srcset="../assets/film-scan.avif"><img src="../assets/film-scan.webp" width="1040" height="1040" alt="维多利亚港夜景，Vision3 500T 负片扫描" loading="lazy" decoding="async"></picture></div>
+          </div>
+          <div class="card">
+            <div class="card__body"><h3>反转片</h3><p>Fujichrome Velvia 100，灯箱观看。</p></div>
+            <div class="card__media"><picture><source type="image/avif" srcset="../assets/film-reversal.avif"><img src="../assets/film-reversal.webp" width="1040" height="1040" alt="维多利亚港夜景，Fujichrome Velvia 100" loading="lazy" decoding="async"></picture></div>
+          </div>
+        </div>
+        <p class="footnote">同一张维多利亚港的 RAW 文件，由 alcedo-cli 渲染出的三种结果。</p>
+      </div>
+    </section>
+
+    <section id="nodes" aria-labelledby="nodes-title">
+      <div class="wrap chapter">
+        <div class="chapter__head">
+          <div>
+            <p class="kicker kicker--new">0.3.4 新增</p>
+            <h2 class="headline" id="nodes-title">节点、蒙版与 AI 蒙版。</h2>
+          </div>
+          <div>
+            <p class="lede">每个 Color Grade 节点都有自己的调整和蒙版，一次调色既可以作用于整个画面，也可以只作用于选定区域。蒙版可以是线性渐变、径向渐变或 AI 蒙版。</p>
+          </div>
+        </div>
+      </div>
+      <div class="screen"><picture><source type="image/avif" srcset="../assets/stage-masks-1280.avif 1280w, ../assets/stage-masks-1920.avif 1920w, ../assets/stage-masks-2560.avif 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><source type="image/webp" srcset="../assets/stage-masks-1280.webp 1280w, ../assets/stage-masks-1920.webp 1920w, ../assets/stage-masks-2560.webp 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><img src="../assets/stage-masks-1920.webp" width="2560" height="1384" alt="瀑布上的径向蒙版，旁边是蒙版组面板和蒙版属性" loading="lazy" decoding="async"></picture></div>
+      <div class="wrap">
+        <ul class="points">
+          <li><h3>AI 蒙版</h3><p>一键选择主体、背景、天空或人物，也可以通过点选、绘制路径或框选来选择任意物体。支持添加、减去选区，调整羽化和扩展。</p></li>
+          <li><h3>明度与色相范围</h3><p>任意蒙版都可以按明度和色相进一步限制，提供双滑块范围条、柔和度和饱和度门槛。“显示选区”可查看实际覆盖范围。</p></li>
+          <li><h3>在本机运行</h3><p>AI 蒙版模型在本机运行，可在“设置 &gt; AI 模型”中下载，每张模型卡片显示许可证和大小。已保存的蒙版渲染时无需重新运行模型。</p></li>
+        </ul>
+      </div>
     </section>
 
     <section id="agents" aria-labelledby="agents-title">
       <div class="wrap chapter">
         <div class="chapter__head">
           <div>
-            <p class="kicker kicker--new">0.3.3 新增</p>
-            <h2 class="headline" id="agents-title">把暗房交给你的 Agent。</h2>
+            <p class="kicker">AI 智能体</p>
+            <h2 class="headline" id="agents-title">脚本与 AI 智能体。</h2>
           </div>
           <div>
-            <p class="lede">alcedo-cli 现在随 Alcedo Studio 一起安装。Claude Code、Codex 等 AI Agent 可以打开项目、导入、评分、修图、搜索和导出，既能在后台独立运行，也能在你正在用的窗口里操作。</p>
-            <a class="link" href="https://github.com/zidage/alcedo-skills">为你的 Agent 安装 Alcedo skill</a>
+            <p class="lede">alcedo-cli 随 Alcedo Studio 一起安装，界面中的每个操作都有对应命令。Claude Code、Codex 或 shell 脚本可以打开项目、导入、评分、修图、搜索和导出，既可以在后台运行，也可以在你正在使用的窗口中操作。</p>
+            <a class="link" href="https://github.com/zidage/alcedo-skills">为智能体安装 Alcedo skill</a>
           </div>
         </div>
       </div>
-      <div class="screen"><picture><source type="image/avif" srcset="../assets/stage-agent-1280.avif 1280w, ../assets/stage-agent-1920.avif 1920w, ../assets/stage-agent-2560.avif 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><source type="image/webp" srcset="../assets/stage-agent-1280.webp 1280w, ../assets/stage-agent-1920.webp 1920w, ../assets/stage-agent-2560.webp 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><img src="../assets/stage-agent-1920.webp" width="2560" height="1375" alt="Agent 修图后的编辑器：历史记录中的每一步都标为 Agent 所做" loading="lazy" decoding="async"></picture></div>
       <div class="wrap">
         <div class="term">
           <div class="term__top"><span>alcedo-cli</span><span>会话：你正在用的窗口</span></div>
@@ -112,9 +173,9 @@
 <span class="r">{"applied":3,…}</span></pre>
         </div>
         <ul class="points">
-          <li><h3>在身边，或在后台</h3><p>共享你打开的窗口，看着每个滑块被调动；也可以不开窗口，在后台批量处理整个文件夹。</p></li>
-          <li><h3>主导权在你手里</h3><p>Agent 操作期间，编辑控件会锁定，但仍可平移、缩放和查看示波器。点击“停止”即可立即收回控制权。</p></li>
-          <li><h3>每一步都有记录</h3><p>历史记录会标出 Agent 所做的编辑，并显示它的备注；撤销和你自己的编辑一样有效。</p></li>
+          <li><h3>在当前窗口或在后台</h3><p>共享你打开的窗口，看着滑块被调动；也可以启动无窗口会话，在后台处理整个文件夹。</p></li>
+          <li><h3>控制权</h3><p>智能体操作期间，编辑控件会锁定，但仍可平移、缩放和查看示波器。点击“停止”立即收回控制权。</p></li>
+          <li><h3>记录在历史中</h3><p>历史记录会标出智能体所做的编辑，并显示它的说明；撤销与你自己的编辑一样有效。</p></li>
         </ul>
       </div>
     </section>
@@ -123,20 +184,21 @@
       <div class="wrap chapter">
         <div class="chapter__head">
           <div>
-            <p class="kicker kicker--new">全新 LUT 浏览器</p>
-            <h2 class="headline" id="looks-title">113 卷胶片，点一下就用上。</h2>
+            <p class="kicker">LUT</p>
+            <h2 class="headline" id="looks-title">胶片 LUT，以及你自己的 LUT。</h2>
           </div>
           <div>
-            <p class="lede">按类别、品牌和印放胶片筛选 LUT，点一下就套用到所选调色节点。告诉 Alcedo 这个 LUT 期望什么编码，它会自动从 ACES 转过去再转回来。</p>
+            <p class="lede">按分类、来源、品牌和印片筛选 LUT，网格卡片以当前照片预览每个 LUT。为 LUT 设置它期望的输入编码和产生的输出编码，Alcedo 会在这些编码与场景空间之间转换。</p>
           </div>
         </div>
       </div>
-      <div class="screen"><picture><source type="image/avif" srcset="../assets/stage-looks-1280.avif 1280w, ../assets/stage-looks-1920.avif 1920w, ../assets/stage-looks-2560.avif 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><source type="image/webp" srcset="../assets/stage-looks-1280.webp 1280w, ../assets/stage-looks-1920.webp 1920w, ../assets/stage-looks-2560.webp 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><img src="../assets/stage-looks-1920.webp" width="2560" height="1383" alt="套用柯达胶片 LUT 的夜晚街景，面板显示 LUT 的强度与输入、输出编码" loading="lazy" decoding="async"></picture></div>
+      <div class="screen"><picture><source type="image/avif" srcset="../assets/stage-looks-1280.avif 1280w, ../assets/stage-looks-1920.avif 1920w, ../assets/stage-looks-2560.avif 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><source type="image/webp" srcset="../assets/stage-looks-1280.webp 1280w, ../assets/stage-looks-1920.webp 1920w, ../assets/stage-looks-2560.webp 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><img src="../assets/stage-looks-1920.webp" width="2560" height="1383" alt="网格视图的 LUT 浏览器：每张卡片以当前照片预览一个 LUT，照片是泳池的航拍" loading="lazy" decoding="async"></picture></div>
+      <p class="caption">照片：Ryan Breitkreutz（@ryanbreitkreutz），来自 <a href="https://www.signatureedits.com/free-raw-photos/">Signature Edits 免费 RAW 照片</a>。</p>
       <div class="wrap">
         <ul class="points">
-          <li><h3>什么 LUT 都能套</h3><p>26 种输入和输出编码，从 ARRI LogC、S-Log3、V-Log、Apple Log 到 sRGB、PQ、HLG。标一次，以后使用这个 LUT 时自动应用。</p></li>
-          <li><h3>胶片按需下载</h3><p>在“设置”中下载官方 Spectral Film LUT 与 spektrafilm 包，安装前校验签名；也可以导入自己的 .cube 文件。</p></li>
-          <li><h3>黑柔滤镜</h3><p>让明亮光源泛起柔和光晕，中间调细节依然清晰；与清晰度、锐化、颗粒和光晕放在同一页。</p></li>
+          <li><h3>50 种编码</h3><p>场景编码包括 ARRI LogC3 和 LogC4、Canon Log、F-Log2 C、V-Log、Apple Log 2、Cineon 和 ACES；显示编码包括 sRGB、BT.1886、PQ 和 HLG。Alcedo 可以为每个 LUT 记住编码组合。</p></li>
+          <li><h3>官方 LUT 包</h3><p>来自 Spectral Film LUT 与 spektrafilm 的 113 款胶片 LUT，在“设置 &gt; LUT”中下载，安装前校验签名。你自己的 .cube 文件归入“User”分类。</p></li>
+          <li><h3>黑柔滤镜</h3><p>让明亮光源泛起柔和光晕，中间调细节保持清晰；与清晰度、锐化、颗粒和光晕放在同一页。</p></li>
         </ul>
       </div>
     </section>
@@ -146,25 +208,26 @@
         <div class="chapter__head">
           <div>
             <p class="kicker">工具</p>
-            <h2 class="headline" id="tools-title">每个工具，都在你想找的地方。</h2>
+            <h2 class="headline" id="tools-title">调整面板。</h2>
           </div>
           <div>
-            <p class="lede">控件按摄影师的思路排布。无需拼装模块，也不用靠搜索才能找到阴影滑块。</p>
+            <p class="lede">RAW 解码、影调、曲线、色轮、可选颜色、细节、LUT 和显示变换，都是右侧面板中的页面。</p>
           </div>
         </div>
       </div>
-      <div class="marquee" role="img" aria-label="曝光, 对比度, 高光, 阴影, 白色色阶, 黑色色阶, 白平衡, 色调曲线, 三路色轮, 清晰度, 锐化, 选择性色彩, 局部色调映射, 径向蒙版, 线性蒙版, LUT 浏览器, 胶片模拟, 颗粒, 光晕, 黑柔滤镜, 镜头校正, 版本, 前后对比">
-        <div class="marquee__track"><ul><li>曝光</li><li>对比度</li><li>高光</li><li>阴影</li><li>白色色阶</li><li>黑色色阶</li><li>白平衡</li><li>色调曲线</li><li>三路色轮</li><li>清晰度</li><li>锐化</li></ul><ul aria-hidden="true"><li>曝光</li><li>对比度</li><li>高光</li><li>阴影</li><li>白色色阶</li><li>黑色色阶</li><li>白平衡</li><li>色调曲线</li><li>三路色轮</li><li>清晰度</li><li>锐化</li></ul></div>
-        <div class="marquee__track marquee__track--reverse"><ul><li>选择性色彩</li><li>局部色调映射</li><li>径向蒙版</li><li>线性蒙版</li><li>LUT 浏览器</li><li>胶片模拟</li><li>颗粒</li><li>光晕</li><li>黑柔滤镜</li><li>镜头校正</li><li>版本</li><li>前后对比</li></ul><ul aria-hidden="true"><li>选择性色彩</li><li>局部色调映射</li><li>径向蒙版</li><li>线性蒙版</li><li>LUT 浏览器</li><li>胶片模拟</li><li>颗粒</li><li>光晕</li><li>黑柔滤镜</li><li>镜头校正</li><li>版本</li><li>前后对比</li></ul></div>
+      <div class="marquee" role="img" aria-label="曝光, 对比度, 高光, 阴影, 白色色阶, 黑色色阶, 白平衡, 色调曲线, 色轮, 清晰度, 锐化, 可选颜色, 局部色调映射, AI 蒙版, 径向蒙版, 线性蒙版, 范围蒙版, LUT 浏览器, 胶片印片, 颗粒, 光晕, 黑柔滤镜, 镜头校正, 版本, 前后对比">
+        <div class="marquee__track"><ul><li>曝光</li><li>对比度</li><li>高光</li><li>阴影</li><li>白色色阶</li><li>黑色色阶</li><li>白平衡</li><li>色调曲线</li><li>色轮</li><li>清晰度</li><li>锐化</li></ul><ul aria-hidden="true"><li>曝光</li><li>对比度</li><li>高光</li><li>阴影</li><li>白色色阶</li><li>黑色色阶</li><li>白平衡</li><li>色调曲线</li><li>色轮</li><li>清晰度</li><li>锐化</li></ul></div>
+        <div class="marquee__track marquee__track--reverse"><ul><li>可选颜色</li><li>局部色调映射</li><li>AI 蒙版</li><li>径向蒙版</li><li>线性蒙版</li><li>范围蒙版</li><li>LUT 浏览器</li><li>胶片印片</li><li>颗粒</li><li>光晕</li><li>黑柔滤镜</li><li>镜头校正</li><li>版本</li><li>前后对比</li></ul><ul aria-hidden="true"><li>可选颜色</li><li>局部色调映射</li><li>AI 蒙版</li><li>径向蒙版</li><li>线性蒙版</li><li>范围蒙版</li><li>LUT 浏览器</li><li>胶片印片</li><li>颗粒</li><li>光晕</li><li>黑柔滤镜</li><li>镜头校正</li><li>版本</li><li>前后对比</li></ul></div>
       </div>
       <div class="stack-wrap">
         <div class="stack">
-          <div class="stack__card" tabindex="0" aria-label="三路色轮"><picture><source type="image/avif" srcset="../assets/tool-color-1280.avif 1280w, ../assets/tool-color-1920.avif 1920w, ../assets/tool-color-2560.avif 2560w" sizes="(min-width: 1712px) 1250px, 74vw"><source type="image/webp" srcset="../assets/tool-color-1280.webp 1280w, ../assets/tool-color-1920.webp 1920w, ../assets/tool-color-2560.webp 2560w" sizes="(min-width: 1712px) 1250px, 74vw"><img src="../assets/tool-color-1920.webp" width="2560" height="1383" alt="Lift / Gamma / Gain 三路色轮" loading="lazy" decoding="async"></picture></div>
-          <div class="stack__card" tabindex="0" aria-label="色调曲线"><picture><source type="image/avif" srcset="../assets/tool-curve-1280.avif 1280w, ../assets/tool-curve-1920.avif 1920w, ../assets/tool-curve-2560.avif 2560w" sizes="(min-width: 1712px) 1250px, 74vw"><source type="image/webp" srcset="../assets/tool-curve-1280.webp 1280w, ../assets/tool-curve-1920.webp 1920w, ../assets/tool-curve-2560.webp 2560w" sizes="(min-width: 1712px) 1250px, 74vw"><img src="../assets/tool-curve-1920.webp" width="2560" height="1383" alt="色调曲线与阴影、色阶控制" loading="lazy" decoding="async"></picture></div>
-          <div class="stack__card" tabindex="0" aria-label="LUT 浏览器"><picture><source type="image/avif" srcset="../assets/tool-lut-1280.avif 1280w, ../assets/tool-lut-1920.avif 1920w, ../assets/tool-lut-2560.avif 2560w" sizes="(min-width: 1712px) 1250px, 74vw"><source type="image/webp" srcset="../assets/tool-lut-1280.webp 1280w, ../assets/tool-lut-1920.webp 1920w, ../assets/tool-lut-2560.webp 2560w" sizes="(min-width: 1712px) 1250px, 74vw"><img src="../assets/tool-lut-1920.webp" width="2560" height="1383" alt="筛选出柯达胶片的 LUT 浏览器" loading="lazy" decoding="async"></picture></div>
+          <div class="stack__card" tabindex="0" aria-label="RAW 解码"><picture><source type="image/avif" srcset="../assets/tool-develop-1280.avif 1280w, ../assets/tool-develop-1920.avif 1920w, ../assets/tool-develop-2560.avif 2560w" sizes="(min-width: 1712px) 1250px, 74vw"><source type="image/webp" srcset="../assets/tool-develop-1280.webp 1280w, ../assets/tool-develop-1920.webp 1920w, ../assets/tool-develop-2560.webp 2560w" sizes="(min-width: 1712px) 1250px, 74vw"><img src="../assets/tool-develop-1920.webp" width="2560" height="1383" alt="RAW 解码页：白平衡、自动识别镜头的镜头校正，以及解码方法" loading="lazy" decoding="async"></picture></div>
+          <div class="stack__card" tabindex="0" aria-label="影调"><picture><source type="image/avif" srcset="../assets/tool-tone-1280.avif 1280w, ../assets/tool-tone-1920.avif 1920w, ../assets/tool-tone-2560.avif 2560w" sizes="(min-width: 1712px) 1250px, 74vw"><source type="image/webp" srcset="../assets/tool-tone-1280.webp 1280w, ../assets/tool-tone-1920.webp 1920w, ../assets/tool-tone-2560.webp 2560w" sizes="(min-width: 1712px) 1250px, 74vw"><img src="../assets/tool-tone-1920.webp" width="2560" height="1383" alt="Color Grade 节点的影调页：曝光、对比度、高光、阴影、白色色阶、黑色色阶和色调曲线" loading="lazy" decoding="async"></picture></div>
+          <div class="stack__card" tabindex="0" aria-label="负片扫描"><picture><source type="image/avif" srcset="../assets/tool-scan-1280.avif 1280w, ../assets/tool-scan-1920.avif 1920w, ../assets/tool-scan-2560.avif 2560w" sizes="(min-width: 1712px) 1250px, 74vw"><source type="image/webp" srcset="../assets/tool-scan-1280.webp 1280w, ../assets/tool-scan-1920.webp 1920w, ../assets/tool-scan-2560.webp 2560w" sizes="(min-width: 1712px) 1250px, 74vw"><img src="../assets/tool-scan-1920.webp" width="2560" height="1383" alt="胶片印片的负片扫描设置：自动色彩、扫描反差、扫描曝光、青、品红和黄" loading="lazy" decoding="async"></picture></div>
         </div>
-        <ol class="stack__captions"><li>三路色轮</li><li>色调曲线</li><li>LUT 浏览器</li></ol>
+        <ol class="stack__captions"><li>RAW 解码</li><li>影调</li><li>负片扫描</li></ol>
       </div>
+      <p class="caption">照片：<a href="https://discuss.pixls.us/t/some-sunbeams-in-the-forest/61118">some sunbeams in the forest</a>，作者 bestman8；<a href="https://discuss.pixls.us/t/single-autumn-tree/61912">Single autumn tree</a>，作者 mino；<a href="https://discuss.pixls.us/t/zojo-ji-and-the-tokyo-tower/61159">Zojo-ji and the Tokyo Tower</a>，作者 Duecki1。均来自 discuss.pixls.us，<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 许可；在 Alcedo Studio 中编辑。</p>
     </section>
 
     <section id="speed" aria-labelledby="speed-title">
@@ -172,55 +235,34 @@
         <div class="chapter__head">
           <div>
             <p class="kicker">性能</p>
-            <h2 class="headline" id="speed-title">调得再重，也不用等。</h2>
+            <h2 class="headline" id="speed-title">解码一次，实时调色。</h2>
           </div>
           <div>
-            <p class="lede">叠加再多调色节点和蒙版，每个滑块依然实时响应。Alcedo 只重算你改动的部分，全程在 GPU 上完成：<strong>CUDA、OpenCL 或 Metal</strong>。</p>
+            <p class="lede">RAW 解码和几何处理只计算一次并缓存。Color Grade 节点不缓存：每次改动都从缓存的图像出发，在 GPU 上（<strong>CUDA、OpenCL 或 Metal</strong>）重新计算，两块缓冲交替读写，因此显存不随节点数量增长。拖动时预览即时更新，松开后呈现完整画质。</p>
           </div>
         </div>
       </div>
       <div class="wrap">
         <div class="graph">
           <div class="graph__top"><span>渲染图</span><span>CUDA · OpenCL · Metal</span></div>
-          <ol class="graph__nodes"><li class="graph__node is-cached"><b>Develop</b><span>命中缓存</span></li><li class="graph__node is-cached"><b>Grade 1</b><span>复用</span></li><li class="graph__node is-edit"><b>Grade 2</b><span>正在调整</span></li><li class="graph__node is-hot"><b>Grade 3</b><span>重算</span></li><li class="graph__node is-hot"><b>DRT</b><span>重算</span></li></ol>
-          <div class="graph__spans"><span class="is-cached">直接复用版本化缓存</span><span class="is-hot">拖动时由 GPU 实时重算</span></div>
+          <ol class="graph__nodes"><li class="graph__node is-cached"><b>Develop</b><span>命中缓存</span></li><li class="graph__node is-hot"><b>Grade 1</b><span>重算</span></li><li class="graph__node is-edit"><b>Grade 2</b><span>正在调整</span></li><li class="graph__node is-hot"><b>Grade 3</b><span>重算</span></li><li class="graph__node is-hot"><b>DRT</b><span>重算</span></li></ol>
+          <div class="graph__spans"><span class="is-cached">缓存：RAW 解码与几何处理</span><span class="is-hot">每次改动由 GPU 重新计算，两块缓冲交替读写</span></div>
         </div>
         <ul class="stats">
-          <li><b>60<small>帧</small></b><span>拖动滑块时的实时预览</span></li>
-          <li><b>2000<small>×</small></b><span>两万张图库的搜索提速</span></li>
+          <li><b>60<small>帧</small></b><span>拖动滑块时的预览</span></li>
+          <li><b>2000<small>×</small></b><span>两万张图库的搜索速度，与 0.2.9 相比</span></li>
           <li><b>150<small>MB</small></b><span>导入两万张照片时的内存占用</span></li>
         </ul>
         <p class="footnote">图库数据来自开发者对 0.2.9 与 0.3.0 的基准测试（两万张照片），实际表现因硬件而异。</p>
       </div>
     </section>
 
-    <section class="cinema" id="color" style="--focus: 50% 55%" aria-labelledby="color-title">
-      <picture><source type="image/avif" srcset="../assets/cinema-color-1280.avif 1280w, ../assets/cinema-color-1920.avif 1920w, ../assets/cinema-color-2560.avif 2560w" sizes="100vw"><source type="image/webp" srcset="../assets/cinema-color-1280.webp 1280w, ../assets/cinema-color-1920.webp 1920w, ../assets/cinema-color-2560.webp 2560w" sizes="100vw"><img src="../assets/cinema-color-1920.webp" width="2560" height="1164" alt="长满苔藓的崖壁与数十道细小瀑布" loading="lazy" decoding="async"></picture>
+    <section class="cinema" id="color" style="--focus: 50% 50%" aria-labelledby="color-title">
+      <picture><source type="image/avif" srcset="../assets/cinema-color-1280.avif 1280w, ../assets/cinema-color-1920.avif 1920w, ../assets/cinema-color-2560.avif 2560w" sizes="100vw"><source type="image/webp" srcset="../assets/cinema-color-1280.webp 1280w, ../assets/cinema-color-1920.webp 1920w, ../assets/cinema-color-2560.webp 2560w" sizes="100vw"><img src="../assets/cinema-color-1920.webp" width="2554" height="1161" alt="夜晚隔着维多利亚港看到的香港天际线" loading="lazy" decoding="async"></picture>
       <div class="wrap cinema__body">
-        <h2 class="headline" id="color-title">第一眼，就好看。</h2>
-        <p class="lede">ACES 2.0 与 OpenDRT 让每张 RAW 一打开就是饱满、有电影感的起点，而不是一张灰片。新机型色彩准确，富士 X-Trans 使用神经网络去马赛克，另有 113 卷由光谱模型生成的胶片。JPEG、TIFF、PNG 和 OpenEXR 也走同一条管线。</p>
-      </div>
-    </section>
-
-    <section id="nodes" aria-labelledby="nodes-title">
-      <div class="wrap chapter">
-        <div class="chapter__head">
-          <div>
-            <p class="kicker">调色</p>
-            <h2 class="headline" id="nodes-title">像调色师一样调色。</h2>
-          </div>
-          <div>
-            <p class="lede">像影视调色师那样，用节点搭建风格。每个节点都有完整的工具，并可挂载独立的径向与线性蒙版，直接画在画面上。</p>
-          </div>
-        </div>
-      </div>
-      <div class="screen"><picture><source type="image/avif" srcset="../assets/stage-masks-1280.avif 1280w, ../assets/stage-masks-1920.avif 1920w, ../assets/stage-masks-2560.avif 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><source type="image/webp" srcset="../assets/stage-masks-1280.webp 1280w, ../assets/stage-masks-1920.webp 1920w, ../assets/stage-masks-2560.webp 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><img src="../assets/stage-masks-1920.webp" width="2560" height="1384" alt="瀑布上的径向蒙版，旁边是蒙版组面板与蒙版属性" loading="lazy" decoding="async"></picture></div>
-      <div class="wrap">
-        <ul class="points">
-          <li><h3>无限叠加</h3><p>照片需要多少层调色，就加多少个节点。默认调色层自动上锁，防止误删。</p></li>
-          <li><h3>蒙版画在画布上</h3><p>直接拖拽中心、半径与旋转，内外边缘分别羽化。</p></li>
-          <li><h3>一切可撤销</h3><p>每一次节点与蒙版改动，都记入历史与命名版本。</p></li>
-        </ul>
+        <h2 class="headline" id="color-title">场景参考，从 RAW 到显示器。</h2>
+        <p class="lede">整个编辑过程保留 RAW 文件的全部动态范围，只在最后一步用 ACES 2.0、OpenDRT 或胶片印片为显示器形成画面。在配备 HDR 显示屏的 Mac 上，编辑器可以直接预览 HDR。</p>
+        <p class="cinema__note">维多利亚港。Kodak Vision3 500T 印放到 Kodak Vision 2383。</p>
       </div>
     </section>
 
@@ -228,11 +270,11 @@
       <div class="wrap chapter">
         <div class="chapter__head">
           <div>
-            <p class="kicker">设计</p>
-            <h2 class="headline" id="design-title">界面退后，照片向前。</h2>
+            <p class="kicker">工作区</p>
+            <h2 class="headline" id="design-title">图库与编辑器在同一个窗口。</h2>
           </div>
           <div>
-            <p class="lede">安静、现代的界面，为 Windows 与 Mac 原生构建。图库与编辑器共用一个窗口、一个工程文件。</p>
+            <p class="lede">图库与编辑器共用一个窗口和一个项目文件。相册结构和每张照片的完整编辑历史都在这个文件里，备份就是复制一个文件。</p>
           </div>
         </div>
       </div>
@@ -241,30 +283,32 @@
           <a class="card" href="features/#library">
             <div class="card__body">
               <h3>图库</h3>
-              <p>两万张 RAW，边打字边出结果；按相机、镜头或日期筛选，用拍摄热力图回顾你的一年。</p>
-              <span class="link">图库与检索</span>
+              <p>按相机、镜头、日期、ISO 搜索，或用在本机运行的 CLIP 模型进行自然语言搜索。层级影集、星级和编辑标记帮助整理图库。</p>
+              <span class="link">图库与搜索</span>
             </div>
             <div class="card__media"><picture><source type="image/avif" srcset="../assets/ws-library-960.avif 960w, ../assets/ws-library-1600.avif 1600w" sizes="(max-width: 860px) 100vw, 820px"><source type="image/webp" srcset="../assets/ws-library-960.webp 960w, ../assets/ws-library-1600.webp 1600w" sizes="(max-width: 860px) 100vw, 820px"><img src="../assets/ws-library-1600.webp" width="1600" height="864" alt="带年度拍摄热力图的图库" loading="lazy" decoding="async"></picture></div>
           </a>
           <a class="card" href="features/#nodes">
             <div class="card__body">
               <h3>编辑器</h3>
-              <p>照片是主角。示波器、工具与胶片条都为它让路。</p>
-              <span class="link">编辑器</span>
+              <p>照片在中间，示波器和调整面板在右侧，胶片条在下方。</p>
+              <span class="link">节点与蒙版</span>
             </div>
-            <div class="card__media"><picture><source type="image/avif" srcset="../assets/ws-editor-960.avif 960w, ../assets/ws-editor-1600.avif 1600w" sizes="(max-width: 860px) 100vw, 820px"><source type="image/webp" srcset="../assets/ws-editor-960.webp 960w, ../assets/ws-editor-1600.webp 1600w" sizes="(max-width: 860px) 100vw, 820px"><img src="../assets/ws-editor-1600.webp" width="1600" height="864" alt="编辑器中的影调面板与示波器" loading="lazy" decoding="async"></picture></div>
+            <div class="card__media"><picture><source type="image/avif" srcset="../assets/ws-editor-960.avif 960w, ../assets/ws-editor-1600.avif 1600w" sizes="(max-width: 860px) 100vw, 820px"><source type="image/webp" srcset="../assets/ws-editor-960.webp 960w, ../assets/ws-editor-1600.webp 1600w" sizes="(max-width: 860px) 100vw, 820px"><img src="../assets/ws-editor-1600.webp" width="1600" height="865" alt="编辑器中 Kodak Portra 800 印放到 Kodak Vision 2383，画面是树林中的古堡" loading="lazy" decoding="async"></picture></div>
           </a>
         </div>
       </div>
+      <p class="caption">照片：<a href="https://discuss.pixls.us/t/aqueduct-in-the-bergpark/60378">Aqueduct in the Bergpark</a>，作者 mino，来自 discuss.pixls.us，<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 许可；在 Alcedo Studio 中编辑。</p>
       <p class="center" style="margin-top: 48px"><a class="btn" href="features/">了解全部功能</a></p>
     </section>
 
     <section class="cinema" id="free" style="--focus: 50% 50%" aria-labelledby="free-title">
-      <picture><source type="image/avif" srcset="../assets/cinema-free-1280.avif 1280w, ../assets/cinema-free-1920.avif 1920w, ../assets/cinema-free-2560.avif 2560w" sizes="100vw"><source type="image/webp" srcset="../assets/cinema-free-1280.webp 1280w, ../assets/cinema-free-1920.webp 1920w, ../assets/cinema-free-2560.webp 2560w" sizes="100vw"><img src="../assets/cinema-free-1920.webp" width="2560" height="1164" alt="蓝天下阳光透过的绿叶" loading="lazy" decoding="async"></picture>
+      <picture><source type="image/avif" srcset="../assets/cinema-free-1280.avif 1280w, ../assets/cinema-free-1920.avif 1920w, ../assets/cinema-free-2560.avif 2560w" sizes="100vw"><source type="image/webp" srcset="../assets/cinema-free-1280.webp 1280w, ../assets/cinema-free-1920.webp 1920w, ../assets/cinema-free-2560.webp 2560w" sizes="100vw"><img src="../assets/cinema-free-1920.webp" width="2560" height="1164" alt="多云天空下九龙的高楼" loading="lazy" decoding="async"></picture>
       <div class="wrap cinema__body">
-        <h2 class="headline" id="free-title">免费、开源，完全属于你。</h2>
-        <p class="lede">没有订阅，不用注册账号。图库保存在你自己的电脑上，全部源代码以 GPL-3.0 公开在 GitHub。</p>
+        <h2 class="headline" id="free-title">免费、开源。</h2>
+        <p class="lede">没有订阅，不用注册账号。图库保存在你的电脑上，源代码以 GPL-3.0 公开在 GitHub。</p>
         <div class="actions"><a class="btn" href="https://github.com/zidage/AlcedoStudio">查看源代码</a></div>
+        <p class="cinema__note">九龙。Kodak Portra 400 印放到 Kodak Endura Premier 相纸。</p>
       </div>
     </section>
 
@@ -277,13 +321,29 @@
           <a class="btn" href="https://aoraw.org/download/macos-arm64" data-os="mac">下载 macOS 版</a>
         </div>
         <p class="note">Windows 10/11 x64 · Apple Silicon Mac · 免费开源（GPL-3.0）</p>
-        <p class="notice"><strong>升级须知：</strong>安装包不再内置 LUT，请在“设置 &gt; LUT”中下载官方 LUT 包。0.3 无法打开 0.2.9 及更早版本创建的工程文件。</p>
+        <p class="notice"><strong>升级须知：</strong>AI 模型和 LUT 需要在“设置”中单独下载。0.3.4 起色轮分为 Lift、Gamma、Gain 和 Offset，打开旧项目时会转换旧参数。0.3.5 移除了“高级内容分析”。0.3 无法打开 0.2.9 及更早版本创建的工程文件。</p>
         <p class="download__links">
           <a href="https://aoraw.org/download/windows-x86_64/checksums">Windows SHA-256</a>
           <a href="https://aoraw.org/download/macos-arm64/checksums">macOS SHA-256</a>
           <a href="https://github.com/zidage/AlcedoStudio/releases">发布说明</a>
           <a href="https://github.com/zidage/AlcedoStudio">源代码</a>
         </p>
+      </div>
+    </section>
+
+    <section class="credits" aria-labelledby="credits-title">
+      <div class="wrap">
+        <h2 id="credits-title">照片署名</h2>
+        <p>以下照片发布在 <a href="https://discuss.pixls.us/">discuss.pixls.us</a>，以 <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 许可共享。这些照片在 Alcedo Studio 中经过编辑，本页展示它们的截图同样以 CC BY-SA 4.0 许可共享。</p>
+        <ul>
+          <li><a href="https://discuss.pixls.us/t/some-sunbeams-in-the-forest/61118">some sunbeams in the forest</a>，作者 bestman8</li>
+          <li><a href="https://discuss.pixls.us/t/arches-national-park-utah-usa/59523">Arches National Park (Utah, USA)</a>，作者 LaurentFromSF</li>
+          <li><a href="https://discuss.pixls.us/t/single-autumn-tree/61912">Single autumn tree</a>，作者 mino</li>
+          <li><a href="https://discuss.pixls.us/t/aqueduct-in-the-bergpark/60378">Aqueduct in the Bergpark</a>，作者 mino</li>
+          <li><a href="https://discuss.pixls.us/t/zojo-ji-and-the-tokyo-tower/61159">Zojo-ji and the Tokyo Tower</a>，作者 Duecki1</li>
+        </ul>
+        <p>LUT 浏览器截图中的照片由 Ryan Breitkreutz（@ryanbreitkreutz）拍摄，来自 <a href="https://www.signatureedits.com/free-raw-photos/">Signature Edits 免费 RAW 照片</a>。</p>
+        <p>香港的照片由 Alcedo Studio 开发者拍摄。</p>
       </div>
     </section>
   </main>
