@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#09090b">
   <title>Features — Alcedo Studio</title>
-  <meta name="description" content="Everything in Alcedo Studio 0.3.3: AI agents through alcedo-cli, the LUT browser, node-based grading and masks, scene-referred color, the GPU render engine, library and search, RAW decoding, and export.">
+  <meta name="description" content="What is in Alcedo Studio 0.3.5: Film Print spectral film simulation, AI Masks, node-based grading, scene-referred color, the GPU render engine, library and search, alcedo-cli for scripts and AI agents, RAW decoding, and export.">
   <link rel="canonical" href="https://aoraw.org/features/">
   <link rel="alternate" hreflang="en" href="https://aoraw.org/features/">
   <link rel="alternate" hreflang="zh-CN" href="https://aoraw.org/zh-cn/features/">
   <link rel="alternate" hreflang="x-default" href="https://aoraw.org/features/">
   <meta property="og:title" content="Features — Alcedo Studio">
-  <meta property="og:description" content="Everything in Alcedo Studio 0.3.3: AI agents through alcedo-cli, the LUT browser, node-based grading and masks, scene-referred color, the GPU render engine, library and search, RAW decoding, and export.">
+  <meta property="og:description" content="What is in Alcedo Studio 0.3.5: Film Print spectral film simulation, AI Masks, node-based grading, scene-referred color, the GPU render engine, library and search, alcedo-cli for scripts and AI agents, RAW decoding, and export.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://aoraw.org/features/">
   <meta property="og:image" content="https://aoraw.org/assets/social-card.png">
@@ -21,7 +21,7 @@
   <meta property="og:locale:alternate" content="zh_CN">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Features — Alcedo Studio">
-  <meta name="twitter:description" content="Everything in Alcedo Studio 0.3.3: AI agents through alcedo-cli, the LUT browser, node-based grading and masks, scene-referred color, the GPU render engine, library and search, RAW decoding, and export.">
+  <meta name="twitter:description" content="What is in Alcedo Studio 0.3.5: Film Print spectral film simulation, AI Masks, node-based grading, scene-referred color, the GPU render engine, library and search, alcedo-cli for scripts and AI agents, RAW decoding, and export.">
   <meta name="twitter:image" content="https://aoraw.org/assets/social-card.png">
   <link rel="icon" href="../assets/icon-32.png" type="image/png" sizes="32x32">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
@@ -57,41 +57,76 @@
   <main id="main">
     <section class="hero center" aria-labelledby="hero-title">
       <div class="wrap">
-        <a class="pill" href="#agents"><b>0.3.3</b>See what's new</a>
+        <a class="pill" href="#film"><b>0.3.5</b>See what's new</a>
         <h1 class="display" id="hero-title">From RAW file to finished image.</h1>
-        <p class="lede">Decoding, color, grading, library, and export in one open-source app, built natively for Windows and Mac.</p>
+        <p class="lede">Decoding, color, grading, library, and export in one open-source app for Windows and Mac.</p>
         <div class="actions" data-downloads>
           <a class="btn btn--solid" href="https://aoraw.org/download/windows-x86_64" data-os="windows">Download for Windows</a>
           <a class="btn" href="https://aoraw.org/download/macos-arm64" data-os="mac">Download for macOS</a>
         </div>
         <p class="note">Windows 10/11 x64 · Apple Silicon Mac · Free and open source (GPL-3.0)</p>
       </div>
-      <div class="screen"><picture><source type="image/avif" srcset="../assets/stage-masks-1280.avif 1280w, ../assets/stage-masks-1920.avif 1920w, ../assets/stage-masks-2560.avif 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><source type="image/webp" srcset="../assets/stage-masks-1280.webp 1280w, ../assets/stage-masks-1920.webp 1920w, ../assets/stage-masks-2560.webp 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><img src="../assets/stage-masks-1920.webp" width="2560" height="1384" alt="Masks and grade nodes in the editor" fetchpriority="high" decoding="async"></picture></div>
+      <div class="screen"><picture><source type="image/avif" srcset="../assets/stage-reversal-1280.avif 1280w, ../assets/stage-reversal-1920.avif 1920w, ../assets/stage-reversal-2560.avif 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><source type="image/webp" srcset="../assets/stage-reversal-1280.webp 1280w, ../assets/stage-reversal-1920.webp 1920w, ../assets/stage-reversal-2560.webp 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><img src="../assets/stage-reversal-1920.webp" width="2560" height="1137" alt="Film Print in reversal mode with Fujichrome Velvia 100 selected, on a photo of a lake and mountains" fetchpriority="high" decoding="async"></picture></div>
+      <p class="caption">Photo: <a href="https://discuss.pixls.us/t/old-mt-cook-nz/59212">Old Mt. Cook NZ</a> by mino, discuss.pixls.us, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Edited in Alcedo Studio.</p>
     </section>
 
-    <section class="feature" id="agents" aria-labelledby="agents-title">
+    <section class="feature" id="film" aria-labelledby="film-title">
       <div class="wrap">
         <div class="chapter__head">
           <div>
-            <p class="kicker kicker--new">New in 0.3.3</p>
-            <h2 class="title" id="agents-title">AI agents</h2>
+            <p class="kicker kicker--new">New in 0.3.5</p>
+            <h2 class="title" id="film-title">Film Print</h2>
           </div>
           <div>
-            <p class="lede">alcedo-cli installs with Alcedo Studio and gives an agent the commands behind the interface: open, import, rate, edit, preview, search, and export.</p>
-            <a class="link" href="https://github.com/zidage/alcedo-skills">The Alcedo skill for agents</a>
+            <p class="lede">A spectral film simulation used as the display transform: 30 color negative films and 5 color reversal films, printed, scanned, or viewed on a light table.</p>
+            <a class="link" href="https://github.com/zidage/AlcedoStudio/blob/main/docs/roadmap/alcedo_studio/edit/film_simulation/film_simulation_explained.md">How Film Print works (in Chinese)</a>
           </div>
         </div>
       </div>
-      <div class="screen"><picture><source type="image/avif" srcset="../assets/stage-agent-1280.avif 1280w, ../assets/stage-agent-1920.avif 1920w, ../assets/stage-agent-2560.avif 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><source type="image/webp" srcset="../assets/stage-agent-1280.webp 1280w, ../assets/stage-agent-1920.webp 1920w, ../assets/stage-agent-2560.webp 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><img src="../assets/stage-agent-1920.webp" width="2560" height="1375" alt="The editor after an agent's edits: each step in the history is marked as made by the agent" loading="lazy" decoding="async"></picture></div>
+      <div class="screen"><picture><source type="image/avif" srcset="../assets/stage-scan-1280.avif 1280w, ../assets/stage-scan-1920.avif 1920w, ../assets/stage-scan-2560.avif 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><source type="image/webp" srcset="../assets/stage-scan-1280.webp 1280w, ../assets/stage-scan-1920.webp 1920w, ../assets/stage-scan-2560.webp 2560w" sizes="(min-width: 1712px) 1680px, calc(100vw - 32px)"><img src="../assets/stage-scan-1920.webp" width="2560" height="1383" alt="The Negative Scan settings: Neutral auto color at 0.50 strength, auto density, scan contrast, scan exposure, cyan, magenta, and yellow" loading="lazy" decoding="async"></picture></div>
+      <p class="caption">Photo: <a href="https://discuss.pixls.us/t/zojo-ji-and-the-tokyo-tower/61159">Zojo-ji and the Tokyo Tower</a> by Duecki1, discuss.pixls.us, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Edited in Alcedo Studio.</p>
+      <div class="wrap">
+        <div class="grid-4 grid-4--three film-trio">
+          <div class="card">
+            <div class="card__body"><h3>Print</h3><p>Kodak Vision3 500T printed on Kodak Vision 2383. Rec. 709 SDR output.</p></div>
+            <div class="card__media"><picture><source type="image/avif" srcset="../assets/film-print.avif"><img src="../assets/film-print.webp" width="1040" height="1040" alt="Victoria Harbour at night, Vision3 500T printed on Vision 2383" loading="lazy" decoding="async"></picture></div>
+          </div>
+          <div class="card">
+            <div class="card__body"><h3>Negative Scan</h3><p>The same negative, scanned and inverted, then formed by OpenDRT for SDR or HDR.</p></div>
+            <div class="card__media"><picture><source type="image/avif" srcset="../assets/film-scan.avif"><img src="../assets/film-scan.webp" width="1040" height="1040" alt="Victoria Harbour at night, Vision3 500T through Negative Scan" loading="lazy" decoding="async"></picture></div>
+          </div>
+          <div class="card">
+            <div class="card__body"><h3>Reversal</h3><p>Fujichrome Velvia 100, viewed on a light table.</p></div>
+            <div class="card__media"><picture><source type="image/avif" srcset="../assets/film-reversal.avif"><img src="../assets/film-reversal.webp" width="1040" height="1040" alt="Victoria Harbour at night on Fujichrome Velvia 100" loading="lazy" decoding="async"></picture></div>
+          </div>
+          <div class="card">
+            <div class="card__body"><h3>Stock browser</h3><p>Search the stocks and filter them by brand. Each film shows a color swatch. <small>Photo: <a href="https://discuss.pixls.us/t/arches-national-park-utah-usa/59523">Arches National Park (Utah, USA)</a> by LaurentFromSF, discuss.pixls.us, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Edited in Alcedo Studio.</small></p></div>
+            <div class="card__media"><picture><source type="image/avif" srcset="../assets/detail-stocks.avif"><img src="../assets/detail-stocks.webp" width="1040" height="1040" alt="The negative film browser filtered to all 30 negatives, next to a photo of Mesa Arch" loading="lazy" decoding="async"></picture></div>
+          </div>
+          <div class="card">
+            <div class="card__body"><h3>Film format and grain</h3><p>Kodak Ektar 100 on 16mm, viewed at 218%. Grain uses the stock's granularity data. <small>Photo: <a href="https://discuss.pixls.us/t/big-kitty-in-the-brush/52989">Big kitty in the brush</a> by mino, discuss.pixls.us, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Edited in Alcedo Studio.</small></p></div>
+            <div class="card__media"><picture><source type="image/avif" srcset="../assets/detail-grain.avif"><img src="../assets/detail-grain.webp" width="1040" height="1040" alt="A cat's face at 218% zoom with 16mm film grain" loading="lazy" decoding="async"></picture></div>
+          </div>
+          <div class="card">
+            <div class="card__body"><h3>Night street</h3><p>Kodak Vision3 500T through Negative Scan, 16mm format.</p></div>
+            <div class="card__media"><picture><source type="image/avif" srcset="../assets/detail-16mm.avif"><img src="../assets/detail-16mm.webp" width="1040" height="1040" alt="Taxis at a crossing in Hong Kong at night" loading="lazy" decoding="async"></picture></div>
+          </div>
+        </div>
+        <p class="footnote">The first three tiles are one RAW file of Victoria Harbour, rendered by alcedo-cli. The night street was also shot in Hong Kong by the developer.</p>
+      </div>
       <details class="specs">
           <summary>Technical specifications</summary>
           <dl class="spec">
-              <div><dt>Command line</dt><dd>alcedo-cli, installed next to the application (inside the app bundle on macOS); JSON in and out</dd></div>
-              <div><dt>Agents</dt><dd>Claude Code, Codex, and other agents that run shell commands; the <a href="https://github.com/zidage/alcedo-skills">Alcedo skill</a> teaches them the commands</dd></div>
-              <div><dt>Commands</dt><dd>Projects, import, rating, every editor field, LUTs, versions, previews, search, and export</dd></div>
-              <div><dt>Sessions</dt><dd>Headless, without a window, for batch work; or the window you are using</dd></div>
-              <div><dt>Control</dt><dd>Your edit controls are locked while an agent works; pan, zoom, and scopes stay available; Stop ends its control at once</dd></div>
-              <div><dt>History</dt><dd>Agent edits are marked and show the agent's note; undo works as for your own edits</dd></div>
+              <div><dt>Negatives</dt><dd>30 color negative films: Kodak 20, Fujifilm 9, Agfa 1</dd></div>
+              <div><dt>Reversal</dt><dd>Fujichrome Velvia 50, Velvia 100, Provia 100F, Astia 100F, and Kodak Ektachrome E100, viewed on a light table</dd></div>
+              <div><dt>Print</dt><dd>18 photographic papers and cinema print stocks, such as Kodak Endura Premier, Vision 2383, and Fuji Crystal Archive; Cine Look (Kodak Vision 2383) as a separate option; Rec. 709 SDR output</dd></div>
+              <div><dt>Negative Scan</dt><dd>A virtual scanner reads and inverts the negative; OpenDRT forms SDR or HDR output; scan exposure, contrast, cyan, magenta, yellow, and black; Neutral auto color at 50% by default</dd></div>
+              <div><dt>Scene Light</dt><dd>Defaults to As Shot and follows the temperature and tint of the RAW white balance</dd></div>
+              <div><dt>Film format</dt><dd>16mm, 35mm, or 70mm; sets the grain size relative to the frame; smaller formats enlarge light spread and halation</dd></div>
+              <div><dt>Grain</dt><dd>Formed in the film layers before printing or scanning, with the granularity data of the stock; strength 0–200%; the scale stays the same as you zoom</dd></div>
+              <div><dt>GPU</dt><dd>CUDA, OpenCL, and Metal; the film data is included in the installer</dd></div>
+              <div><dt>Command line</dt><dd>film.list in alcedo-cli lists the stocks for scripted editing and rendering</dd></div>
+              <div><dt>Data</dt><dd>Digitized datasheets of spectral_film_lut; the Astia 100F profile of fotufilm (CC BY-SA 4.0)</dd></div>
           </dl>
         </details>
     </section>
@@ -100,41 +135,49 @@
       <div class="wrap">
         <div class="chapter__head">
           <div>
-            <p class="kicker kicker--new">New</p>
-            <h2 class="title" id="new-title">More new in 0.3</h2>
+            <p class="kicker kicker--new">New in 0.3.4</p>
+            <h2 class="title" id="new-title">AI Masks, search, and more</h2>
           </div>
           <div>
-            <p class="lede">A LUT browser for 113 film stocks, JPEG and TIFF editing, compare, export presets, and RAW imports nearly 30 times faster.</p>
+            <p class="lede">AI Masks and range masks, an AI Models settings page, a search palette, and LUT previews on your photo.</p>
             <a class="link" href="https://github.com/zidage/AlcedoStudio/releases">Full release notes</a>
           </div>
         </div>
-        <div class="grid-4 grid-4--three">
-          <div class="card">
-            <div class="card__body"><h3>LUT browser</h3><p>Filter film stocks by category, source, brand, and print stock. Click once to apply, again to remove.</p></div>
-            <div class="card__media"><picture><source type="image/avif" srcset="../assets/detail-lut-browser.avif"><img src="../assets/detail-lut-browser.webp" width="1040" height="1040" alt="The LUT browser filtered to Kodak stocks with the Vision 2383 print" loading="lazy" decoding="async"></picture></div>
+        <ul class="points">
+          <li><h3>AI Masks</h3><p>Select the subject, background, sky, or people, or any object with points, a drawn path, or a box. The tool has its own Undo and Redo; Confirm saves the result as one history step.</p></li>
+          <li><h3>Luminance/Hue Range</h3><p>Restrict any mask by brightness and hue, with two-handle bars, numeric fields, softness, and a saturation threshold.</p></li>
+          <li><h3>AI Models settings</h3><p>Download and manage the AI Mask models and the CLIP search models on one page. Each card shows the license, size, and progress. Models load on demand.</p></li>
+          <li><h3>Search palette</h3><p>Recent searches, commands, filters, and photo previews in one window. Enter applies the search to the Library.</p></li>
+          <li><h3>Color wheels</h3><p>Lift, Gamma, and Gain adjust shadows, midtones, and highlights separately; the new Offset wheel shifts all tones. Master values use EV.</p></li>
+          <li><h3>Library cards</h3><p>Photo cards show edit marks and star ratings; on larger cards, click a star to rate. The filmstrip follows Library filters.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="feature" id="agents" aria-labelledby="agents-title">
+      <div class="wrap">
+        <div class="chapter__head">
+          <div>
+            <p class="kicker">Command line</p>
+            <h2 class="title" id="agents-title">AI agents</h2>
           </div>
-          <div class="card">
-            <div class="card__body"><h3>LUT encodings</h3><p>Choose what a LUT expects and produces, from camera log to PQ. Alcedo remembers it for that LUT.</p></div>
-            <div class="card__media"><picture><source type="image/avif" srcset="../assets/detail-lut-encoding.avif"><img src="../assets/detail-lut-encoding.webp" width="808" height="808" alt="The LUT panel with strength, input and output encodings, and Remember for this LUT" loading="lazy" decoding="async"></picture></div>
-          </div>
-          <div class="card">
-            <div class="card__body"><h3>Black mist</h3><p>A diffusion filter: a soft glow around bright lights, with midtones kept sharp.</p></div>
-            <div class="card__media"><picture><source type="image/avif" srcset="../assets/detail-diffusion.avif"><img src="../assets/detail-diffusion.webp" width="1040" height="1040" alt="Light at the end of a tunnel with a soft diffusion glow" loading="lazy" decoding="async"></picture></div>
-          </div>
-          <div class="card">
-            <div class="card__body"><h3>Compare</h3><p>Before and after, or two versions: side by side, or with a divider you drag.</p></div>
-            <div class="card__media"><picture><source type="image/avif" srcset="../assets/detail-compare.avif"><img src="../assets/detail-compare.webp" width="1040" height="1040" alt="A before and after divider across a portrait at the coast" loading="lazy" decoding="async"></picture></div>
-          </div>
-          <div class="card">
-            <div class="card__body"><h3>JPEG, TIFF, and EXR</h3><p>Edit them like RAW. Embedded color profiles bring each image into ACES.</p></div>
-            <div class="card__media"><picture><source type="image/avif" srcset="../assets/detail-raster.avif"><img src="../assets/detail-raster.webp" width="1040" height="1040" alt="A TIFF in the editor with its embedded Adobe RGB profile as the input color" loading="lazy" decoding="async"></picture></div>
-          </div>
-          <div class="card">
-            <div class="card__body"><h3>Sort and group</h3><p>Group the library by camera, lens, or any other field, and collapse the groups.</p></div>
-            <div class="card__media"><picture><source type="image/avif" srcset="../assets/detail-groups.avif"><img src="../assets/detail-groups.webp" width="1040" height="1040" alt="The library grouped by camera model" loading="lazy" decoding="async"></picture></div>
+          <div>
+            <p class="lede">alcedo-cli installs with Alcedo Studio and gives an agent the commands behind the interface: open, import, rate, edit, preview, search, and export.</p>
+            <a class="link" href="https://github.com/zidage/alcedo-skills">The Alcedo skill for agents</a>
           </div>
         </div>
       </div>
+      <details class="specs">
+          <summary>Technical specifications</summary>
+          <dl class="spec">
+              <div><dt>Command line</dt><dd>alcedo-cli, installed next to the application (inside the app bundle on macOS); JSON in and out</dd></div>
+              <div><dt>Agents</dt><dd>Claude Code, Codex, and other agents that run shell commands; the <a href="https://github.com/zidage/alcedo-skills">Alcedo skill</a> teaches them the commands</dd></div>
+              <div><dt>Commands</dt><dd>Projects, import, rating, every editor field, LUTs, Film Print stocks, versions, previews, search, and export</dd></div>
+              <div><dt>Sessions</dt><dd>Headless, without a window, for batch work; or the window you are using</dd></div>
+              <div><dt>Control</dt><dd>Your edit controls are locked while an agent works; pan, zoom, and scopes stay available; Stop ends its control at once</dd></div>
+              <div><dt>History</dt><dd>Agent edits are marked and show the agent's note; undo works as for your own edits</dd></div>
+          </dl>
+        </details>
     </section>
 
     <section class="feature" id="nodes" aria-labelledby="nodes-title">
@@ -144,7 +187,7 @@
             <h2 class="title" id="nodes-title">Nodes and masks</h2>
           </div>
           <div>
-            <p class="lede">Every grade node is a complete set of tools. Local adjustments stay inside their masks.</p>
+            <p class="lede">Every grade node has its own adjustments and masks. Local adjustments stay inside their masks.</p>
           </div>
         </div>
       </div>
@@ -152,11 +195,13 @@
       <details class="specs">
           <summary>Technical specifications</summary>
           <dl class="spec">
-              <div><dt>Node chain</dt><dd>Develop → Color Grade nodes (any number) → display rendering transform</dd></div>
-              <div><dt>Grading tools</dt><dd>Local tone mapping · Lift / Gamma / Gain color wheels · tone curve · selective color</dd></div>
+              <div><dt>Node chain</dt><dd>Develop → Color Grade nodes (any number) → Display Transform</dd></div>
+              <div><dt>Grading tools</dt><dd>Tone · local tone mapping · Lift / Gamma / Gain and Offset color wheels · tone curve · selective color · detail</dd></div>
               <div><dt>Node editing</dt><dd>Add, connect, rename, multi-select, batch delete; recorded in history and versions</dd></div>
               <div><dt>Lock protection</dt><dd>Default grade layers are locked; any layer can be locked by hand</dd></div>
-              <div><dt>Mask types</dt><dd>Linear gradient · radial gradient</dd></div>
+              <div><dt>Mask types</dt><dd>Linear gradient · radial gradient · AI Mask</dd></div>
+              <div><dt>AI Masks <span class="tag">New</span></dt><dd>Subject, Background, Sky, People; or points, a drawn path, or a box. Add and subtract, include or exclude individual people, Feather and Expand; models run on your device; saved masks render without the models</dd></div>
+              <div><dt>Range <span class="tag">New</span></dt><dd>Luminance and hue range for any mask, with softness and a saturation threshold; Show selection displays the coverage</dd></div>
               <div><dt>Mask controls</dt><dd>Position, radius, rotation, inner and outer feather, opacity, invert</dd></div>
               <div><dt>Masks per node</dt><dd>Multiple, organized in the mask groups panel with thumbnails</dd></div>
           </dl>
@@ -181,12 +226,12 @@
               <div><dt>Precision</dt><dd>32-bit floating point throughout</dd></div>
               <div><dt>Camera color</dt><dd>Camera color matrices; spectral data from rawtoaces-data for some models</dd></div>
               <div><dt>Grading space</dt><dd>ACEScc (AP1 primaries)</dd></div>
-              <div><dt>Display transform</dt><dd>ACES 2.0 · OpenDRT</dd></div>
+              <div><dt>Display transform</dt><dd>ACES 2.0 · OpenDRT · Film Print</dd></div>
               <div><dt>Output targets</dt><dd>Rec.709 · Display P3 · Rec.2020, with PQ and HLG</dd></div>
               <div><dt>HDR monitoring</dt><dd>Extended dynamic range (EDR) on macOS</dd></div>
               <div><dt>Contrast</dt><dd>S-curve on OkLab lightness; brightness and hue are preserved</dd></div>
-              <div><dt>LUT encodings <span class="tag">New</span></dt><dd>26 scene and display encodings for each LUT's input and output; a display output returns to the scene through the ACES 2.0 inverse output transform</dd></div>
-              <div><dt>JPEG, PNG, TIFF, OpenEXR <span class="tag">New</span></dt><dd>The embedded color profile brings the image into ACES; OpenEXR, PQ, and HLG images are marked as HDR</dd></div>
+              <div><dt>LUT encodings</dt><dd>50 scene and display encodings for each LUT's input and output; a display output returns to the scene through the ACES 2.0 inverse output transform</dd></div>
+              <div><dt>JPEG, PNG, TIFF, OpenEXR</dt><dd>The embedded color profile brings the image into ACES; OpenEXR, PQ, and HLG images are marked as HDR</dd></div>
           </dl>
         </details>
     </section>
@@ -198,7 +243,7 @@
             <h2 class="title" id="engine-title">Render engine</h2>
           </div>
           <div>
-            <p class="lede">A render graph on the GPU. Change a parameter and only the nodes after it are recomputed.</p>
+            <p class="lede">A render graph on the GPU. RAW decoding and geometry are cached; Color Grade nodes run again on every change.</p>
           </div>
         </div>
       </div>
@@ -208,12 +253,12 @@
           <dl class="spec">
               <div><dt>Windows</dt><dd>CUDA (NVIDIA) · OpenCL (AMD / Intel)</dd></div>
               <div><dt>macOS</dt><dd>Metal (Apple Silicon)</dd></div>
-              <div><dt>Incremental rendering</dt><dd>Results of unchanged nodes are cached by version and reused</dd></div>
-              <div><dt>Working memory</dt><dd>Two RGBA32F buffers used in turn; memory does not grow with the number of nodes</dd></div>
+              <div><dt>Caching</dt><dd>The RAW decode and geometry results are cached by revision and reused; Color Grade nodes are not cached and run again on every change</dd></div>
+              <div><dt>Working memory</dt><dd>Color Grade nodes use two RGBA32F buffers in turn; memory does not grow with the number of nodes</dd></div>
               <div><dt>Transient memory</dt><dd>Demosaicing, highlight reconstruction, and local tone mapping share one pool, released when rendering finishes</dd></div>
               <div><dt>One pipeline</dt><dd>Editor preview, thumbnails, analysis, and export; thumbnails and export use their own GPU resources and never slow the preview</dd></div>
               <div><dt>Preview</dt><dd>2560 px long edge while dragging, 4096 px at rest; only the visible region when zoomed</dd></div>
-              <div><dt>Scopes</dt><dd>Histogram · RGB waveform</dd></div>
+              <div><dt>Scopes</dt><dd>Histogram · RGB waveform, with filled channels and clipping markers</dd></div>
           </dl>
         </details>
     </section>
@@ -233,41 +278,46 @@
       <details class="specs">
           <summary>Technical specifications</summary>
           <dl class="spec">
-              <div><dt>Project file</dt><dd>One .alcd file: folders, metadata, semantic indexes, edit history</dd></div>
+              <div><dt>Project file</dt><dd>One .alcd file: folders, metadata, semantic indexes, edit history; databases over 2 GiB open, and saves stream the database</dd></div>
               <div><dt>Search speed</dt><dd>20,000 photos: live preview in about 12 ms, applied search in 13–21 ms, on a background thread</dd></div>
-              <div><dt>Search terms</dt><dd>“6.7” means June 7; “iso800” no longer matches ISO 8000; “dng” is a file type; terms combine with AND</dd></div>
-              <div><dt>Shooting heatmap</dt><dd>A year of shooting activity; click a day to filter</dd></div>
+              <div><dt>Search palette <span class="tag">New</span></dt><dd>Recent searches, commands, filters, and photo previews in one window; Enter applies the search to the Library</dd></div>
+              <div><dt>Search terms</dt><dd>“6.7” means June 7; “iso800” does not match ISO 8000; “dng” is a file type; terms combine with AND</dd></div>
               <div><dt>Metadata filters</dt><dd>Any combination of camera, lens, aperture, shutter, ISO, date, and rating</dd></div>
-              <div><dt>Semantic search</dt><dd>Local CLIP models and an HNSW vector index; offline after a one-time model download</dd></div>
-              <div><dt>Import <span class="tag">New</span></dt><dd>RAW, JPEG, PNG, TIFF, and OpenEXR, chosen by type for each folder and recognized by content; failed imports leave no partial records</dd></div>
-              <div><dt>Import speed <span class="tag">New</span></dt><dd>639 RAW photos in 1.1 s instead of 31.6 s, with 149 MB peak memory</dd></div>
-              <div><dt>Sort and group <span class="tag">New</span></dt><dd>By any field, import day, or last edit; groups collapse and expand</dd></div>
+              <div><dt>Semantic search</dt><dd>Local multilingual CLIP models and an HNSW vector index; download and activate them in Settings &gt; AI Models</dd></div>
+              <div><dt>Collections <span class="tag">New</span></dt><dd>Nested collections in a compact tree: create and rename in place, drag to move, photo counts</dd></div>
+              <div><dt>Photo cards <span class="tag">New</span></dt><dd>Edit marks and star ratings; click a star on larger cards to rate</dd></div>
+              <div><dt>Shooting heatmap</dt><dd>A year of shooting activity; click a day to filter</dd></div>
+              <div><dt>Import</dt><dd>RAW, JPEG, PNG, TIFF, and OpenEXR, chosen by type for each folder and recognized by content</dd></div>
+              <div><dt>Sort and group</dt><dd>By any field, import day, or last edit; groups collapse and expand</dd></div>
           </dl>
         </details>
     </section>
 
-    <section class="feature" id="film" aria-labelledby="film-title">
+    <section class="feature" id="looks" aria-labelledby="looks-title">
       <div class="wrap">
         <div class="chapter__head">
           <div>
-            <h2 class="title" id="film-title">Film and looks</h2>
+            <h2 class="title" id="looks-title">LUTs and finishing</h2>
           </div>
           <div>
-            <p class="lede">113 film stocks from spectral film models, a browser for every LUT you own, and finishing effects that match between preview and export.</p>
+            <p class="lede">113 film LUTs, your own .cube files, and finishing effects that match between preview and export.</p>
           </div>
         </div>
       </div>
-      <div class="screen screen--wrap"><picture><source type="image/avif" srcset="../assets/feature-looks.avif"><img src="../assets/feature-looks.webp" width="1600" height="865" alt="A night street with a Kodak film LUT applied in the editor" loading="lazy" decoding="async"></picture></div>
+      <div class="screen screen--wrap"><picture><source type="image/avif" srcset="../assets/feature-looks.avif"><img src="../assets/feature-looks.webp" width="1600" height="865" alt="The LUT browser in grid view: each tile previews a LUT on the open photo, an aerial view of a pool" loading="lazy" decoding="async"></picture></div>
+      <p class="caption">Photos: Ryan Breitkreutz (@ryanbreitkreutz), <a href="https://www.signatureedits.com/free-raw-photos/">free RAW photos from Signature Edits</a>.</p>
       <details class="specs">
           <summary>Technical specifications</summary>
           <dl class="spec">
               <div><dt>Film LUTs</dt><dd>113, in the official Spectral Film LUT and spektrafilm packages; downloaded in Settings &gt; LUTs and signature-checked</dd></div>
-              <div><dt>LUT browser <span class="tag">New</span></dt><dd>Grid or list; filters for category, source, brand, and print stock; search that forgives typos; strength from 0 to 100%</dd></div>
-              <div><dt>Your LUTs <span class="tag">New</span></dt><dd>.cube files in any folder of your LUT library, under User</dd></div>
-              <div><dt>Grain</dt><dd>After IPOL 2017, “Realistic Film Grain Rendering”; strength varies with image lightness</dd></div>
+              <div><dt>LUT browser</dt><dd>Grid or list; filters for category, source, brand, and print stock; strength from 0 to 100%</dd></div>
+              <div><dt>Previews <span class="tag">New</span></dt><dd>Grid tiles preview each LUT on the open photo as imported, before your later edits</dd></div>
+              <div><dt>Encodings <span class="tag">New</span></dt><dd>Searchable input and output pickers; 24 encodings added in 0.3.4, including Canon Log, Cineon, Apple Log 2, and F-Log2 C</dd></div>
+              <div><dt>Your LUTs</dt><dd>.cube files in any folder of your LUT library, under User</dd></div>
+              <div><dt>Grain <span class="tag">New</span></dt><dd>After IPOL 2017, “Realistic Film Grain Rendering”; strength 0–200%; the scale stays the same as you zoom</dd></div>
               <div><dt>Halation</dt><dd>A faint red glow around high-contrast edges</dd></div>
-              <div><dt>Diffusion <span class="tag">New</span></dt><dd>A black mist filter: bright lights glow softly, midtone detail stays sharp</dd></div>
-              <div><dt>Post Processing <span class="tag">New</span></dt><dd>Clarity, sharpening, grain, halation, and diffusion on one page</dd></div>
+              <div><dt>Diffusion</dt><dd>A black mist filter: bright lights glow softly, midtone detail stays sharp</dd></div>
+              <div><dt>Post Processing</dt><dd>Clarity, sharpening, grain, halation, and diffusion on one page</dd></div>
           </dl>
         </details>
     </section>
@@ -287,12 +337,12 @@
       <details class="specs">
           <summary>Technical specifications</summary>
           <dl class="spec">
-              <div><dt>Presets <span class="tag">New</span></dt><dd>Standard, Web, Social Media, Email, Maximum Quality JPEG, 16-bit TIFF, and EXR Archive, or save your own</dd></div>
+              <div><dt>Presets</dt><dd>Standard, Web, Social Media, Email, Maximum Quality JPEG, 16-bit TIFF, and EXR Archive, or save your own</dd></div>
               <div><dt>Formats</dt><dd>JPEG 8-bit · PNG 8/16-bit · TIFF 8/16/32-bit · OpenEXR 16/32-bit float · Ultra HDR</dd></div>
               <div><dt>Size</dt><dd>Original · long edge · bounding box · print size with DPI</dd></div>
               <div><dt>File name tokens</dt><dd>Source name, date, camera, lens, aperture, shutter, ISO, rating, sequence</dd></div>
-              <div><dt>Metadata <span class="tag">New</span></dt><dd>EXIF metadata and the ICC profile can each be turned on or off; camera and lens serial numbers are never written</dd></div>
-              <div><dt>Destination <span class="tag">New</span></dt><dd>The last export folder is remembered, also after a restart</dd></div>
+              <div><dt>Metadata</dt><dd>EXIF, the ICC profile, and GPS can each be kept or left out; camera and lens serial numbers and the edit history are never written</dd></div>
+              <div><dt>Destination</dt><dd>The last export folder is remembered, also after a restart</dd></div>
           </dl>
         </details>
     </section>
@@ -309,11 +359,12 @@
             <details class="specs">
           <summary>Technical specifications</summary>
           <dl class="spec">
-              <div><dt>Cameras</dt><dd>Canon, Nikon, Sony, Fujifilm, Panasonic, OM System, Leica, Pentax, Sigma, and DNG from phones and drones</dd></div>
-              <div><dt>Camera color</dt><dd>Corrected levels, white balance, and color for the Sony A7C II, Canon EOS R6 Mark III, and others; DNG HueSatMap and LookTable in full</dd></div>
+              <div><dt>Cameras</dt><dd>Canon, Nikon, Sony, Fujifilm, Panasonic, OM System, Leica, Hasselblad, Phase One (including the 150 MP IQ4), Pentax, Sigma, and DNG from phones and drones</dd></div>
+              <div><dt>Nikon HE</dt><dd>High Efficiency NEF from the Z 8, Z 9, Z 6 III, and Z 50 II</dd></div>
+              <div><dt>Camera color</dt><dd>68 color-matrix entries added in 0.3.4; DNG HueSatMap and LookTable in full</dd></div>
               <div><dt>Demosaicing</dt><dd>RCD for Bayer; a GPU neural engine for X-Trans, also available for Bayer</dd></div>
               <div><dt>Highlights</dt><dd>Inpaint Opposed, after darktable and RawTherapee</dd></div>
-              <div><dt>Lens correction</dt><dd>Lensfun: distortion, lateral chromatic aberration, vignetting</dd></div>
+              <div><dt>Lens correction <span class="tag">New</span></dt><dd>Lensfun: distortion, lateral chromatic aberration, vignetting; Lanczos-3 resampling</dd></div>
           </dl>
         </details>
           </div>
@@ -334,16 +385,16 @@
           </div>
           <div class="card" id="ai">
             <div class="card__body">
-              <h3>AI descriptions and ratings</h3>
-              <p>Optional, with your own OpenAI- or Anthropic-compatible API key.</p>
+              <h3>AI models</h3>
+              <p>AI Masks and natural-language search run on your device.</p>
             </div>
             <details class="specs">
           <summary>Technical specifications</summary>
           <dl class="spec">
-              <div><dt>Output</dt><dd>A description, a 1–5 star rating, and a short reason</dd></div>
-              <div><dt>Rating standard</dt><dd>Four strictness levels</dd></div>
-              <div><dt>Keys</dt><dd>Stored in Windows Credential Manager or the macOS Keychain</dd></div>
-              <div><dt>Operation</dt><dd>A background queue; the interface never blocks</dd></div>
+              <div><dt>AI Masks</dt><dd>SAM 2.1 (Hiera tiny) for points, paths, and boxes; S3OD with a DINOv3 image encoder for Subject</dd></div>
+              <div><dt>Search</dt><dd>Multilingual CLIP models; tags on import</dd></div>
+              <div><dt>Download</dt><dd>Settings &gt; AI Models; each model has its own license</dd></div>
+              <div><dt>Sky model</dt><dd>The license of its training data is not clear; read the model information before commercial use</dd></div>
           </dl>
         </details>
           </div>
@@ -356,10 +407,11 @@
           <summary>Technical specifications</summary>
           <dl class="spec">
               <div><dt>RAW and metadata</dt><dd>LibRaw · Lensfun · Exiv2</dd></div>
-              <div><dt>Image and data</dt><dd>OpenImageIO · OpenCV · DuckDB</dd></div>
+              <div><dt>Image and data</dt><dd>OpenImageIO · OpenCV · OpenColorIO · DuckDB</dd></div>
               <div><dt>Interface</dt><dd>Qt / QML · QuickQanava</dd></div>
-              <div><dt>Color</dt><dd>ACES 2.0 · OpenDRT (Jed Smith)</dd></div>
-              <div><dt>Film</dt><dd><a href="https://github.com/JanLohse/spectral_film_lut">spectral_film_lut</a> (Jan Lohse) · <a href="https://github.com/andreavolpato/spektrafilm">spektrafilm</a> (Andrea Volpato) · IPOL 2017 film grain</dd></div>
+              <div><dt>Color</dt><dd>ACES 2.0 · OpenDRT (Jed Smith) · rawtoaces-data</dd></div>
+              <div><dt>Film</dt><dd><a href="https://github.com/JanLohse/spectral_film_lut">spectral_film_lut</a> (Jan Lohse) · <a href="https://github.com/andreavolpato/spektrafilm">spektrafilm</a> (Andrea Volpato) · <a href="https://github.com/DhaliwalX/fotufilm-engine">fotufilm-engine</a> · IPOL 2017 film grain</dd></div>
+              <div><dt>AI Masks</dt><dd>SAM 2.1 · S3OD · DINOv3</dd></div>
               <div><dt>Demosaicing</dt><dd>RCD (Luis Sanz Rodríguez) · DemosaicNet (Gharbi et al., 2016)</dd></div>
               <div><dt>Highlights</dt><dd>darktable · RawTherapee</dd></div>
           </dl>
@@ -378,13 +430,28 @@
           <a class="btn" href="https://aoraw.org/download/macos-arm64" data-os="mac">Download for macOS</a>
         </div>
         <p class="note">Windows 10/11 x64 · Apple Silicon Mac · Free and open source (GPL-3.0)</p>
-        <p class="notice"><strong>Upgrading?</strong> LUTs are no longer in the installer: download the official packages in Settings &gt; LUTs. Projects from 0.2.9 or earlier can't be opened in 0.3.</p>
+        <p class="notice"><strong>Upgrading?</strong> AI models and LUTs are separate downloads in Settings. Since 0.3.4 the color wheels are Lift, Gamma, Gain, and Offset; older values convert when a project opens. 0.3.5 removes Advanced Content Analysis. Projects from 0.2.9 or earlier can't be opened in 0.3.</p>
         <p class="download__links">
           <a href="https://aoraw.org/download/windows-x86_64/checksums">Windows SHA-256</a>
           <a href="https://aoraw.org/download/macos-arm64/checksums">macOS SHA-256</a>
           <a href="https://github.com/zidage/AlcedoStudio/releases">Release notes</a>
           <a href="https://github.com/zidage/AlcedoStudio">Source code</a>
         </p>
+      </div>
+    </section>
+
+    <section class="credits" aria-labelledby="credits-title">
+      <div class="wrap">
+        <h2 id="credits-title">Photo credits</h2>
+        <p>These photos were posted on <a href="https://discuss.pixls.us/">discuss.pixls.us</a> under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> license. They were edited in Alcedo Studio, and the screenshots on this page that show them are shared under the same license.</p>
+        <ul>
+          <li><a href="https://discuss.pixls.us/t/old-mt-cook-nz/59212">Old Mt. Cook NZ</a> by mino</li>
+          <li><a href="https://discuss.pixls.us/t/zojo-ji-and-the-tokyo-tower/61159">Zojo-ji and the Tokyo Tower</a> by Duecki1</li>
+          <li><a href="https://discuss.pixls.us/t/arches-national-park-utah-usa/59523">Arches National Park (Utah, USA)</a> by LaurentFromSF</li>
+          <li><a href="https://discuss.pixls.us/t/big-kitty-in-the-brush/52989">Big kitty in the brush</a> by mino</li>
+        </ul>
+        <p>The photos in the LUT browser screenshot are by Ryan Breitkreutz (@ryanbreitkreutz), from the <a href="https://www.signatureedits.com/free-raw-photos/">free RAW photos of Signature Edits</a>.</p>
+        <p>The photos of Hong Kong are by the Alcedo Studio developer.</p>
       </div>
     </section>
   </main>

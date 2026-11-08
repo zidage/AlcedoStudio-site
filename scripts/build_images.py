@@ -23,42 +23,55 @@ Image.MAX_IMAGE_PIXELS = None  # full-resolution camera exports
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / "site" / "assets"
 
-# output name -> (source stem, widths[, aspect, focus_y]). One width means a
-# single file named "<name>.<ext>"; several widths emit "<name>-<width>.<ext>"
-# for srcset. With an aspect ratio the source is center-cropped to it first,
-# keeping the row at focus_y (0 = top, 1 = bottom) in view.
+# output name -> (source stem, widths[, framing]). One width means a single
+# file named "<name>.<ext>"; several widths emit "<name>-<width>.<ext>" for
+# srcset. Framing is either an aspect ratio and focus_y (the source is
+# center-cropped to the ratio, keeping the row at focus_y in view: 0 = top,
+# 1 = bottom), or a BOX (left, top, right, bottom) in source pixels.
+#
+# The 3868 x 2090 editor screenshots come from
+# pu-erh_lab/docs/social_media_pub/2026.11.6/raw; render-* files are Film Print
+# renders by alcedo-cli 0.3.5; shot-lut-browser comes from
+# pu-erh_lab/docs/social_media_pub/2026.10.29/raw (Signature Edits photos). Photo sources and credits: see the
+# photo credits on the pages. Crops at y = 1718 cut off the filmstrip, which
+# shows thumbnails of photos that are not credited on the site.
+BOX = "box"
+NO_FILMSTRIP = (BOX, 0, 0, 3868, 1718)
+
 IMAGES: dict[str, tuple] = {
     # Home page — full-bleed "cinema" photographs, cropped to 2.2:1
-    "cinema-color": ("photo-1", (1280, 1920, 2560), 2.2, 0.45),
-    "cinema-free": ("photo-2", (1280, 1920, 2560), 2.2, 0.5),
-    # Home page — full-bleed stages (16:9 screenshots, cropped with object-fit)
-    "stage-hero": ("hero", (1280, 1920, 2560)),
+    "cinema-color": ("render-harbour-wide", (1280, 1920, 2560), 2.2, 0.5),
+    "cinema-free": ("render-city-wide", (1280, 1920, 2560), 2.2, 0.25),
+    # Full-width screenshots
+    "stage-hero": ("shot-forest-film", (1280, 1920, 2560)),
+    "stage-film": ("shot-canyon-stocks", (1280, 1920, 2560), *NO_FILMSTRIP),
+    "stage-reversal": ("shot-lake-reversal", (1280, 1920, 2560), *NO_FILMSTRIP),
+    "stage-scan": ("shot-tokyo-scan", (1280, 1920, 2560)),
     "stage-nodes": ("nodes", (1280, 1920, 2560)),
     "stage-masks": ("masks", (1280, 1920, 2560)),
     "stage-color": ("color", (1280, 1920, 2560)),
-    "stage-agent": ("agent", (1280, 1920, 2560)),
-    "stage-looks": ("looks", (1280, 1920, 2560)),
+    "stage-looks": ("shot-lut-browser", (1280, 1920, 2560)),
     # Home page — three full-window screenshots stacked so that only the
     # right-hand adjustment panel of the back two shows (not cropped: the
     # stack geometry in site.css depends on the panel's share of the width)
-    "tool-color": ("tool-color", (1280, 1920, 2560)),
-    "tool-curve": ("tool-curve", (1280, 1920, 2560)),
-    "tool-lut": ("tool-lut", (1280, 1920, 2560)),
+    "tool-develop": ("shot-forest-develop", (1280, 1920, 2560)),
+    "tool-tone": ("shot-field-tone", (1280, 1920, 2560)),
+    "tool-scan": ("shot-tokyo-scan", (1280, 1920, 2560)),
     # Home page — the two workspaces, side by side
     "ws-library": ("library", (960, 1600)),
-    "ws-editor": ("editor", (960, 1600)),
-    # Detail tiles on the features page (square crops)
-    "detail-lut-browser": ("detail-lut-browser", (1040,)),
-    "detail-lut-encoding": ("detail-lut-encoding", (1040,)),
-    "detail-diffusion": ("detail-diffusion", (1040,)),
-    "detail-compare": ("detail-compare", (1040,)),
-    "detail-raster": ("detail-raster", (1040,)),
-    "detail-groups": ("detail-groups", (1040,)),
+    "ws-editor": ("shot-castle", (960, 1600)),
+    # Square tiles on the features page
+    "film-print": ("render-harbour-print", (1040,)),
+    "film-scan": ("render-harbour-scan", (1040,)),
+    "film-reversal": ("render-harbour-reversal", (1040,)),
+    "detail-stocks": ("shot-canyon-stocks", (1040,), BOX, 2304, 160, 3850, 1706),
+    "detail-grain": ("shot-cat-grain", (1040,), BOX, 330, 140, 1877, 1687),
+    "detail-16mm": ("shot-hk-scan", (1040,), BOX, 1067, 640, 2299, 1872),
     # Features page
     "feature-heatmap": ("heatmap", (1600,)),
     "feature-search": ("search", (1600,)),
     "feature-engine": ("engine", (1600,)),
-    "feature-looks": ("looks-street", (1600,)),
+    "feature-looks": ("shot-lut-browser", (1600,)),
     "feature-ai": ("ai", (1600,)),
     "feature-export": ("export", (1600,)),
 }
@@ -118,7 +131,9 @@ def main() -> int:
             missing.append(stem)
             continue
         image = Image.open(source).convert("RGB")
-        if framing:
+        if framing and framing[0] == BOX:
+            image = image.crop(framing[1:])
+        elif framing:
             image = crop(image, *framing)
         for width in widths:
             out = ASSETS / (name if len(widths) == 1 else f"{name}-{width}")

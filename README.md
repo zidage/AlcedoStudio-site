@@ -94,6 +94,9 @@ To update markup, edit the finished static files in `site/` and commit them.
 To update images, put the raw PNG/JPEG screenshots and photos in `screenshots/`
 (git-ignored) under the names listed in `scripts/build_images.py`, then run
 `python scripts/build_images.py`. It writes the AVIF and WebP sizes into `site/assets/`.
-Only the compressed output is committed. The three stacked tool screenshots on the home
+Only the compressed output is committed.
+Photos from discuss.pixls.us are used under CC BY-SA 4.0: credit the author under
+every image that shows one (screenshots included) and in the page's Photo credits
+section. Crop out filmstrips that show thumbnails of photos without a known author. The three stacked tool screenshots on the home
 page must keep the editor's right-hand panel at about 17.6 % of the width; the stack
 geometry in `site.css` and `site.js` depends on it.
