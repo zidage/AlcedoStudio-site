@@ -8,16 +8,63 @@ work separate from the desktop application.
 ## Layout
 
 ```text
-site/                 production files served by Workers
-src/worker.js         language routing and live stable download redirects
-scripts/              deployment validation and image compression
-wrangler.jsonc        Cloudflare Workers Static Assets configuration
+copy/en.md, copy/zh-CN.md   all page text, one file per language (reviewed by the maintainer)
+copy/screenshots.md          the screenshot list: what each section's screenshot shows
+site/                        production files served by Workers (pages are generated)
+src/worker.js                language routing
+scripts/build_pages.py       copy/ -> site/*.html, sitemap.xml, llms.txt, llms-full.txt
+scripts/build_images.py      screenshots/ -> site/assets/shots, icons, social cards
+scripts/verify_site.py       deployment validation
+wrangler.jsonc               Cloudflare Workers Static Assets configuration
 ```
+
+The site is HTML and CSS only; it has no scripts besides JSON-LD.
+
+- `/` and `/zh-cn/`: name, version and release date, the download, documentation, and
+  source code links, and one screenshot of the editor.
+- `/features/` and `/zh-cn/features/`: every feature by area. Each area has a screenshot,
+  a one-sentence summary, and a list of facts.
+
+## Changing the text
+
+1. Edit `copy/en.md` and `copy/zh-CN.md`. Keep the keys and the section ids; the format
+   is described at the top of each file. A `[待确认]` marker stops the build.
+2. For a new release, also update `VERSION`, `RELEASE_DATE`, and `UPDATED` in
+   `scripts/build_pages.py` and the release date in `home.release`.
+3. Run `python scripts/build_pages.py` and commit the copy and the generated files.
+
+`npm run verify` fails when `site/` is out of date with `copy/`.
+
+## Changing the screenshots
+
+Screenshots are full editor windows, about 3868 x 2090, one with the English interface and
+one with the Chinese interface. Put them in `screenshots/site/` (git-ignored) as
+`<section id>.en.png` and `<section id>.zh-CN.png` (`home` and `top` are the home page and
+the top of the features page); `copy/screenshots.md` lists what each one shows. Put the
+1024 px application icon at `screenshots/logo.png`. Then run:
+
+```bash
+python scripts/build_images.py [id ...]   # AVIF at 1280/1920/2560 px and a WebP fallback
+python scripts/build_pages.py              # picks up new image sizes
+```
+
+When a Chinese screenshot is missing, the Chinese pages use the English one. Credit every
+photo that is not the developer's in the photo credits section of the copy, and use only
+photos whose license allows it (pixls.us Play Raw photos are CC BY-SA 4.0). Library
+screenshots show thumbnails too: they must follow the same rule.
+
+## Search engines and AI assistants
+
+Each page has a canonical URL, `hreflang` alternates, Open Graph and Twitter cards, and
+JSON-LD (`SoftwareApplication` and `SoftwareSourceCode` on the home pages, `WebPage` and
+`BreadcrumbList` on the feature pages). `sitemap.xml` lists both languages with alternates.
+`llms.txt` summarizes the project and links the downloads, documentation, and source;
+`llms-full.txt` and `zh-cn/llms-full.txt` contain the feature list as Markdown.
 
 ## Language routing
 
-`src/worker.js` runs for `/`, `/features/`, `/zh-cn/`, `/zh-cn/features/`, and
-`/download/*` (`run_worker_first`); every other file is served from static assets.
+`src/worker.js` runs for `/`, `/features/`, `/zh-cn/`, and `/zh-cn/features/`
+(`run_worker_first`); every other file is served from static assets.
 
 - The language switcher links carry `?lang=en` or `?lang=zh-CN`. The Worker stores
   the choice in the `alcedo_lang` cookie and redirects to the clean URL.
@@ -32,8 +79,8 @@ The configuration is already ready for Workers Static Assets:
 
 - `site/` is the published directory;
 - unknown URLs return `site/404.html`;
-- a tiny Worker (`src/worker.js`) picks the page language and resolves downloads
-  from the live stable manifests; there is no database or build step.
+- a tiny Worker (`src/worker.js`) picks the page language; there is no database or
+  build step.
 
 For a local or manual deployment:
 
@@ -56,47 +103,26 @@ Domains & Routes**. Keep `www` redirected permanently to the apex domain so sear
 engines see one hostname.
 
 Canonical, `hreflang`, Open Graph, JSON-LD, robots, and sitemap use
-`https://aoraw.org`. Installer links use the package URLs from the public live
-stable manifests:
+`https://aoraw.org`.
 
-- Windows: `https://static.aoraw.org/updates/v1/stable/windows-x86_64/manifest.json`
-  → `artifacts.windows-x86_64.url`
-- macOS: `https://static.aoraw.org/updates/v1/stable/macos-arm64/manifest.json`
-  → `artifacts.macos-arm64.manualUrl` (DMG)
+## Download links
 
-The four HTML pages link to `/download/windows-x86_64` and `/download/macos-arm64`.
-On each click, the Worker reads that platform's manifest without caching and
-returns a non-cacheable 302 to the current installer. The corresponding
-`/download/<platform>/checksums` route resolves the SHA-256 file in the same build
-directory. Publishing a stable manifest updates these targets without a website
-redeployment. JavaScript is not required.
-
-`npm run verify` validates the manifests and requires every page to use these
-routes, rejecting build-pinned URLs. `npm test` checks redirect freshness, macOS
-DMG selection, failure handling, and existing language routing. If the manifest
-cannot be read or has an invalid installer URL, the route returns 503 with a link
-to GitHub Releases instead of sending visitors to an older installer.
+The download and SHA-256 links are maintained by hand. For each release, set `VERSION`,
+`RELEASE_DATE`, `UPDATED`, `BUILDS`, `DOWNLOAD`, and `CHECKSUMS` at the top of
+`scripts/build_pages.py`, update the date in `home.release` in `copy/*.md`, and run
+`python scripts/build_pages.py`. The Windows link is the .exe installer and the macOS
+link is the .dmg (not the updater ZIP). `npm run verify` requires a .exe and a .dmg link
+on both home pages and checks that every download link responds.
 
 ## Local preview and checks
 
 ```bash
 npm run serve
-python scripts/verify_site.py
+npm run verify
+npm test
 ```
 
-Open `http://127.0.0.1:8080/` for the preview. The validator checks required files,
-SEO metadata, robots/sitemap entries, and internal relative links.
-Use `npm run dev` to test the Worker routes locally. Download links in the static
-preview use the production origin.
-
-To update markup, edit the finished static files in `site/` and commit them.
-
-To update images, put the raw PNG/JPEG screenshots and photos in `screenshots/`
-(git-ignored) under the names listed in `scripts/build_images.py`, then run
-`python scripts/build_images.py`. It writes the AVIF and WebP sizes into `site/assets/`.
-Only the compressed output is committed.
-Photos from discuss.pixls.us are used under CC BY-SA 4.0: credit the author under
-every image that shows one (screenshots included) and in the page's Photo credits
-section. Crop out filmstrips that show thumbnails of photos without a known author. The three stacked tool screenshots on the home
-page must keep the editor's right-hand panel at about 17.6 % of the width; the stack
-geometry in `site.css` and `site.js` depends on it.
+Open `http://127.0.0.1:8080/` for the preview. The validator checks required files, SEO
+metadata, robots/sitemap entries, internal relative links, scripts, JSON-LD, image alt
+text, and that the generated files match `copy/`. Use `npm run dev` to test the
+language routing of the Worker locally.

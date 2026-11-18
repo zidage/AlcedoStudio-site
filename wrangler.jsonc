@@ -2,14 +2,13 @@
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "alcedostudio-site",
   "compatibility_date": "2026-07-14",
-  // Page language routing and live stable download redirects; see src/worker.js.
+  // Page language routing; see src/worker.js.
   "main": "src/worker.js",
   "assets": {
     "directory": "./site",
     "binding": "ASSETS",
     "not_found_handling": "404-page",
-    // Download routes must invoke the Worker even though no static file exists.
-    "run_worker_first": ["/", "/features/", "/zh-cn/", "/zh-cn/features/", "/download/*"]
+    "run_worker_first": ["/", "/features/", "/zh-cn/", "/zh-cn/features/"]
   },
   "observability": {
     "enabled": true,

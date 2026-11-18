@@ -7,13 +7,16 @@ Checks:
 - internal relative links resolve to files under site/
 - each HTML page has title, description, canonical, hreflang, and Open Graph basics
 - robots.txt and sitemap.xml list the public canonical URLs
-- download links use the Worker routes and live stable R2 manifests are valid
+- the home pages link a Windows .exe and a macOS .dmg, and every download link responds
+- pages use no scripts except JSON-LD, the JSON-LD parses, and content images have alt text
+- the generated files match copy/ (scripts/build_pages.py --check)
 """
 
 from __future__ import annotations
 
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path
 from urllib.error import URLError
@@ -22,10 +25,6 @@ from urllib.request import Request, urlopen
 
 SITE = Path(__file__).resolve().parents[1] / "site"
 PUBLIC_ORIGIN = "https://aoraw.org"
-WINDOWS_MANIFEST_URL = (
-    "https://static.aoraw.org/updates/v1/stable/windows-x86_64/manifest.json"
-)
-MACOS_MANIFEST_URL = "https://static.aoraw.org/updates/v1/stable/macos-arm64/manifest.json"
 CANONICAL_PAGES = (
     f"{PUBLIC_ORIGIN}/",
     f"{PUBLIC_ORIGIN}/features/",
@@ -41,20 +40,20 @@ REQUIRED_FILES = (
     "404.html",
     "robots.txt",
     "sitemap.xml",
+    "llms.txt",
+    "llms-full.txt",
+    "zh-cn/llms-full.txt",
     ".nojekyll",
     "assets/site.css",
-    "assets/favicon.svg",
     "assets/social-card.png",
+    "assets/social-card-zh.png",
     "assets/icon-32.png",
     "assets/icon-180.png",
-    "assets/site.js",
-    "assets/stage-hero-1280.webp",
-    "assets/stage-hero-1920.webp",
-    "assets/stage-hero-2560.webp",
-    "assets/stage-hero-1280.avif",
-    "assets/stage-hero-1920.avif",
-    "assets/stage-hero-2560.avif",
+    "assets/icon-512.png",
+    "assets/shots/home-en-1920.webp",
+    "assets/shots/home-en-2560.avif",
 )
+HOME_PAGES = ("index.html", "zh-cn/index.html")
 
 errors: list[str] = []
 warnings: list[str] = []
@@ -87,59 +86,27 @@ def check_robots_and_sitemap() -> None:
             err(f"sitemap.xml missing canonical URL: {url}")
 
 
-def fetch_json(url: str) -> dict:
-    request = Request(url, headers={"Accept": "application/json", "Cache-Control": "no-cache", "User-Agent": "alcedo-site-verify"})
-    with urlopen(request, timeout=20) as response:
-        return json.loads(response.read().decode("utf-8"))
+DOWNLOAD_HOST = "https://static.aoraw.org/"
 
 
 def check_download_links() -> None:
-    try:
-        windows_manifest = fetch_json(WINDOWS_MANIFEST_URL)
-        macos_manifest = fetch_json(MACOS_MANIFEST_URL)
-    except (OSError, URLError, TimeoutError, json.JSONDecodeError, UnicodeDecodeError) as exc:
-        err(f"failed to read live stable manifests: {exc}")
-        return
-
-    try:
-        windows_url = windows_manifest["artifacts"]["windows-x86_64"]["url"]
-        macos_url = macos_manifest["artifacts"]["macos-arm64"]["manualUrl"]
-    except (KeyError, TypeError) as exc:
-        err(f"live stable manifest is missing a website download URL: {exc}")
-        return
-
-    if not isinstance(windows_url, str) or not windows_url.startswith(
-        "https://static.aoraw.org/updates/v1/stable/builds/"
-    ):
-        err(f"windows installer URL is not a stable R2 package: {windows_url}")
-        return
-    if not isinstance(macos_url, str) or not macos_url.startswith(
-        "https://static.aoraw.org/updates/v1/stable/builds/"
-    ):
-        err(f"macos installer URL is not a stable R2 package: {macos_url}")
-        return
-    if not macos_url.endswith(".dmg"):
-        err(f"macos website download must be the DMG manualUrl, not {macos_url}")
-        return
-
-    required = tuple(
-        f"{PUBLIC_ORIGIN}/download/{platform}{suffix}"
-        for platform in ("windows-x86_64", "macos-arm64")
-        for suffix in ("", "/checksums")
-    )
-
-    for rel in ("index.html", "features/index.html", "zh-cn/index.html", "zh-cn/features/index.html"):
-        text = (SITE / rel).read_text(encoding="utf-8")
-        links = HREF_SRC_RE.findall(text)
-        for url in required:
-            if url not in links:
-                err(f"{rel}: missing live-manifest download route: {url}")
-        if "static.aoraw.org/updates/v1/stable/builds/" in text:
-            err(f"{rel}: contains a build-pinned download URL")
-        if "static.aoraw.org/releases/" in text:
-            err(f"{rel}: still points at the retired releases/ tree")
-        if "github.com/zidage/AlcedoStudio/releases/download/" in text:
-            err(f"{rel}: contains a version-pinned GitHub installer URL")
+    """Download links are maintained by hand in scripts/build_pages.py; make sure they work."""
+    links: set[str] = set()
+    for rel in HOME_PAGES:
+        found = [u for u in HREF_SRC_RE.findall((SITE / rel).read_text(encoding="utf-8")) if u.startswith(DOWNLOAD_HOST)]
+        if not any(u.endswith(".exe") for u in found):
+            err(f"{rel}: no Windows .exe download link")
+        if not any(u.endswith(".dmg") for u in found):
+            err(f"{rel}: no macOS .dmg download link")
+        links.update(found)
+    for url in sorted(links):
+        request = Request(url, method="HEAD", headers={"User-Agent": "alcedo-site-verify"})
+        try:
+            with urlopen(request, timeout=20) as response:
+                if response.status != 200:
+                    err(f"download link returned {response.status}: {url}")
+        except (OSError, URLError, TimeoutError) as exc:
+            err(f"download link does not respond: {url} ({exc})")
 
 
 def strip_query_fragment(href: str) -> str:
@@ -154,6 +121,8 @@ def resolve_local(page: Path, href: str) -> Path | None:
     if href.startswith("//"):
         return None
     if href.startswith("/"):
+        if page.name == "404.html":
+            return SITE / unquote(href.lstrip("/"))
         err(f"{page.relative_to(SITE)}: root-absolute path is not portable: {href}")
         return None
 
@@ -192,7 +161,8 @@ def check_html_page(page: Path) -> None:
     rel = page.relative_to(SITE).as_posix()
     text = page.read_text(encoding="utf-8")
 
-    if re.search(r"""(?:href|src)\s*=\s*["']/(?!/)""", text):
+    # 404.html is served for missing paths at any depth, so it uses root-relative URLs.
+    if rel != "404.html" and re.search(r"""(?:href|src)\s*=\s*["']/(?!/)""", text):
         err(f"{rel}: contains root-absolute href/src")
 
     # SEO requirements for content pages (not 404)
@@ -215,6 +185,28 @@ def check_html_page(page: Path) -> None:
         m = re.search(r'rel="canonical"\s+href="([^"]+)"', text)
         if m and not m.group(1).startswith(PUBLIC_ORIGIN):
             err(f"{rel}: canonical not under public origin: {m.group(1)}")
+
+    # No scripts: the site is HTML and CSS only. JSON-LD blocks must parse.
+    for m in re.finditer(r"<script([^>]*)>(.*?)</script>", text, re.S):
+        if 'type="application/ld+json"' not in m.group(1):
+            err(f"{rel}: contains a script; the site uses HTML and CSS only")
+            continue
+        try:
+            json.loads(m.group(2))
+        except json.JSONDecodeError as exc:
+            err(f"{rel}: JSON-LD does not parse: {exc}")
+
+    # Screenshots need a description; only decorative logos may have alt="".
+    for m in re.finditer(r"<img[^>]*>", text):
+        tag = m.group(0)
+        alt = re.search(r'alt="([^"]*)"', tag)
+        if alt is None:
+            err(f"{rel}: <img> without alt: {tag[:80]}")
+        elif not alt.group(1) and "/shots/" in tag:
+            err(f"{rel}: screenshot without alt text: {tag[:80]}")
+
+    if "待确认" in text:
+        err(f"{rel}: contains an unconfirmed fact marker")
 
     # Home pages need SoftwareApplication JSON-LD
     if rel in ("index.html", "zh-cn/index.html"):
@@ -255,12 +247,20 @@ def check_css() -> None:
             err(f"site.css: root-absolute url() is not portable: {url}")
 
 
+def check_generated() -> None:
+    script = Path(__file__).resolve().parent / "build_pages.py"
+    result = subprocess.run([sys.executable, str(script), "--check"], capture_output=True, text=True)
+    if result.returncode != 0:
+        err((result.stdout + result.stderr).strip() or "build_pages.py --check failed")
+
+
 def main() -> int:
     if not SITE.is_dir():
         print(f"ERROR: site directory missing: {SITE}", file=sys.stderr)
         return 1
 
     check_required_files()
+    check_generated()
     check_robots_and_sitemap()
     check_download_links()
     check_css()
