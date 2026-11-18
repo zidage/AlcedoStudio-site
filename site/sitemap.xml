@@ -1,15 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://aoraw.org/</loc>
-  </url>
-  <url>
-    <loc>https://aoraw.org/features/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aoraw.org/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://aoraw.org/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aoraw.org/"/>
   </url>
   <url>
     <loc>https://aoraw.org/zh-cn/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aoraw.org/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://aoraw.org/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aoraw.org/"/>
+  </url>
+  <url>
+    <loc>https://aoraw.org/features/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aoraw.org/features/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://aoraw.org/zh-cn/features/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aoraw.org/features/"/>
   </url>
   <url>
     <loc>https://aoraw.org/zh-cn/features/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aoraw.org/features/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://aoraw.org/zh-cn/features/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aoraw.org/features/"/>
   </url>
 </urlset>

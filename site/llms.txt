@@ -1,0 +1,30 @@
+# Alcedo Studio
+
+> Alcedo Studio is a free, open-source RAW editor and photo library for Windows and Apple Silicon Mac. Download the installer, read the documentation, or view the source code. Current version: 0.3.6, released on 2026-11-17. License: GPL-3.0.
+
+Alcedo Studio runs on Windows 10 or 11 (x64; CUDA or OpenCL) and on Apple Silicon Macs with macOS 13.3 or later (Metal).
+
+## Download
+
+- [Windows installer](https://static.aoraw.org/updates/v1/stable/builds/3009/windows-x86_64/AlcedoStudio-0.3.6-Windows-AMD64.exe): Alcedo Studio 0.3.6, .exe
+- [macOS installer](https://static.aoraw.org/updates/v1/stable/builds/3009/macos-arm64/AlcedoStudio-0.3.6-Darwin-arm64.dmg): Alcedo Studio 0.3.6, .dmg for Apple Silicon
+- [SHA-256 checksums for Windows](https://static.aoraw.org/updates/v1/stable/builds/3009/windows-x86_64/SHA256SUMS-windows-x86_64.txt)
+- [SHA-256 checksums for macOS](https://static.aoraw.org/updates/v1/stable/builds/3009/macos-arm64/SHA256SUMS-macos-arm64.txt)
+- [Release notes and older versions](https://github.com/zidage/AlcedoStudio/releases)
+
+## Documentation
+
+- [Feature list](https://aoraw.org/features/): all features of the current version
+- [Feature list as Markdown](https://aoraw.org/llms-full.txt)
+- [User guide](https://zidage.github.io/AlcedoStudio_docs/en/docs/intro)
+- [alcedo-cli command reference](https://github.com/zidage/alcedo-skills/blob/main/skills/alcedo/references/README.md): commands for scripts and AI agents
+
+## Source code
+
+- [GitHub repository](https://github.com/zidage/AlcedoStudio)
+- [License: GPL-3.0](https://github.com/zidage/AlcedoStudio/blob/main/LICENSE)
+
+## Optional
+
+- [Chinese website](https://aoraw.org/zh-cn/)
+- [Chinese feature list as Markdown](https://aoraw.org/zh-cn/llms-full.txt)
